@@ -1,4 +1,4 @@
-package com.example.app_cer;
+package com.example.app_cer.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.res.ResourcesCompat;
@@ -6,6 +6,8 @@ import androidx.core.content.res.ResourcesCompat;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.widget.Button;
+
+import com.example.app_cer.R;
 
 public class MainActivity extends AppCompatActivity {
 
