@@ -9,9 +9,9 @@
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView"
-        android:layout_width="160dp"
-        android:layout_height="160dp"
-        app:cardCornerRadius="80dp"
+        android:layout_width="@dimen/circleCardViewWidth"
+        android:layout_height="@dimen/circleCardViewHight"
+        app:cardCornerRadius="@dimen/circleCardViewRadius"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -20,9 +20,10 @@
 
         <ImageView
             android:id="@+id/imageView2"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_gravity="center"
+            android:contentDescription="@string/logoDescription"
             app:srcCompat="@drawable/logo" />
     </androidx.cardview.widget.CardView>
 
@@ -60,7 +61,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/letsGoButton"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="60dp"

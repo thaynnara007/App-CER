@@ -3,4 +3,5 @@
     <string name="welcome">Bem-Vindo!</string>
     <string name="welcomeDescription">Nosso serviço vai te auxiliar nos exercícios com seu filho!</string>
     <string name="welcomeButton">Vamos lá?</string>
+    <string name="logoDescription">CER\'s logo</string>
 </resources>
