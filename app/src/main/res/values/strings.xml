@@ -4,4 +4,10 @@
     <string name="welcomeDescription">Nosso serviço vai te auxiliar nos exercícios com seu filho!</string>
     <string name="welcomeButton">Vamos lá?</string>
     <string name="logoDescription">CER\'s logo</string>
+    <string name="emilInputHint">Digite seu e-mail</string>
+    <string name="passwordInputHint">Digite sua senha</string>
+    <string name="forgetPasswordText">Esqueci a senha!</string>
+    <string name="rememberMeText">Lembrar de mim</string>
+    <string name="inButton">Entrar</string>
+    <string name="regiterButton">Cadastrar agora?</string>
 </resources>
