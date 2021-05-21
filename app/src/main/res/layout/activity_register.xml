@@ -8,6 +8,7 @@
     tools:context=".activity.RegisterActivity">
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/cardView3"
         android:layout_width="@dimen/topCardViewWidth"
         android:layout_height="@dimen/topCardViewHight"
         android:translationY="@dimen/topCardViewTranslationY"
@@ -22,7 +23,7 @@
             android:layout_height="@dimen/insideCardViewHigth"
             android:layout_gravity="bottom|center"
             android:layout_marginBottom="@dimen/insideCardViewMarginButton"
-            app:cardCornerRadius="@dimen/insideCardViewRadius" >
+            app:cardCornerRadius="@dimen/insideCardViewRadius">
 
             <ImageView
                 android:id="@+id/imageView3"
@@ -33,5 +34,212 @@
                 android:src="@drawable/logo" />
         </androidx.cardview.widget.CardView>
     </androidx.cardview.widget.CardView>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="149dp" />
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline">
+
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/registerText"
+            android:textColor="@android:color/background_light"
+            android:textSize="@dimen/titlePageSize"
+            android:textStyle="bold"
+            app:fontFamily="@font/quicksand_medium" />
+
+        <TextView
+            android:id="@+id/textView7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginStart="32dp"
+            android:layout_marginLeft="32dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="32dp"
+            android:layout_marginRight="32dp"
+            android:gravity="center"
+            android:text="@string/registerPageDescription"
+            android:textColor="@android:color/background_light"
+            android:textSize="@dimen/defaultTextSize"
+            android:textStyle="bold"
+            app:fontFamily="@font/quicksand_medium" />
+
+        <EditText
+            android:id="@+id/editText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginStart="60dp"
+            android:layout_marginTop="@dimen/registerInputdMarginTop"
+            android:layout_marginEnd="60dp"
+            android:background="@drawable/rounded_input"
+            android:ems="10"
+            android:gravity="center"
+            android:hint="@string/nameInputHint"
+            android:inputType="textPersonName"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
+            android:shadowDx="10"
+            android:shadowDy="10"
+            android:shadowRadius="20"
+            android:textColor="@color/colorAccent"
+            android:textColorHint="@color/colorAccent"
+            android:textSize="@dimen/defaultTextSize"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/editText2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginStart="60dp"
+            android:layout_marginTop="@dimen/registerInputdMarginTop"
+            android:layout_marginEnd="60dp"
+            android:background="@drawable/rounded_input"
+            android:ems="10"
+            android:gravity="center"
+            android:hint="@string/genderInputHint"
+            android:inputType="textPersonName"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
+            android:shadowDx="10"
+            android:shadowDy="10"
+            android:shadowRadius="20"
+            android:textColor="@color/colorAccent"
+            android:textColorHint="@color/colorAccent"
+            android:textSize="@dimen/defaultTextSize"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/editText3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginStart="60dp"
+            android:layout_marginTop="@dimen/registerInputdMarginTop"
+            android:layout_marginEnd="60dp"
+            android:background="@drawable/rounded_input"
+            android:ems="10"
+            android:gravity="center"
+            android:hint="@string/ageInputHint"
+            android:inputType="textPersonName"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
+            android:shadowDx="10"
+            android:shadowDy="10"
+            android:shadowRadius="20"
+            android:textColor="@color/colorAccent"
+            android:textColorHint="@color/colorAccent"
+            android:textSize="@dimen/defaultTextSize"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/editText4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginStart="60dp"
+            android:layout_marginTop="@dimen/registerInputdMarginTop"
+            android:layout_marginEnd="60dp"
+            android:background="@drawable/rounded_input"
+            android:ems="10"
+            android:gravity="center"
+            android:hint="@string/phoneInputHint"
+            android:inputType="textPersonName"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
+            android:shadowDx="10"
+            android:shadowDy="10"
+            android:shadowRadius="20"
+            android:textColor="@color/colorAccent"
+            android:textColorHint="@color/colorAccent"
+            android:textSize="@dimen/defaultTextSize"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/editText5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginStart="60dp"
+            android:layout_marginTop="@dimen/registerInputdMarginTop"
+            android:layout_marginEnd="60dp"
+            android:background="@drawable/rounded_input"
+            android:ems="10"
+            android:gravity="center"
+            android:hint="@string/emailRegisterInputHint"
+            android:inputType="textPersonName"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
+            android:shadowDx="10"
+            android:shadowDy="10"
+            android:shadowRadius="20"
+            android:textColor="@color/colorAccent"
+            android:textColorHint="@color/colorAccent"
+            android:textSize="@dimen/defaultTextSize"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/editText6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginStart="60dp"
+            android:layout_marginTop="@dimen/registerInputdMarginTop"
+            android:layout_marginEnd="60dp"
+            android:background="@drawable/rounded_input"
+            android:ems="10"
+            android:gravity="center"
+            android:hint="@string/passwordRegisterInputHint"
+            android:inputType="textPersonName"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
+            android:shadowDx="10"
+            android:shadowDy="10"
+            android:shadowRadius="20"
+            android:textColor="@color/colorAccent"
+            android:textColorHint="@color/colorAccent"
+            android:textSize="@dimen/defaultTextSize"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="260dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginStart="60dp"
+            android:layout_marginLeft="60dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginEnd="60dp"
+            android:layout_marginRight="60dp"
+            android:background="@drawable/rounded_button"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:shadowDx="10"
+            android:shadowDy="10"
+            android:shadowRadius="20"
+            android:text="@string/registerPageButton"
+            android:textAllCaps="false"
+            android:textColor="@android:color/background_light"
+            android:textSize="@dimen/defaultTextButtonSize"
+            android:textStyle="bold"
+            android:typeface="sans" />
+
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
