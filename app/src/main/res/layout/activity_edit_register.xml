@@ -5,33 +5,50 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorPrimaryPink"
-    tools:context=".activity.RegisterActivity">
+    tools:context=".activity.EditRegisterActivity">
+
+    <Button
+        android:id="@+id/editBackButton"
+        style="?attr/buttonBarButtonStyle"
+        android:layout_width="@dimen/arrowButtonWidth"
+        android:layout_height="@dimen/arrowButtonHigth"
+        android:layout_marginStart="32dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/white_arrow"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView3"
-        android:layout_width="@dimen/topCardViewWidth"
-        android:layout_height="@dimen/topCardViewHight"
-        android:translationY="@dimen/topCardViewTranslationY"
+        android:layout_width="110dp"
+        android:layout_height="110dp"
+        android:layout_marginBottom="8dp"
         app:cardBackgroundColor="@color/colorAccent"
-        app:cardCornerRadius="@dimen/topCardViewRadius"
+        app:cardCornerRadius="55dp"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintStart_toStartOf="parent">
 
         <androidx.cardview.widget.CardView
-            android:layout_width="@dimen/insideCardViewWidth"
-            android:layout_height="@dimen/insideCardViewHigth"
-            android:layout_gravity="bottom|center"
-            android:layout_marginBottom="@dimen/insideCardViewMarginButton"
-            app:cardCornerRadius="@dimen/insideCardViewRadius">
+            android:layout_width="94dp"
+            android:layout_height="94dp"
+            android:layout_gravity="center"
+            app:cardCornerRadius="47dp">
 
-            <ImageView
-                android:id="@+id/imageView3"
-                android:layout_width="wrap_content"
+            <FrameLayout
+                android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_gravity="center"
-                android:contentDescription="@string/logoDescription"
-                android:src="@drawable/logo" />
+                android:background="@drawable/card_edge">
+
+                <ImageView
+                    android:id="@+id/imageView5"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:contentDescription="@string/profileLogoDescription"
+                    app:srcCompat="@drawable/vetor_perfil" />
+            </FrameLayout>
         </androidx.cardview.widget.CardView>
     </androidx.cardview.widget.CardView>
 
@@ -40,9 +57,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_begin="136dp" />
+        app:layout_constraintGuide_begin="200dp" />
 
     <LinearLayout
+        android:id="@+id/linearLayout"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:orientation="vertical"
@@ -51,38 +69,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline">
 
-        <TextView
-            android:id="@+id/textView5"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="@string/registerText"
-            android:textColor="@android:color/background_light"
-            android:textSize="@dimen/titlePageSize"
-            android:textStyle="bold"
-            app:fontFamily="@font/quicksand_medium" />
-
-        <TextView
-            android:id="@+id/textView7"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginStart="32dp"
-            android:layout_marginLeft="32dp"
-            android:layout_marginTop="0dp"
-            android:layout_marginEnd="32dp"
-            android:layout_marginRight="32dp"
-            android:gravity="center"
-            android:paddingLeft="60dp"
-            android:paddingRight="60dp"
-            android:text="@string/registerPageDescription"
-            android:textColor="@android:color/background_light"
-            android:textSize="@dimen/smallTextSize"
-            android:textStyle="bold"
-            app:fontFamily="@font/quicksand_medium" />
-
         <EditText
-            android:id="@+id/nameInput"
+            android:id="@+id/nameInputEdit"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -105,7 +93,7 @@
             android:textStyle="bold" />
 
         <EditText
-            android:id="@+id/genderInput"
+            android:id="@+id/genderInputEdit"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -128,7 +116,7 @@
             android:textStyle="bold" />
 
         <EditText
-            android:id="@+id/ageInput"
+            android:id="@+id/ageInputEdit"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -151,7 +139,7 @@
             android:textStyle="bold" />
 
         <EditText
-            android:id="@+id/phoneInput"
+            android:id="@+id/phoneInputEdit"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -174,7 +162,7 @@
             android:textStyle="bold" />
 
         <EditText
-            android:id="@+id/emailRegisterInput"
+            android:id="@+id/emailRegisterInputEdit"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -197,7 +185,7 @@
             android:textStyle="bold" />
 
         <EditText
-            android:id="@+id/passwordRegisterInput"
+            android:id="@+id/passwordRegisterInputEdit"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -220,7 +208,7 @@
             android:textStyle="bold" />
 
         <Button
-            android:id="@+id/registerPageButton"
+            android:id="@+id/registerEditButton"
             android:layout_width="260dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -235,7 +223,7 @@
             android:shadowDx="10"
             android:shadowDy="10"
             android:shadowRadius="20"
-            android:text="@string/registerPageButton"
+            android:text="@string/editRegisterButton"
             android:textAllCaps="false"
             android:textColor="@android:color/background_light"
             android:textSize="@dimen/defaultTextButtonSize"
