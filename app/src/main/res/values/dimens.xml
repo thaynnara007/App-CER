@@ -3,4 +3,16 @@
     <dimen name="circleCardViewWidth">160dp</dimen>
     <dimen name="circleCardViewHight">160dp</dimen>
     <dimen name="circleCardViewRadius">80dp</dimen>
+    <dimen name="topCardViewWidth">126dp</dimen>
+    <dimen name="topCardViewHight">290dp</dimen>
+    <dimen name="topCardViewRadius">63dp</dimen>
+    <dimen name="topCardViewTranslationY">-150dp</dimen>
+    <dimen name="insideCardViewWidth">100dp</dimen>
+    <dimen name="insideCardViewHigth">100dp</dimen>
+    <dimen name="insideCardViewRadius">50dp</dimen>
+    <dimen name="insideCardViewMarginButton">18dp</dimen>
+    <dimen name="titlePageSize">40sp</dimen>
+    <dimen name="defaultTextSize">18sp</dimen>
+    <dimen name="defaultTextButtonSize">30sp</dimen>
+    <dimen name="registerInputdMarginTop">14dp</dimen>
 </resources>

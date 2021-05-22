@@ -10,4 +10,13 @@
     <string name="rememberMeText">Lembrar de mim</string>
     <string name="inButton">Entrar</string>
     <string name="regiterButton">Cadastrar agora?</string>
+    <string name="registerText">Cadastro</string>
+    <string name="registerPageDescription">Aqui basta você colocar seus dados pessoais!</string>
+    <string name="nameInputHint">NOME</string>
+    <string name="genderInputHint">SEXO</string>
+    <string name="ageInputHint">IDADE</string>
+    <string name="phoneInputHint">TELEFONE</string>
+    <string name="emailRegisterInputHint">E-MAIL</string>
+    <string name="passwordRegisterInputHint">SENHA</string>
+    <string name="registerPageButton">Concluir</string>
 </resources>
