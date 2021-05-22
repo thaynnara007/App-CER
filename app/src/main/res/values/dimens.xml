@@ -17,4 +17,6 @@
     <dimen name="registerInputdMarginTop">18dp</dimen>
     <dimen name="inputTextSize">16sp</dimen>
     <dimen name="smallTextSize">14sp</dimen>
+    <dimen name="arrowButtonWidth">32dp</dimen>
+    <dimen name="arrowButtonHigth">27dp</dimen>
 </resources>
