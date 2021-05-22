@@ -73,6 +73,8 @@
             android:layout_marginEnd="32dp"
             android:layout_marginRight="32dp"
             android:gravity="center"
+            android:paddingLeft="60dp"
+            android:paddingRight="60dp"
             android:text="@string/registerPageDescription"
             android:textColor="@android:color/background_light"
             android:textSize="@dimen/defaultTextSize"
@@ -80,7 +82,7 @@
             app:fontFamily="@font/quicksand_medium" />
 
         <EditText
-            android:id="@+id/editText"
+            android:id="@+id/nameInput"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -103,7 +105,7 @@
             android:textStyle="bold" />
 
         <EditText
-            android:id="@+id/editText2"
+            android:id="@+id/genderInput"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -126,7 +128,7 @@
             android:textStyle="bold" />
 
         <EditText
-            android:id="@+id/editText3"
+            android:id="@+id/ageInput"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -137,7 +139,7 @@
             android:ems="10"
             android:gravity="center"
             android:hint="@string/ageInputHint"
-            android:inputType="textPersonName"
+            android:inputType="textShortMessage|number|textPersonName"
             android:paddingTop="8dp"
             android:paddingBottom="8dp"
             android:shadowDx="10"
@@ -149,7 +151,7 @@
             android:textStyle="bold" />
 
         <EditText
-            android:id="@+id/editText4"
+            android:id="@+id/phoneInput"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -160,7 +162,7 @@
             android:ems="10"
             android:gravity="center"
             android:hint="@string/phoneInputHint"
-            android:inputType="textPersonName"
+            android:inputType="number|textPersonName"
             android:paddingTop="8dp"
             android:paddingBottom="8dp"
             android:shadowDx="10"
@@ -172,7 +174,7 @@
             android:textStyle="bold" />
 
         <EditText
-            android:id="@+id/editText5"
+            android:id="@+id/emailRegisterInput"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -195,7 +197,7 @@
             android:textStyle="bold" />
 
         <EditText
-            android:id="@+id/editText6"
+            android:id="@+id/passwordRegisterInput"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -206,7 +208,7 @@
             android:ems="10"
             android:gravity="center"
             android:hint="@string/passwordRegisterInputHint"
-            android:inputType="textPersonName"
+            android:inputType="textPersonName|textPassword"
             android:paddingTop="8dp"
             android:paddingBottom="8dp"
             android:shadowDx="10"
@@ -218,7 +220,7 @@
             android:textStyle="bold" />
 
         <Button
-            android:id="@+id/button"
+            android:id="@+id/registerPageButton"
             android:layout_width="260dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"

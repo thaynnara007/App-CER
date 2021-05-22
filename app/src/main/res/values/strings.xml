@@ -11,7 +11,7 @@
     <string name="inButton">Entrar</string>
     <string name="regiterButton">Cadastrar agora?</string>
     <string name="registerText">Cadastro</string>
-    <string name="registerPageDescription">Aqui você deve inserir suas informações nos campos a baixo para se registrar no aplicativo</string>
+    <string name="registerPageDescription">Aqui basta você colocar seus dados pessoais!</string>
     <string name="nameInputHint">NOME</string>
     <string name="genderInputHint">SEXO</string>
     <string name="ageInputHint">IDADE</string>
