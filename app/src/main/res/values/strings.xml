@@ -19,4 +19,5 @@
     <string name="emailRegisterInputHint">E-MAIL</string>
     <string name="passwordRegisterInputHint">SENHA</string>
     <string name="registerPageButton">Concluir</string>
+    <string name="editRegisterButton">Editar</string>
 </resources>
