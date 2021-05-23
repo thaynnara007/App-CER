@@ -12,14 +12,14 @@ import com.example.app_cer.R;
 
 public class RegisterActivity extends AppCompatActivity {
 
-    EditText nameInput;
-    EditText genderInput;
-    EditText ageInput;
-    EditText phoneInput;
-    EditText emailInput;
-    EditText passwordInput;
-    Button registerButton;
-    Typeface quicksand;
+    private EditText nameInput;
+    private EditText genderInput;
+    private EditText ageInput;
+    private EditText phoneInput;
+    private EditText emailInput;
+    private EditText passwordInput;
+    private Button registerButton;
+    private Typeface quicksand;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

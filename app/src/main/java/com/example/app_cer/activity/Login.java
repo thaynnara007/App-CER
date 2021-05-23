@@ -15,13 +15,13 @@ import com.example.app_cer.R;
 
 public class Login extends AppCompatActivity {
 
-    EditText emailInput;
-    EditText passwordInput;
-    CheckBox rememberMeCheckBox;
-    Button forgetPasswordButton;
-    Button getInButton;
-    Button registerButton;
-    Typeface quicksand;
+    private EditText emailInput;
+    private EditText passwordInput;
+    private CheckBox rememberMeCheckBox;
+    private Button forgetPasswordButton;
+    private Button getInButton;
+    private Button registerButton;
+    private Typeface quicksand;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
