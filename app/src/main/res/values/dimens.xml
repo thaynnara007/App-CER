@@ -19,4 +19,6 @@
     <dimen name="smallTextSize">14sp</dimen>
     <dimen name="arrowButtonWidth">32dp</dimen>
     <dimen name="arrowButtonHigth">27dp</dimen>
+    <dimen name="inputTopPadding">10dp</dimen>
+    <dimen name="inputBottomPadding">10dp</dimen>
 </resources>

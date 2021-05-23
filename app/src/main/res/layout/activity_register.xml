@@ -59,7 +59,7 @@
             android:text="@string/registerText"
             android:textColor="@android:color/background_light"
             android:textSize="@dimen/titlePageSize"
-            android:textStyle="bold"
+            android:textStyle="@string/titlePageStyle"
             app:fontFamily="@font/quicksand_medium" />
 
         <TextView
@@ -78,7 +78,7 @@
             android:text="@string/registerPageDescription"
             android:textColor="@android:color/background_light"
             android:textSize="@dimen/smallTextSize"
-            android:textStyle="bold"
+            android:textStyle="@string/textStyle"
             app:fontFamily="@font/quicksand_medium" />
 
         <EditText
@@ -102,7 +102,7 @@
             android:textColor="@color/colorAccent"
             android:textColorHint="@color/colorAccent"
             android:textSize="@dimen/inputTextSize"
-            android:textStyle="bold" />
+            android:textStyle="@string/textStyle" />
 
         <EditText
             android:id="@+id/genderInput"
@@ -125,7 +125,7 @@
             android:textColor="@color/colorAccent"
             android:textColorHint="@color/colorAccent"
             android:textSize="@dimen/inputTextSize"
-            android:textStyle="bold" />
+            android:textStyle="@string/textStyle" />
 
         <EditText
             android:id="@+id/ageInput"
@@ -148,7 +148,7 @@
             android:textColor="@color/colorAccent"
             android:textColorHint="@color/colorAccent"
             android:textSize="@dimen/inputTextSize"
-            android:textStyle="bold" />
+            android:textStyle="@string/textStyle" />
 
         <EditText
             android:id="@+id/phoneInput"
@@ -171,7 +171,7 @@
             android:textColor="@color/colorAccent"
             android:textColorHint="@color/colorAccent"
             android:textSize="@dimen/inputTextSize"
-            android:textStyle="bold" />
+            android:textStyle="@string/textStyle" />
 
         <EditText
             android:id="@+id/emailRegisterInput"
@@ -194,7 +194,7 @@
             android:textColor="@color/colorAccent"
             android:textColorHint="@color/colorAccent"
             android:textSize="@dimen/inputTextSize"
-            android:textStyle="bold" />
+            android:textStyle="@string/textStyle" />
 
         <EditText
             android:id="@+id/passwordRegisterInput"
@@ -217,7 +217,7 @@
             android:textColor="@color/colorAccent"
             android:textColorHint="@color/colorAccent"
             android:textSize="@dimen/inputTextSize"
-            android:textStyle="bold" />
+            android:textStyle="@string/textStyle" />
 
         <Button
             android:id="@+id/registerPageButton"
@@ -239,7 +239,7 @@
             android:textAllCaps="false"
             android:textColor="@android:color/background_light"
             android:textSize="@dimen/defaultTextButtonSize"
-            android:textStyle="bold"
+            android:textStyle="@string/textStyle"
             android:typeface="sans" />
 
     </LinearLayout>

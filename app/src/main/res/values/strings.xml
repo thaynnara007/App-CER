@@ -21,4 +21,7 @@
     <string name="registerPageButton">Concluir</string>
     <string name="editRegisterButton">Editar</string>
     <string name="profileLogoDescription">Imagen padrão do perfil</string>
+    <string name="menuTitle">Menu Inicial</string>
+    <string name="titlePageStyle">normal</string>
+    <string name="textStyle">normal</string>
 </resources>
