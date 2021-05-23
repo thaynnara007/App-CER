@@ -24,4 +24,6 @@
     <string name="menuTitle">Menu Inicial</string>
     <string name="titlePageStyle">normal</string>
     <string name="textStyle">normal</string>
+    <string name="exitText">Sair</string>
+    <string name="menuPageDescription">Nesta página, você escolhe para onde deseja ir.</string>
 </resources>
