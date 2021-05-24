@@ -11,8 +11,17 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.app_cer.R;
+import com.example.app_cer.model.Option;
+
+import java.util.List;
 
 public class OptionAdapter extends RecyclerView.Adapter<OptionAdapter.MyViewHolder> {
+
+    private List<Option> options;
+
+    public OptionAdapter (List<Option> options){
+        this.options = options;
+    }
 
     public class MyViewHolder extends RecyclerView.ViewHolder{
 
@@ -44,11 +53,16 @@ public class OptionAdapter extends RecyclerView.Adapter<OptionAdapter.MyViewHold
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
+        Option option = this.options.get(position);
 
+        holder.optionIcon.setImageResource(option.getIcon());
+        holder.optionName.setText(option.getName());
+        holder.optionDescription.setText(option.getDescription());
+        holder.startButton.setOnClickListener(option.getOnClick());
     }
 
     @Override
     public int getItemCount() {
-        return 3;
+        return this.options.size();
     }
 }
