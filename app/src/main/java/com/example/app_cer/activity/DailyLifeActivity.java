@@ -54,7 +54,9 @@ public class DailyLifeActivity extends AppCompatActivity {
         View.OnClickListener onClickListenerMeal = new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(context, "CONTROLE", Toast.LENGTH_SHORT).show();
+                Intent goToMealsActivity = new Intent(context, MealsActivity.class);
+
+                startActivity(goToMealsActivity);
             }
         };
 

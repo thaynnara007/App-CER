@@ -32,4 +32,6 @@
     <string name="optionButtonText">Iniciar</string>
     <string name="dailyLifeTitle">Vida Diária</string>
     <string name="dailyLifePageDescription">Qual atividade você irá escolher agora?</string>
+    <string name="mealsTitle">Refeições</string>
+    <string name="MealsPageDescription">Aqui você pode escolher qual o alimento será utilizado!</string>
 </resources>
