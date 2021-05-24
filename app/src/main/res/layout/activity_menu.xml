@@ -12,7 +12,7 @@
         style="?attr/buttonBarButtonStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="32dp"
         android:layout_marginRight="32dp"
         android:background="@color/colorPrimaryPink"
@@ -20,7 +20,7 @@
         android:textAllCaps="false"
         android:textColor="@android:color/background_light"
         android:textSize="24sp"
-        android:textStyle="@string/textStyle"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -28,11 +28,11 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="86dp"
+        android:layout_marginTop="70dp"
         android:text="@string/menuTitle"
         android:textColor="@android:color/background_light"
         android:textSize="@dimen/titlePageSize"
-        android:textStyle="@string/titlePageStyle"
+        android:textStyle="bold"
         app:fontFamily="@font/quicksand_medium"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -52,7 +52,7 @@
         android:text="@string/menuPageDescription"
         android:textColor="@android:color/background_light"
         android:textSize="@dimen/defaultTextSize"
-        android:textStyle="@string/textStyle"
+        android:textStyle="bold"
         app:fontFamily="@font/quicksand_medium"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -63,7 +63,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_begin="200dp" />
+        app:layout_constraintGuide_begin="170dp" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerViewOptions"

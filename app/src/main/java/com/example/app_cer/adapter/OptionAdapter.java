@@ -1,5 +1,6 @@
 package com.example.app_cer.adapter;
 
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -9,22 +10,24 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.app_cer.R;
+
 public class OptionAdapter extends RecyclerView.Adapter<OptionAdapter.MyViewHolder> {
 
     public class MyViewHolder extends RecyclerView.ViewHolder{
 
-        private ImageView image;
-
+        private ImageView optionIcon;
         private TextView optionName;
         private TextView optionDescription;
         private Button startButton;
-        public MyViewHolder(@NonNull View itemView, ImageView image, TextView optionName, TextView optionDescription, Button startButton) {
+
+        public MyViewHolder(@NonNull View itemView) {
             super(itemView);
 
-            this.image = image;
-            this.optionName = optionName;
-            this.optionDescription = optionDescription;
-            this.startButton = startButton;
+            this.optionIcon = itemView.findViewById(R.id.optionIcon);
+            this.optionName = itemView.findViewById(R.id.optionName);
+            this.optionDescription = itemView.findViewById(R.id.optionDescription);
+            this.startButton = itemView.findViewById(R.id.optionStartButton);
         }
 
     }
@@ -32,7 +35,11 @@ public class OptionAdapter extends RecyclerView.Adapter<OptionAdapter.MyViewHold
     @NonNull
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return null;
+
+        View optionCard = LayoutInflater.from(parent.getContext())
+                .inflate(R.layout.option, parent, false);
+
+        return new MyViewHolder(optionCard);
     }
 
     @Override
@@ -42,6 +49,6 @@ public class OptionAdapter extends RecyclerView.Adapter<OptionAdapter.MyViewHold
 
     @Override
     public int getItemCount() {
-        return 0;
+        return 3;
     }
 }
