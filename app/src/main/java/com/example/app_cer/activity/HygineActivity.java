@@ -18,7 +18,7 @@ import com.example.app_cer.model.Option;
 import java.util.ArrayList;
 import java.util.List;
 
-public class DailyLifeActivity extends AppCompatActivity {
+public class HygineActivity extends AppCompatActivity {
 
     private Button backButton;
     private RecyclerView recyclerViewOptions;
@@ -27,10 +27,10 @@ public class DailyLifeActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_daily_life);
+        setContentView(R.layout.activity_hygine);
 
-        backButton = findViewById(R.id.dailyLifeBackButton);
-        recyclerViewOptions = findViewById(R.id.recyclerViewDailyOptions);
+        backButton = findViewById(R.id.hygineBackButton);
+        recyclerViewOptions = findViewById(R.id.recyclerViewHygineOptions);
 
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -51,51 +51,36 @@ public class DailyLifeActivity extends AppCompatActivity {
     private void generateOptions() {
         final Context context = getApplicationContext();
 
-        View.OnClickListener onClickListenerMeal = new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent goToMealsActivity = new Intent(context, MealsActivity.class);
-
-                startActivity(goToMealsActivity);
-            }
-        };
-
-        View.OnClickListener onClickListenerHygine = new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent goToHygineActivity = new Intent(context, HygineActivity.class);
-
-                startActivity(goToHygineActivity);
-            }
-        };
-
-        View.OnClickListener onClickListenerClothes = new View.OnClickListener() {
+        View.OnClickListener onClickListenerBody = new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Toast.makeText(context, "CONTROLE", Toast.LENGTH_SHORT).show();
             }
         };
 
-        Option optMeal = new Option(
-                "Refeição",
-                "Aqui você encontra alimentos sólidos, líquidos e pastosos.",
-                R.drawable.meal,
-                onClickListenerMeal);
+        View.OnClickListener onClickListenerTeeth = new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(context, "CONTROLE", Toast.LENGTH_SHORT).show();
+            }
+        };
 
-        Option optHygine = new Option(
-                "Higiene",
-                "Você pode escolher entre a higiene do corpo ou dos dentes.",
-                R.drawable.hygine,
-                onClickListenerHygine);
 
-        Option optClothes = new Option(
-                "Roupas",
-                "Escolha qual das peças de roupa vamos praticar hoje!",
-                R.drawable.hanger,
-                onClickListenerClothes);
+        Option optBody = new Option(
+                "Corpo",
+                "Atividade responsável por estímulos motores, sensoriais e corporais.",
+                R.drawable.body,
+                onClickListenerBody);
 
-        this.options.add(optMeal);
-        this.options.add(optHygine);
-        this.options.add(optClothes);
+        Option optTeeth = new Option(
+                "Dentes",
+                "Atividade responsável por estímulos motores, sensoriais e corporais.",
+                R.drawable.tooth,
+                onClickListenerTeeth);
+
+
+        this.options.add(optBody);
+        this.options.add(optTeeth);
+
     }
 }
