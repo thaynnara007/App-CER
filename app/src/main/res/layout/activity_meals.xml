@@ -4,29 +4,29 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorPrimaryPink"
-    tools:context=".activity.DailyLifeActivity">
+    android:background="@color/colorPrimaryYellow"
+    tools:context=".activity.MealsActivity">
 
     <Button
-        android:id="@+id/dailyLifeBackButton"
+        android:id="@+id/mealsBackButton"
         style="?attr/buttonBarButtonStyle"
         android:layout_width="@dimen/arrowButtonWidth"
         android:layout_height="@dimen/arrowButtonHigth"
         android:layout_marginStart="32dp"
         android:layout_marginLeft="32dp"
         android:layout_marginTop="32dp"
-        android:background="@drawable/white_arrow"
+        android:background="@drawable/blue_arrow"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
 
     <TextView
-        android:id="@+id/textViewDailyLife"
+        android:id="@+id/textViewMeals"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="70dp"
         android:text="@string/dailyLifeTitle"
-        android:textColor="@android:color/background_light"
+        android:textColor="@color/colorAccent"
         android:textSize="@dimen/titlePageSize"
         android:textStyle="bold"
         app:fontFamily="@font/quicksand_medium"
@@ -35,7 +35,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textViewDailyLife2"
+        android:id="@+id/textViewMeals2"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="60dp"
@@ -46,23 +46,23 @@
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
         android:text="@string/dailyLifePageDescription"
-        android:textColor="@android:color/background_light"
+        android:textColor="@color/colorAccent"
         android:textSize="@dimen/defaultTextSize"
         android:textStyle="bold"
         app:fontFamily="@font/quicksand_medium"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewDailyLife" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewMeals" />
 
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guidelineDaily"
+        android:id="@+id/guidelineMeals"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintGuide_begin="170dp" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerViewDailyOptions"
+        android:id="@+id/recyclerViewMealsOptions"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="8dp"
@@ -74,7 +74,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guidelineDaily">
+        app:layout_constraintTop_toTopOf="@+id/guidelineMeals">
 
     </androidx.recyclerview.widget.RecyclerView>
 
