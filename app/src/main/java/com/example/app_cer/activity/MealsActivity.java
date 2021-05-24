@@ -5,7 +5,6 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -18,7 +17,7 @@ import com.example.app_cer.model.Option;
 import java.util.ArrayList;
 import java.util.List;
 
-public class DailyLifeActivity extends AppCompatActivity {
+public class MealsActivity extends AppCompatActivity {
 
     private Button backButton;
     private RecyclerView recyclerViewOptions;
@@ -27,10 +26,10 @@ public class DailyLifeActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_daily_life);
+        setContentView(R.layout.activity_meals);
 
-        backButton = findViewById(R.id.dailyLifeBackButton);
-        recyclerViewOptions = findViewById(R.id.recyclerViewDailyOptions);
+        backButton = findViewById(R.id.mealsBackButton);
+        recyclerViewOptions = findViewById(R.id.recyclerViewMealsOptions);
 
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -51,49 +50,47 @@ public class DailyLifeActivity extends AppCompatActivity {
     private void generateOptions() {
         final Context context = getApplicationContext();
 
-        View.OnClickListener onClickListenerMeal = new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent goToMealsActivity = new Intent(context, MealsActivity.class);
-
-                startActivity(goToMealsActivity);
-            }
-        };
-
-        View.OnClickListener onClickListenerHygine = new View.OnClickListener() {
+        View.OnClickListener onClickListenerSolids = new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Toast.makeText(context, "CONTROLE", Toast.LENGTH_SHORT).show();
             }
         };
 
-        View.OnClickListener onClickListenerClothes = new View.OnClickListener() {
+        View.OnClickListener onClickListenerPasty = new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Toast.makeText(context, "CONTROLE", Toast.LENGTH_SHORT).show();
             }
         };
 
-        Option optMeal = new Option(
-                "Refeição",
-                "Aqui você encontra alimentos sólidos, líquidos e pastosos.",
-                R.drawable.meal,
-                onClickListenerMeal);
+        View.OnClickListener onClickListenerLiquid = new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(context, "CONTROLE", Toast.LENGTH_SHORT).show();
+            }
+        };
 
-        Option optHygine = new Option(
-                "Higiene",
-                "Você pode escolher entre a higiene do corpo ou dos dentes.",
-                R.drawable.hygine,
-                onClickListenerHygine);
+        Option optSolids = new Option(
+                "Sólidas",
+                "Atividade responsável por estímulos motores e sensoriais.",
+                R.drawable.banana,
+                onClickListenerSolids);
 
-        Option optClothes = new Option(
-                "Roupas",
-                "Escolha qual das peças de roupa vamos praticar hoje!",
-                R.drawable.hanger,
-                onClickListenerClothes);
+        Option optPasty = new Option(
+                "Pastosas",
+                "Atividade responsável por estímulos motores e sensoriais.",
+                R.drawable.soup,
+                onClickListenerPasty);
 
-        this.options.add(optMeal);
-        this.options.add(optHygine);
-        this.options.add(optClothes);
+        Option optLiquid= new Option(
+                "Líquidas",
+                "Atividade responsável por estímulos motores, sensoriais e corporais.",
+                R.drawable.liquid,
+                onClickListenerLiquid);
+
+        this.options.add(optSolids);
+        this.options.add(optPasty);
+        this.options.add(optLiquid);
     }
 }
