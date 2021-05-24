@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.View;
@@ -38,6 +39,12 @@ public class MenuActivity extends AppCompatActivity {
         quicksand = ResourcesCompat.getFont(getBaseContext(), R.font.quicksand_medium);
 
         exitButton.setTypeface(quicksand);
+        exitButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
 
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
         recyclerViewOptions.setLayoutManager(layoutManager);
@@ -70,7 +77,9 @@ public class MenuActivity extends AppCompatActivity {
         View.OnClickListener onClickListenerProfile = new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(context, "Profile", Toast.LENGTH_SHORT).show();
+                Intent goToEditProfileActivity = new Intent(context, EditRegisterActivity.class);
+
+                startActivity(goToEditProfileActivity);
             }
         };
 
