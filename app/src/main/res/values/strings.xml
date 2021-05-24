@@ -36,4 +36,6 @@
     <string name="MealsPageDescription">Aqui você pode escolher qual o alimento será utilizado!</string>
     <string name="hygineTitle">Higiene</string>
     <string name="higynePageDescription">Aqui você pode escolhe qual parte será higienizada!</string>
+    <string name="clothesTitle">Roupa</string>
+    <string name="clothesPageDescription">Aqui você pode escolher qual peça de roupa será utilizada.</string>
 </resources>

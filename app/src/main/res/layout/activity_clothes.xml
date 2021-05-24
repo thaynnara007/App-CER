@@ -4,29 +4,29 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorPrimaryYellow"
-    tools:context=".activity.MealsActivity">
+    android:background="@color/colorPrimaryBlue"
+    tools:context=".activity.ClothesActivity">
 
     <Button
-        android:id="@+id/mealsBackButton"
+        android:id="@+id/clothesBackButton"
         style="?attr/buttonBarButtonStyle"
         android:layout_width="@dimen/arrowButtonWidth"
         android:layout_height="@dimen/arrowButtonHigth"
         android:layout_marginStart="32dp"
         android:layout_marginLeft="32dp"
         android:layout_marginTop="32dp"
-        android:background="@drawable/blue_arrow"
+        android:background="@drawable/white_arrow"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
 
     <TextView
-        android:id="@+id/textViewMeals"
+        android:id="@+id/textViewClothes"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="70dp"
-        android:text="@string/mealsTitle"
-        android:textColor="@color/colorAccent"
+        android:text="@string/clothesTitle"
+        android:textColor="@android:color/background_light"
         android:textSize="@dimen/titlePageSize"
         android:textStyle="bold"
         app:fontFamily="@font/quicksand_medium"
@@ -35,34 +35,34 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textViewMeals2"
+        android:id="@+id/textViewClothes2"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="50dp"
-        android:layout_marginLeft="50dp"
-        android:layout_marginEnd="50dp"
-        android:layout_marginRight="50dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginEnd="40dp"
+        android:layout_marginRight="40dp"
         android:gravity="center"
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
-        android:text="@string/MealsPageDescription"
-        android:textColor="@color/colorAccent"
+        android:text="@string/clothesPageDescription"
+        android:textColor="@android:color/background_light"
         android:textSize="@dimen/defaultTextSize"
         android:textStyle="bold"
         app:fontFamily="@font/quicksand_medium"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewMeals" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewClothes" />
 
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guidelineMeals"
+        android:id="@+id/guidelineClothes"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintGuide_begin="170dp" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerViewMealsOptions"
+        android:id="@+id/recyclerViewClothesOptions"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="8dp"
@@ -74,7 +74,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guidelineMeals">
+        app:layout_constraintTop_toTopOf="@+id/guidelineClothes">
 
     </androidx.recyclerview.widget.RecyclerView>
 
