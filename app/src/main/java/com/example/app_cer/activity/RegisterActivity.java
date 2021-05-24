@@ -12,12 +12,7 @@ import com.example.app_cer.R;
 
 public class RegisterActivity extends AppCompatActivity {
 
-    private EditText nameInput;
-    private EditText genderInput;
-    private EditText ageInput;
-    private EditText phoneInput;
-    private EditText emailInput;
-    private EditText passwordInput;
+    private EditText nameInput, genderInput, ageInput, phoneInput, emailInput, passwordInput;
     private Button registerButton;
     private Typeface quicksand;
 
