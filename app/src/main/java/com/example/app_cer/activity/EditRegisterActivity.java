@@ -5,6 +5,7 @@ import androidx.core.content.res.ResourcesCompat;
 
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
@@ -12,14 +13,9 @@ import com.example.app_cer.R;
 
 public class EditRegisterActivity extends AppCompatActivity {
 
-    EditText nameInput;
-    EditText genderInput;
-    EditText ageInput;
-    EditText phoneInput;
-    EditText emailInput;
-    EditText passwordInput;
-    Button editButton;
-    Typeface quicksand;
+    private EditText nameInput, genderInput, ageInput, phoneInput, emailInput, passwordInput;
+    private Button editButton, backButton;
+    private Typeface quicksand;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +28,7 @@ public class EditRegisterActivity extends AppCompatActivity {
         phoneInput = findViewById(R.id.phoneInputEdit);
         emailInput = findViewById(R.id.emailRegisterInputEdit);
         passwordInput = findViewById(R.id.passwordRegisterInputEdit);
+        backButton = findViewById(R.id.editBackButton);
         editButton = findViewById(R.id.registerEditButton);
 
         quicksand = ResourcesCompat.getFont(getApplicationContext(), R.font.quicksand_medium);
@@ -43,5 +40,12 @@ public class EditRegisterActivity extends AppCompatActivity {
         emailInput.setTypeface(quicksand);
         passwordInput.setTypeface(quicksand);
         editButton.setTypeface(quicksand);
+
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
     }
 }

@@ -3,6 +3,7 @@ package com.example.app_cer.activity;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.res.ResourcesCompat;
 
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
@@ -15,13 +16,10 @@ import com.example.app_cer.R;
 
 public class Login extends AppCompatActivity {
 
-    EditText emailInput;
-    EditText passwordInput;
-    CheckBox rememberMeCheckBox;
-    Button forgetPasswordButton;
-    Button getInButton;
-    Button registerButton;
-    Typeface quicksand;
+    private EditText emailInput, passwordInput;
+    private CheckBox rememberMeCheckBox;
+    private Button forgetPasswordButton, getInButton, registerButton;
+    private Typeface quicksand;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,15 +41,29 @@ public class Login extends AppCompatActivity {
         getInButton.setTypeface(quicksand);
         registerButton.setTypeface(quicksand);
 
+        final Context context = getApplicationContext();
+
         registerButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent goToRegisterActivity = new Intent(
-                        getApplicationContext(),
+                        context,
                         RegisterActivity.class
                 );
 
                 startActivity(goToRegisterActivity);
+            }
+        });
+
+        getInButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent goToMenuActivity = new Intent(
+                        context,
+                        MenuActivity.class
+                );
+
+                startActivity(goToMenuActivity);
             }
         });
 

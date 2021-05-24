@@ -13,8 +13,8 @@ import com.example.app_cer.R;
 
 public class MainActivity extends AppCompatActivity {
 
-    Button letsGo;
-    Typeface quicksand;
+    private Button letsGo;
+    private Typeface quicksand;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
