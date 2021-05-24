@@ -30,4 +30,6 @@
     <string name="optionActivitiesDescription">Aqui você pode escolher entre refeições, higiene e roupas</string>
     <string name="optionIconDescription">ícone da opção</string>
     <string name="optionButtonText">Iniciar</string>
+    <string name="dailyLifeTitle">Vida Diária</string>
+    <string name="dailyLifePageDescription">Qual atividade você irá escolher agora?</string>
 </resources>

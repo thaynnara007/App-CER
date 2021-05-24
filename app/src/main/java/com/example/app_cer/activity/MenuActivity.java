@@ -36,7 +36,7 @@ public class MenuActivity extends AppCompatActivity {
         exitButton = findViewById(R.id.exitButton);
         recyclerViewOptions = findViewById(R.id.recyclerViewOptions);
 
-        quicksand = ResourcesCompat.getFont(getBaseContext(), R.font.quicksand_medium);
+        quicksand = ResourcesCompat.getFont(getApplicationContext(), R.font.quicksand_medium);
 
         exitButton.setTypeface(quicksand);
         exitButton.setOnClickListener(new View.OnClickListener() {
@@ -63,7 +63,9 @@ public class MenuActivity extends AppCompatActivity {
         View.OnClickListener onClickListenerActivity = new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(context, "Atividade", Toast.LENGTH_SHORT).show();
+                Intent goToDailyLifeActivity = new Intent(context, DailyLifeActivity.class);
+
+                startActivity(goToDailyLifeActivity);
             }
         };
 
