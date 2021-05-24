@@ -21,4 +21,12 @@
     <dimen name="arrowButtonHigth">27dp</dimen>
     <dimen name="inputTopPadding">10dp</dimen>
     <dimen name="inputBottomPadding">10dp</dimen>
+    <dimen name="optionCardMarginLeft">40dp</dimen>
+    <dimen name="optionCardMarginTop">16dp</dimen>
+    <dimen name="optionCardMarginRight">40dp</dimen>
+    <dimen name="optionTextSize">20dp</dimen>
+    <dimen name="optionCardHeight">150dp</dimen>
+    <dimen name="optionIconWidth">60dp</dimen>
+    <dimen name="optionIconHeight">60dp</dimen>
+    <dimen name="optionButtonWidth">40dp</dimen>
 </resources>

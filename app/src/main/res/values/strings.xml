@@ -22,8 +22,12 @@
     <string name="editRegisterButton">Editar</string>
     <string name="profileLogoDescription">Imagen padrão do perfil</string>
     <string name="menuTitle">Menu Inicial</string>
-    <string name="titlePageStyle">normal</string>
-    <string name="textStyle">normal</string>
+    <string name="titlePageStyle">bold</string>
+    <string name="textStyle">bold</string>
     <string name="exitText">Sair</string>
     <string name="menuPageDescription">Nesta página, você escolhe para onde deseja ir.</string>
+    <string name="activitiesText">Atividades</string>
+    <string name="optionActivitiesDescription">Aqui você pode escolher entre refeições, higiene e roupas</string>
+    <string name="optionIconDescription">ícone da opção</string>
+    <string name="optionButtonText">Iniciar</string>
 </resources>
