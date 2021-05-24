@@ -1,5 +1,6 @@
 package com.example.app_cer.adapter;
 
+import android.graphics.Typeface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,6 +9,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.core.content.res.ResourcesCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.app_cer.R;
@@ -18,6 +20,7 @@ import java.util.List;
 public class OptionAdapter extends RecyclerView.Adapter<OptionAdapter.MyViewHolder> {
 
     private List<Option> options;
+    private Typeface quicksand;
 
     public OptionAdapter (List<Option> options){
         this.options = options;
@@ -48,6 +51,8 @@ public class OptionAdapter extends RecyclerView.Adapter<OptionAdapter.MyViewHold
         View optionCard = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.option, parent, false);
 
+        this.quicksand = ResourcesCompat.getFont(parent.getContext(), R.font.quicksand_medium);
+
         return new MyViewHolder(optionCard);
     }
 
@@ -59,6 +64,7 @@ public class OptionAdapter extends RecyclerView.Adapter<OptionAdapter.MyViewHold
         holder.optionName.setText(option.getName());
         holder.optionDescription.setText(option.getDescription());
         holder.startButton.setOnClickListener(option.getOnClick());
+        holder.startButton.setTypeface(this.quicksand);
     }
 
     @Override
