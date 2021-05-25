@@ -3,6 +3,7 @@ package com.example.app_cer.activity;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.res.ResourcesCompat;
 
+import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.View;
@@ -25,13 +26,21 @@ public class SolidActivity extends AppCompatActivity {
         quicksand = ResourcesCompat.getFont(getBaseContext(), R.font.quicksand_medium);
 
         letsGoButton.setTypeface(quicksand, Typeface.BOLD);
+
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 finish();
             }
         });
+        letsGoButton.setOnClickListener((new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent goToStepActivity = new Intent(getApplicationContext(), StepActivity.class);
 
+                startActivity(goToStepActivity);
+            }
+        }));
 
     }
 }
