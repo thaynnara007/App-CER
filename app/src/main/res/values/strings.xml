@@ -38,4 +38,8 @@
     <string name="higynePageDescription">Aqui você pode escolhe qual parte será higienizada!</string>
     <string name="clothesTitle">Roupa</string>
     <string name="clothesPageDescription">Aqui você pode escolher qual peça de roupa será utilizada.</string>
+    <string name="solidPageTitle">Sólidas</string>
+    <string name="solidPageSubtitle">Refeições</string>
+    <string name="solidPageDescription">Esta atividade é responsável por estímulos motores, sensoriais e também corporais.</string>
+    <string name="letsGoStepButton">Vamos lá!</string>
 </resources>
