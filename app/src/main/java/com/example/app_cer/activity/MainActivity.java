@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
         letsGo = findViewById(R.id.letsGoButton);
 
         quicksand = ResourcesCompat.getFont(getBaseContext(), R.font.quicksand_medium);
-        letsGo.setTypeface(quicksand);
+        letsGo.setTypeface(quicksand, Typeface.BOLD);
 
         letsGo.setOnClickListener(new View.OnClickListener() {
             @Override

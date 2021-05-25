@@ -35,7 +35,7 @@
             android:layout_height="@dimen/stepInsideCardViewHight"
             android:layout_gravity="bottom|center"
             android:layout_marginBottom="@dimen/insideCardViewMarginButton"
-            app:cardCornerRadius="@dimen/insideCardViewRadius">
+            app:cardCornerRadius="45dp">
 
             <ImageView
                 android:id="@+id/imageViewSolid"
@@ -86,13 +86,13 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="60dp"
         android:layout_marginLeft="60dp"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="50dp"
         android:layout_marginEnd="60dp"
         android:layout_marginRight="60dp"
         android:gravity="center"
         android:text="@string/solidPageDescription"
         android:textColor="@color/colorAccent"
-        android:textSize="22sp"
+        android:textSize="@dimen/stepDescriptionTextSize"
         android:textStyle="bold"
         app:fontFamily="@font/quicksand_medium"
         app:layout_constraintEnd_toEndOf="parent"
@@ -100,12 +100,12 @@
         app:layout_constraintTop_toBottomOf="@+id/textView9" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/solidStartButton"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="85dp"
         android:layout_marginLeft="85dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="60dp"
         android:layout_marginEnd="85dp"
         android:layout_marginRight="85dp"
         android:background="@drawable/rounded_button_step"

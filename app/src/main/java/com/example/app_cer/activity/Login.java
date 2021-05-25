@@ -34,12 +34,12 @@ public class Login extends AppCompatActivity {
         registerButton = findViewById(R.id.registerButton);
 
         quicksand = ResourcesCompat.getFont(getBaseContext(), R.font.quicksand_medium);
-        emailInput.setTypeface(quicksand);
-        passwordInput.setTypeface(quicksand);
-        rememberMeCheckBox.setTypeface(quicksand);
-        forgetPasswordButton.setTypeface(quicksand);
-        getInButton.setTypeface(quicksand);
-        registerButton.setTypeface(quicksand);
+        emailInput.setTypeface(quicksand, Typeface.BOLD);
+        passwordInput.setTypeface(quicksand, Typeface.BOLD);
+        rememberMeCheckBox.setTypeface(quicksand, Typeface.BOLD);
+        forgetPasswordButton.setTypeface(quicksand, Typeface.BOLD);
+        getInButton.setTypeface(quicksand, Typeface.BOLD);
+        registerButton.setTypeface(quicksand, Typeface.BOLD);
 
         final Context context = getApplicationContext();
 

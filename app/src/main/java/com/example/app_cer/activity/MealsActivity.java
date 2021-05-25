@@ -5,6 +5,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -53,7 +54,9 @@ public class MealsActivity extends AppCompatActivity {
         View.OnClickListener onClickListenerSolids = new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(context, "CONTROLE", Toast.LENGTH_SHORT).show();
+                Intent goToSolidsActivity = new Intent(context, SolidActivity.class);
+
+                startActivity(goToSolidsActivity);
             }
         };
 

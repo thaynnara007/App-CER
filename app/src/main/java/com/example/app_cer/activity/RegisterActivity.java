@@ -33,13 +33,13 @@ public class RegisterActivity extends AppCompatActivity {
 
         quicksand = ResourcesCompat.getFont(getApplicationContext(), R.font.quicksand_medium);
 
-        nameInput.setTypeface(quicksand);
-        genderInput.setTypeface(quicksand);
-        ageInput.setTypeface(quicksand);
-        phoneInput.setTypeface(quicksand);
-        emailInput.setTypeface(quicksand);
-        passwordInput.setTypeface(quicksand);
-        registerButton.setTypeface(quicksand);
+        nameInput.setTypeface(quicksand, Typeface.BOLD);
+        genderInput.setTypeface(quicksand, Typeface.BOLD);
+        ageInput.setTypeface(quicksand, Typeface.BOLD);
+        phoneInput.setTypeface(quicksand, Typeface.BOLD);
+        emailInput.setTypeface(quicksand, Typeface.BOLD);
+        passwordInput.setTypeface(quicksand, Typeface.BOLD);
+        registerButton.setTypeface(quicksand, Typeface.BOLD);
 
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
