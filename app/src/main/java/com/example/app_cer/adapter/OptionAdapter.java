@@ -64,7 +64,7 @@ public class OptionAdapter extends RecyclerView.Adapter<OptionAdapter.MyViewHold
         holder.optionName.setText(option.getName());
         holder.optionDescription.setText(option.getDescription());
         holder.startButton.setOnClickListener(option.getOnClick());
-        holder.startButton.setTypeface(this.quicksand);
+        holder.startButton.setTypeface(this.quicksand, Typeface.BOLD);
     }
 
     @Override

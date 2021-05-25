@@ -29,4 +29,9 @@
     <dimen name="optionIconWidth">60dp</dimen>
     <dimen name="optionIconHeight">60dp</dimen>
     <dimen name="optionButtonWidth">40dp</dimen>
+    <dimen name="stepTopCardViewWidth">135dp</dimen>
+    <dimen name="stepInsideCardViewWidth">90dp</dimen>
+    <dimen name="stepInsideCardViewHight">90dp</dimen>
+    <dimen name="stepPageTitleSize">55sp</dimen>
+    <dimen name="stepDescriptionTextSize">22sp</dimen>
 </resources>
