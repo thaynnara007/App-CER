@@ -35,5 +35,6 @@
     <dimen name="stepPageTitleSize">55sp</dimen>
     <dimen name="stepDescriptionTextSize">22sp</dimen>
     <dimen name="stepNameSize">30sp</dimen>
+    <dimen name="stepNameSize2">35sp</dimen>
     <dimen name="nextStepButtonTextSize">25sp</dimen>
 </resources>

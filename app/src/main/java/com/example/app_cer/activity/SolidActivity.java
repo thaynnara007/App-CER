@@ -48,6 +48,7 @@ public class SolidActivity extends AppCompatActivity {
 
                 goToStepActivity.putExtra("steps", steps);
                 goToStepActivity.putExtra("backgroundColor", R.color.colorPrimaryYellow);
+                goToStepActivity.putExtra("textColor", R.color.colorAccent);
                 goToStepActivity.putExtra("icon", R.drawable.banana);
 
                 startActivity(goToStepActivity);
@@ -77,9 +78,17 @@ public class SolidActivity extends AppCompatActivity {
                 "Coloque a criança para comer a fruta!"
         );
 
+        Step stepFinal = new Step(
+                "PARABÉNS",
+                "O desenvolvimento do seu filho agradece!",
+                "Você concluiu essa atividade!",
+                R.drawable.solid_end
+        );
+
         this.steps.add(step1);
         this.steps.add(step2);
         this.steps.add(step3);
         this.steps.add(step4);
+        this.steps.add(stepFinal);
     }
 }

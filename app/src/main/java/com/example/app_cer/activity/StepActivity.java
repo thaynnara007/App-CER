@@ -3,10 +3,11 @@ package com.example.app_cer.activity;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.content.ContextCompat;
+import androidx.core.content.res.ResourcesCompat;
 
+import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
-import android.text.Layout;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -22,9 +23,10 @@ public class StepActivity extends AppCompatActivity {
     ConstraintLayout currentLayout;
     Button nextStepButton, beforeButton;
     ImageView stepImage, stepIcon;
-    TextView stepName, stepDescription;
+    TextView stepName, stepDescription, congrats;
     int currentStep, lastStep;
     ArrayList<Step> steps = new ArrayList<>();
+    Typeface quicksand;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,18 +40,26 @@ public class StepActivity extends AppCompatActivity {
         stepImage = findViewById(R.id.stepImage);
         stepName = findViewById(R.id.stepName);
         stepDescription = findViewById(R.id.stepDescription);
+        congrats = findViewById(R.id.textCongrats);
+
+        quicksand = ResourcesCompat.getFont(getBaseContext(), R.font.quicksand_medium);
+        nextStepButton.setTypeface(quicksand, Typeface.BOLD);
+        beforeButton.setTypeface(quicksand, Typeface.BOLD);
 
         steps = (ArrayList<Step>) getIntent().getSerializableExtra("steps");
         lastStep = steps.size() - 1;
         currentStep = 0;
 
-        Bundle data = getIntent().getExtras();
-        int color = ContextCompat.getColor(getApplicationContext(), data.getInt("backgroundColor"));
+        final Bundle data = getIntent().getExtras();
+        final int color = ContextCompat.getColor(getApplicationContext(), data.getInt("backgroundColor"));
+        int textColor = ContextCompat.getColor(getApplicationContext(), data.getInt("textColor"));
         int icon = data.getInt("icon");
 
 
         currentLayout.setBackgroundColor(color);
         stepIcon.setImageResource(icon);
+        stepName.setTextColor(textColor);
+        stepDescription.setTextColor(textColor);
 
         if (lastStep >= 0) {
             Step step = steps.get(currentStep);
@@ -70,6 +80,19 @@ public class StepActivity extends AppCompatActivity {
                     stepName.setText(step.getName());
                     stepDescription.setText(step.getDescription());
                     stepImage.setImageResource(step.getImage());
+                    congrats.setText(step.getCongrats());
+
+                    if (lastStep == currentStep) {
+                        stepName.setTypeface(quicksand, Typeface.BOLD);
+                        stepName.setTextSize(35);
+                        nextStepButton.setText("Concluir!");
+                    }
+                }
+                else {
+                    Intent backToDailyLifeActivity = new Intent(getApplicationContext(), DailyLifeActivity.class);
+                    backToDailyLifeActivity.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+
+                    startActivity(backToDailyLifeActivity);
                 }
             }
         });
@@ -88,6 +111,9 @@ public class StepActivity extends AppCompatActivity {
                     stepName.setText(step.getName());
                     stepDescription.setText(step.getDescription());
                     stepImage.setImageResource(step.getImage());
+                    stepName.setTypeface(quicksand, Typeface.NORMAL);
+                    stepName.setTextSize(30);
+                    nextStepButton.setText("Próximo passo");
                 }
                 else {
                     finish();
