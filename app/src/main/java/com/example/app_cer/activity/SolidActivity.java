@@ -19,7 +19,7 @@ public class SolidActivity extends AppCompatActivity {
 
     private Button backButton, letsGoButton;
     private Typeface quicksand;
-    private List<Step> steps = new ArrayList<>();
+    private ArrayList<Step> steps = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +45,10 @@ public class SolidActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent goToStepActivity = new Intent(getApplicationContext(), StepActivity.class);
+
+                goToStepActivity.putExtra("steps", steps);
+                goToStepActivity.putExtra("backgroundColor", R.color.colorPrimaryYellow);
+                goToStepActivity.putExtra("icon", R.drawable.banana);
 
                 startActivity(goToStepActivity);
             }

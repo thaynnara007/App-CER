@@ -1,10 +1,12 @@
 package com.example.app_cer.model;
 
-public class Step {
+import java.io.Serializable;
+
+public class Step implements Serializable {
 
     private String name;
     private String description;
-    private int image;
+    private int image = 0;
 
     public Step(String name, String description, int image) {
         this.name = name;
@@ -40,4 +42,5 @@ public class Step {
     public void setImage(int image) {
         this.image = image;
     }
+
 }
