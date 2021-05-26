@@ -42,4 +42,9 @@
     <string name="solidPageSubtitle">Refeições</string>
     <string name="solidPageDescription">Esta atividade é responsável por estímulos motores, sensoriais e também corporais.</string>
     <string name="letsGoStepButton">Vamos lá!</string>
+    <string name="stepImageDescription">Icon of the action</string>
+    <string name="stepNameDefault">Etapa</string>
+    <string name="nextStepButtonText">Próximo passo</string>
+    <string name="beforeStepButton">Anterior</string>
+    <string name="stepDefaultDescription">Descrição</string>
 </resources>
