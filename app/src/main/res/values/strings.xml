@@ -47,4 +47,7 @@
     <string name="nextStepButtonText">Próximo passo</string>
     <string name="beforeStepButton">Anterior</string>
     <string name="stepDefaultDescription">Descrição</string>
+    <string name="bodyPageTitle">Corpo</string>
+    <string name="bodyPageSubtitle">Higiene</string>
+    <string name="bodyPageDescription">Nesta atividade será trabalhado os estímulos motores, sensoriais, como também tatéis!</string>
 </resources>

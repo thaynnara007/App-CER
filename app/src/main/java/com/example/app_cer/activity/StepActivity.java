@@ -60,6 +60,7 @@ public class StepActivity extends AppCompatActivity {
         stepIcon.setImageResource(icon);
         stepName.setTextColor(textColor);
         stepDescription.setTextColor(textColor);
+        congrats.setTextColor(textColor);
 
         if (lastStep >= 0) {
             Step step = steps.get(currentStep);

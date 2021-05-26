@@ -54,7 +54,9 @@ public class HygineActivity extends AppCompatActivity {
         View.OnClickListener onClickListenerBody = new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(context, "CONTROLE", Toast.LENGTH_SHORT).show();
+                Intent goToBodyActivity = new Intent(context, BodyActivity.class);
+
+                startActivity(goToBodyActivity);
             }
         };
 

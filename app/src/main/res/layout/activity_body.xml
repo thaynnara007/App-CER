@@ -4,23 +4,23 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorPrimaryYellow"
-    tools:context=".activity.SolidActivity">
+    android:background="@color/colorPrimaryPink"
+    tools:context=".activity.BodyActivity">
 
     <Button
-        android:id="@+id/solidBackButton"
+        android:id="@+id/bodyBackButton"
         style="?attr/buttonBarButtonStyle"
         android:layout_width="@dimen/arrowButtonWidth"
         android:layout_height="@dimen/arrowButtonHigth"
         android:layout_marginStart="32dp"
         android:layout_marginLeft="32dp"
         android:layout_marginTop="32dp"
-        android:background="@drawable/blue_arrow"
+        android:background="@drawable/white_arrow"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/cardViewSolid"
+        android:id="@+id/cardViewBody"
         android:layout_width="135dp"
         android:layout_height="@dimen/topCardViewHight"
         android:translationY="@dimen/topCardViewTranslationY"
@@ -38,12 +38,12 @@
             app:cardCornerRadius="45dp">
 
             <ImageView
-                android:id="@+id/imageViewSolid"
+                android:id="@+id/imageViewBody"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
                 android:contentDescription="@string/logoDescription"
-                android:src="@drawable/banana" />
+                android:src="@drawable/body" />
         </androidx.cardview.widget.CardView>
     </androidx.cardview.widget.CardView>
 
@@ -58,8 +58,8 @@
         android:id="@+id/textView8"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/solidPageTitle"
-        android:textColor="@color/colorAccent"
+        android:text="@string/bodyPageTitle"
+        android:textColor="@color/white"
         android:textSize="@dimen/stepPageTitleSize"
         android:textStyle="bold"
         app:fontFamily="@font/quicksand_medium"
@@ -71,8 +71,8 @@
         android:id="@+id/textView9"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/solidPageSubtitle"
-        android:textColor="@color/colorAccent"
+        android:text="@string/bodyPageSubtitle"
+        android:textColor="@color/white"
         android:textSize="@dimen/optionTextSize"
         android:textStyle="bold"
         app:fontFamily="@font/quicksand_medium"
@@ -90,8 +90,8 @@
         android:layout_marginEnd="70dp"
         android:layout_marginRight="70dp"
         android:gravity="center"
-        android:text="@string/solidPageDescription"
-        android:textColor="@color/colorAccent"
+        android:text="@string/bodyPageDescription"
+        android:textColor="@color/white"
         android:textSize="@dimen/stepDescriptionTextSize"
         android:textStyle="normal"
         app:fontFamily="@font/quicksand_medium"
@@ -100,7 +100,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView9" />
 
     <Button
-        android:id="@+id/solidStartButton"
+        android:id="@+id/bodyStartButton"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="85dp"
