@@ -1,25 +1,30 @@
 package com.example.app_cer.model;
 
-public class status {
+public class Status {
 
     private String status1;
     private String status2;
     private String status3;
+    private String name;
     private int amountStatus3;
     private int amountStatus2;
     private int amountStatus1;
+    private int image;
 
-    public status() {
+    public Status() {
 
     }
 
-    public status(String status1, String status2, String status3, int amountStatus3, int amountStatus2, int amountStatus1) {
+    public Status(String name, String status1, String status2, String status3, int amountStatus3, int amountStatus2, int amountStatus1, int image) {
+
+        this.name = name;
         this.status1 = status1;
         this.status2 = status2;
         this.status3 = status3;
         this.amountStatus3 = amountStatus3;
         this.amountStatus2 = amountStatus2;
         this.amountStatus1 = amountStatus1;
+        this.image = image;
     }
 
     public String getStatus1() {
@@ -68,5 +73,21 @@ public class status {
 
     public void setAmountStatus1(int amountStatus1) {
         this.amountStatus1 = amountStatus1;
+    }
+
+    public int getImage() {
+        return image;
+    }
+
+    public void setImage(int image) {
+        this.image = image;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }
