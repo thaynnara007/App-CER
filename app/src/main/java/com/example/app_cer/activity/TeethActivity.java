@@ -82,7 +82,7 @@ public class TeethActivity extends AppCompatActivity {
         );
 
         Step step6 = new Step(
-                "Etapa 5",
+                "Etapa 6",
                 "Realize a escovação e higienização!"
         );
 
