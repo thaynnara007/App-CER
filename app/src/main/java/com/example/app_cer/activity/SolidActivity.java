@@ -81,8 +81,7 @@ public class SolidActivity extends AppCompatActivity {
         Step stepFinal = new Step(
                 "PARABÉNS",
                 "O desenvolvimento do seu filho agradece!",
-                "Você concluiu essa atividade!",
-                R.drawable.solid_end
+                "Você concluiu essa atividade!"
         );
 
         this.steps.add(step1);

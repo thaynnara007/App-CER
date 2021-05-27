@@ -16,6 +16,12 @@ public class Step implements Serializable {
         this.image = image;
     }
 
+    public Step(String name, String description, String congrats) {
+        this.name = name;
+        this.description = description;
+        this.congrats = congrats;
+    }
+
     public Step(String name, String description, int image) {
         this.name = name;
         this.description = description;
