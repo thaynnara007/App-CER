@@ -72,7 +72,9 @@ public class MealsActivity extends AppCompatActivity {
         View.OnClickListener onClickListenerLiquid = new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(context, "CONTROLE", Toast.LENGTH_SHORT).show();
+                Intent goToLiquidActivity = new Intent(context, LiquidActivity.class);
+
+                startActivity(goToLiquidActivity);
             }
         };
 
