@@ -73,7 +73,7 @@ public class TeethActivity extends AppCompatActivity {
 
         Step step4 = new Step(
                 "Etapa 4",
-                "Deixa-a brincar, pegar, morder a escova!"
+                "Fale o nome do objeto para a criança!"
         );
 
         Step step5 = new Step(

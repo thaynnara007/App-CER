@@ -49,7 +49,7 @@ public class SolidActivity extends AppCompatActivity {
                 goToStepActivity.putExtra("steps", steps);
                 goToStepActivity.putExtra("backgroundColor", R.color.colorPrimaryYellow);
                 goToStepActivity.putExtra("textColor", R.color.colorAccent);
-                goToStepActivity.putExtra("icon", R.drawable.banana);
+                goToStepActivity.putExtra("icon", R.drawable.apple);
 
                 startActivity(goToStepActivity);
             }
