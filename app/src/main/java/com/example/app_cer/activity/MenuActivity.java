@@ -72,7 +72,9 @@ public class MenuActivity extends AppCompatActivity {
         View.OnClickListener onClickListenerControl = new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(context, "CONTROLE", Toast.LENGTH_SHORT).show();
+                Intent goToControlActivity = new Intent(context, ControlActivity.class);
+
+                startActivity(goToControlActivity);
             }
         };
 

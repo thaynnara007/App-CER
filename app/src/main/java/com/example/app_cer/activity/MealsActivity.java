@@ -81,7 +81,7 @@ public class MealsActivity extends AppCompatActivity {
         Option optSolids = new Option(
                 "Sólidas",
                 "Atividade responsável por estímulos motores e sensoriais.",
-                R.drawable.banana,
+                R.drawable.apple,
                 onClickListenerSolids);
 
         Option optPasty = new Option(

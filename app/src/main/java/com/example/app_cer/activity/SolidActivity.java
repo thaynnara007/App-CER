@@ -49,7 +49,7 @@ public class SolidActivity extends AppCompatActivity {
                 goToStepActivity.putExtra("steps", steps);
                 goToStepActivity.putExtra("backgroundColor", R.color.colorPrimaryYellow);
                 goToStepActivity.putExtra("textColor", R.color.colorAccent);
-                goToStepActivity.putExtra("icon", R.drawable.banana);
+                goToStepActivity.putExtra("icon", R.drawable.apple);
 
                 startActivity(goToStepActivity);
             }
@@ -65,23 +65,27 @@ public class SolidActivity extends AppCompatActivity {
 
         Step step2 = new Step(
                 "Etapa 2",
-                "Coloque a criança para sentir o cheiro da fruta!"
+                "Coloque a criança para sentir o cheiro da fruta!",
+                R.drawable.solid_step2
         );
 
         Step step3 = new Step(
                 "Etapa 3",
-                "Coloque a criança para pegar a fruta!"
+                "Coloque a criança para pegar a fruta!",
+                R.drawable.solid_step3
         );
 
         Step step4 = new Step(
                 "Etapa 4",
-                "Coloque a criança para comer a fruta!"
+                "Coloque a criança para comer a fruta!",
+                R.drawable.solid_step4
         );
 
         Step stepFinal = new Step(
                 "PARABÉNS",
                 "O desenvolvimento do seu filho agradece!",
-                "Você concluiu essa atividade!"
+                "Você concluiu essa atividade!",
+                R.drawable.solid_end
         );
 
         this.steps.add(step1);
