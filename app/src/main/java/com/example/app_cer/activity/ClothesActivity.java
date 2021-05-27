@@ -54,7 +54,9 @@ public class ClothesActivity extends AppCompatActivity {
         View.OnClickListener onClickListenerShirt = new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(context, "CONTROLE", Toast.LENGTH_SHORT).show();
+                Intent goToShirtActivity = new Intent(context, ShirtActivity.class);
+
+                startActivity(goToShirtActivity);
             }
         };
 

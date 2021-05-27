@@ -14,7 +14,7 @@ import com.example.app_cer.model.Step;
 
 import java.util.ArrayList;
 
-public class TeethActivity extends AppCompatActivity {
+public class ShirtActivity extends AppCompatActivity {
 
     private Button backButton, letsGoButton;
     private Typeface quicksand;
@@ -23,10 +23,10 @@ public class TeethActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_teeth);
+        setContentView(R.layout.activity_shirt);
 
-        backButton = findViewById(R.id.teethBackButton);
-        letsGoButton = findViewById(R.id.teethStartButton);
+        backButton = findViewById(R.id.shirtBackButton);
+        letsGoButton = findViewById(R.id.shirtStartButton);
         quicksand = ResourcesCompat.getFont(getBaseContext(), R.font.quicksand_medium);
 
         letsGoButton.setTypeface(quicksand, Typeface.BOLD);
@@ -45,9 +45,9 @@ public class TeethActivity extends AppCompatActivity {
                 Intent goToStepActivity = new Intent(getApplicationContext(), StepActivity.class);
 
                 goToStepActivity.putExtra("steps", steps);
-                goToStepActivity.putExtra("backgroundColor", R.color.colorPrimaryPink);
+                goToStepActivity.putExtra("backgroundColor", R.color.colorPrimaryBlue);
                 goToStepActivity.putExtra("textColor", R.color.white);
-                goToStepActivity.putExtra("icon", R.drawable.tooth);
+                goToStepActivity.putExtra("icon", R.drawable.shiert);
 
                 startActivity(goToStepActivity);
             }
@@ -58,38 +58,38 @@ public class TeethActivity extends AppCompatActivity {
 
         Step step1 = new Step(
                 "Etapa 1",
-                "Mostre a escova para a criança!"
+                "Escolha a blusinha que será vestida!"
         );
 
         Step step2 = new Step(
                 "Etapa 2",
-                "Passe a escova na mão da criança!"
+                "Encoste a criança em uma superfície."
         );
 
         Step step3 = new Step(
                 "Etapa 3",
-                "Deixa-a brincar, pegar, morder a escova!"
+                "Levante o braço direito, coloque a manga enquanto conversa com ela."
         );
 
         Step step4 = new Step(
                 "Etapa 4",
-                "Deixa-a brincar, pegar, morder a escova!"
+                "Agora o braço esquerdo, colocando a manga enquanto conversa com ela."
         );
 
         Step step5 = new Step(
                 "Etapa 5",
-                "Estimule a criança a abrir a boca conversando com ela!"
+                "Mantendo a conversa, insira a cabecinha na gola da blusa."
         );
 
         Step step6 = new Step(
                 "Etapa 6",
-                "Realize a escovação e higienização!"
+                "Por fim, comemore e se divirta com o final do processo."
         );
 
 
         Step stepFinal = new Step(
                 "PARABÉNS",
-                "Você está indo muito bem!",
+                "O seu progresso está melhorando!",
                 "Você concluiu essa atividade!",
                 R.drawable.body_end
         );
@@ -101,6 +101,5 @@ public class TeethActivity extends AppCompatActivity {
         this.steps.add(step5);
         this.steps.add(step6);
         this.steps.add(stepFinal);
-
     }
 }

@@ -52,4 +52,7 @@
     <string name="bodyPageDescription">Nesta atividade será trabalhado os estímulos motores, sensoriais, como também tatéis!</string>
     <string name="pastyPageTitle">Pastosas</string>
     <string name="liquidPageTitle">Líquidos</string>
+    <string name="shirtPageTitle">Blusa</string>
+    <string name="shiertPageSubtitle">Roupa</string>
+    <string name="shirtPageDescription">Esta atividade fica responsável por estímulos motores, sensoriais e também tatéis!</string>
 </resources>
