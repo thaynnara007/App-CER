@@ -63,7 +63,9 @@ public class HygineActivity extends AppCompatActivity {
         View.OnClickListener onClickListenerTeeth = new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(context, "CONTROLE", Toast.LENGTH_SHORT).show();
+                Intent goToTeethActivity = new Intent(context, TeethActivity.class);
+
+                startActivity(goToTeethActivity);
             }
         };
 
