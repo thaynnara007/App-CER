@@ -4,11 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorPrimaryPink"
-    tools:context=".activity.TeethActivity">
+    android:background="@color/colorPrimaryBlue"
+    tools:context=".activity.ShirtActivity">
 
     <Button
-        android:id="@+id/teethBackButton"
+        android:id="@+id/shirtBackButton"
         style="?attr/buttonBarButtonStyle"
         android:layout_width="@dimen/arrowButtonWidth"
         android:layout_height="@dimen/arrowButtonHigth"
@@ -20,7 +20,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/cardViewTeeth"
+        android:id="@+id/cardViewShiert"
         android:layout_width="135dp"
         android:layout_height="@dimen/topCardViewHight"
         android:translationY="@dimen/topCardViewTranslationY"
@@ -38,12 +38,12 @@
             app:cardCornerRadius="45dp">
 
             <ImageView
-                android:id="@+id/imageViewTeeth"
+                android:id="@+id/imageViewShiert"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
                 android:contentDescription="@string/logoDescription"
-                android:src="@drawable/tooth" />
+                android:src="@drawable/shiert" />
         </androidx.cardview.widget.CardView>
     </androidx.cardview.widget.CardView>
 
@@ -58,7 +58,7 @@
         android:id="@+id/textView8"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/bodyPageTitle"
+        android:text="@string/shirtPageTitle"
         android:textColor="@color/white"
         android:textSize="@dimen/stepPageTitleSize"
         android:textStyle="bold"
@@ -71,7 +71,7 @@
         android:id="@+id/textView9"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/bodyPageSubtitle"
+        android:text="@string/shiertPageSubtitle"
         android:textColor="@color/white"
         android:textSize="@dimen/optionTextSize"
         android:textStyle="bold"
@@ -90,7 +90,7 @@
         android:layout_marginEnd="70dp"
         android:layout_marginRight="70dp"
         android:gravity="center"
-        android:text="@string/bodyPageDescription"
+        android:text="@string/shirtPageDescription"
         android:textColor="@color/white"
         android:textSize="@dimen/stepDescriptionTextSize"
         android:textStyle="normal"
@@ -100,7 +100,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView9" />
 
     <Button
-        android:id="@+id/teethStartButton"
+        android:id="@+id/shiertStartButton"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="85dp"
@@ -120,6 +120,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView10" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>
