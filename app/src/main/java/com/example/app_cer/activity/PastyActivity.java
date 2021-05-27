@@ -13,9 +13,8 @@ import com.example.app_cer.R;
 import com.example.app_cer.model.Step;
 
 import java.util.ArrayList;
-import java.util.List;
 
-public class SolidActivity extends AppCompatActivity {
+public class PastyActivity extends AppCompatActivity {
 
     private Button backButton, letsGoButton;
     private Typeface quicksand;
@@ -24,10 +23,10 @@ public class SolidActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_solid);
+        setContentView(R.layout.activity_pasty);
 
-        backButton = findViewById(R.id.solidBackButton);
-        letsGoButton = findViewById(R.id.solidStartButton);
+        backButton = findViewById(R.id.pastyBackButton);
+        letsGoButton = findViewById(R.id.pastyStartButton);
         quicksand = ResourcesCompat.getFont(getBaseContext(), R.font.quicksand_medium);
 
 
@@ -49,7 +48,7 @@ public class SolidActivity extends AppCompatActivity {
                 goToStepActivity.putExtra("steps", steps);
                 goToStepActivity.putExtra("backgroundColor", R.color.colorPrimaryYellow);
                 goToStepActivity.putExtra("textColor", R.color.colorAccent);
-                goToStepActivity.putExtra("icon", R.drawable.banana);
+                goToStepActivity.putExtra("icon", R.drawable.soup);
 
                 startActivity(goToStepActivity);
             }
@@ -59,23 +58,32 @@ public class SolidActivity extends AppCompatActivity {
     private void genereteSteps(){
         Step step1 = new Step(
                 "Etapa 1",
-                "Fale o nome da fruta para a criança!",
-                R.drawable.solid_step1
+                "Escolha os ingredientes para fazer a sopinha!"
         );
 
         Step step2 = new Step(
                 "Etapa 2",
-                "Coloque a criança para sentir o cheiro da fruta!"
+                "Fale o nome dos ingredientes para a criança!"
         );
 
         Step step3 = new Step(
                 "Etapa 3",
-                "Coloque a criança para pegar a fruta!"
+                "Coloque-a para sentir o cheiro dos ingredientes!"
         );
 
         Step step4 = new Step(
                 "Etapa 4",
-                "Coloque a criança para comer a fruta!"
+                "Coloque-a para pegar nos ingredientes!"
+        );
+
+        Step step5 = new Step(
+                "Etapa 5",
+                "Prepare a sopinha enquanto a criança a observa!"
+        );
+
+        Step step6 = new Step(
+                "Etapa 6",
+                "Agora é só comer a sopinha, seja com a mão ou com a colher!"
         );
 
         Step stepFinal = new Step(
@@ -88,6 +96,8 @@ public class SolidActivity extends AppCompatActivity {
         this.steps.add(step2);
         this.steps.add(step3);
         this.steps.add(step4);
+        this.steps.add(step5);
+        this.steps.add(step6);
         this.steps.add(stepFinal);
     }
 }

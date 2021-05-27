@@ -63,7 +63,9 @@ public class MealsActivity extends AppCompatActivity {
         View.OnClickListener onClickListenerPasty = new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(context, "CONTROLE", Toast.LENGTH_SHORT).show();
+                Intent goToPastyActivity = new Intent(context, PastyActivity.class);
+
+                startActivity(goToPastyActivity);
             }
         };
 
