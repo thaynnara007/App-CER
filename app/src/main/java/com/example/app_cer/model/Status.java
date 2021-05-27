@@ -15,15 +15,20 @@ public class Status {
 
     }
 
-    public Status(String name, String status1, String status2, String status3, int amountStatus3, int amountStatus2, int amountStatus1, int image) {
+    public Status(String name, String status1, String status2, String status3, int image) {
 
         this.name = name;
         this.status1 = status1;
         this.status2 = status2;
         this.status3 = status3;
-        this.amountStatus3 = amountStatus3;
-        this.amountStatus2 = amountStatus2;
-        this.amountStatus1 = amountStatus1;
+        this.image = image;
+    }
+
+    public Status(String name, String status1, String status3, int image) {
+
+        this.name = name;
+        this.status1 = status1;
+        this.status3 = status3;
         this.image = image;
     }
 

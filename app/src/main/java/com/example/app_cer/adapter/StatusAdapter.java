@@ -32,7 +32,7 @@ public class StatusAdapter extends RecyclerView.Adapter<StatusAdapter.MyViewHold
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
 
-            this.statusIcon = itemView.findViewById(R.id.optionIcon);
+            this.statusIcon = itemView.findViewById(R.id.statusImage);
             this.name= itemView.findViewById(R.id.statusTitle);
             this.status1= itemView.findViewById(R.id.status1);
             this.status2 = itemView.findViewById(R.id.status2);
