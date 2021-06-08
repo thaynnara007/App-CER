@@ -102,7 +102,7 @@ public class MenuActivity extends AppCompatActivity {
         Option optProfile = new Option(
                 "Perfil",
                 "Verifique todas as informações pessoais de sua conta!",
-                R.drawable.blue_profile,
+                R.drawable.blue_profile_vector,
                 onClickListenerProfile);
 
         this.options.add(optActivity);
