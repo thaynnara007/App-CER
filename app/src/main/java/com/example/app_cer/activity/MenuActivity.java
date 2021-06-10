@@ -96,7 +96,7 @@ public class MenuActivity extends AppCompatActivity {
         Option optControl = new Option(
                 "Controle",
                 "Verifique quantas vezes você realizou as atividades!",
-                R.drawable.clipboard,
+                R.drawable.clipboard_vector,
                 onClickListenerControl);
 
         Option optProfile = new Option(
