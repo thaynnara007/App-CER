@@ -80,7 +80,7 @@ public class DailyLifeActivity extends AppCompatActivity {
         Option optMeal = new Option(
                 "Refeição",
                 "Aqui você encontra alimentos sólidos, líquidos e pastosos.",
-                R.drawable.meal,
+                R.drawable.meal_vector,
                 onClickListenerMeal);
 
         Option optHygine = new Option(

@@ -52,7 +52,7 @@ public class ControlActivity extends AppCompatActivity {
                 "Sólidos: 12",
                 "Pastosos: 15",
                 "Líquidos: 9",
-                R.drawable.plate_fade
+                R.drawable.meal_fade_vector
         );
 
         Status status2 = new Status(
