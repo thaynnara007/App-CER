@@ -79,7 +79,7 @@ public class ClothesActivity extends AppCompatActivity {
         Option optPants = new Option(
                 "Calça",
                 "Atividade responsável por estímulos motores, sensoriais e corporais.",
-                R.drawable.pants,
+                R.drawable.pants_vector,
                 onClickListenerPants);
 
 

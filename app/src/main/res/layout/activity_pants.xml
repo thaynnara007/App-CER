@@ -43,7 +43,7 @@
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
                 android:contentDescription="@string/logoDescription"
-                android:src="@drawable/pants" />
+                app:srcCompat="@drawable/pants_vector" />
         </androidx.cardview.widget.CardView>
     </androidx.cardview.widget.CardView>
 
