@@ -44,7 +44,7 @@
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
                 android:contentDescription="@string/logoDescription"
-                android:src="@drawable/liquid" />
+                app:srcCompat="@drawable/liquid_vector" />
         </androidx.cardview.widget.CardView>
     </androidx.cardview.widget.CardView>
 

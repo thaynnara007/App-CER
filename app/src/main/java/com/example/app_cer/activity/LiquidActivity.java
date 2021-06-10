@@ -48,7 +48,7 @@ public class LiquidActivity extends AppCompatActivity {
                 goToStepActivity.putExtra("steps", steps);
                 goToStepActivity.putExtra("backgroundColor", R.color.colorPrimaryYellow);
                 goToStepActivity.putExtra("textColor", R.color.colorAccent);
-                goToStepActivity.putExtra("icon", R.drawable.liquid);
+                goToStepActivity.putExtra("icon", R.drawable.liquid_vector);
 
                 startActivity(goToStepActivity);
             }

@@ -93,7 +93,7 @@ public class MealsActivity extends AppCompatActivity {
         Option optLiquid= new Option(
                 "Líquidas",
                 "Atividade responsável por estímulos motores, sensoriais e corporais.",
-                R.drawable.liquid,
+                R.drawable.liquid_vector,
                 onClickListenerLiquid);
 
         this.options.add(optSolids);
