@@ -79,7 +79,7 @@ public class HygineActivity extends AppCompatActivity {
         Option optTeeth = new Option(
                 "Dentes",
                 "Atividade responsável por estímulos motores, sensoriais e corporais.",
-                R.drawable.tooth,
+                R.drawable.tooth_vector,
                 onClickListenerTeeth);
 
 
