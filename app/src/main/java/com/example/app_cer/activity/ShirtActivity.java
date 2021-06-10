@@ -47,7 +47,7 @@ public class ShirtActivity extends AppCompatActivity {
                 goToStepActivity.putExtra("steps", steps);
                 goToStepActivity.putExtra("backgroundColor", R.color.colorPrimaryBlue);
                 goToStepActivity.putExtra("textColor", R.color.white);
-                goToStepActivity.putExtra("icon", R.drawable.shiert);
+                goToStepActivity.putExtra("icon", R.drawable.shiert_vector);
 
                 startActivity(goToStepActivity);
             }

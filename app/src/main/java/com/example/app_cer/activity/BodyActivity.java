@@ -47,7 +47,7 @@ public class BodyActivity extends AppCompatActivity {
                 goToStepActivity.putExtra("steps", steps);
                 goToStepActivity.putExtra("backgroundColor", R.color.colorPrimaryPink);
                 goToStepActivity.putExtra("textColor", R.color.white);
-                goToStepActivity.putExtra("icon", R.drawable.body);
+                goToStepActivity.putExtra("icon", R.drawable.body_vector);
 
                 startActivity(goToStepActivity);
             }

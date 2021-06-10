@@ -47,7 +47,7 @@ public class TeethActivity extends AppCompatActivity {
                 goToStepActivity.putExtra("steps", steps);
                 goToStepActivity.putExtra("backgroundColor", R.color.colorPrimaryPink);
                 goToStepActivity.putExtra("textColor", R.color.white);
-                goToStepActivity.putExtra("icon", R.drawable.tooth);
+                goToStepActivity.putExtra("icon", R.drawable.tooth_vector);
 
                 startActivity(goToStepActivity);
             }

@@ -47,7 +47,7 @@ public class PantsActivity extends AppCompatActivity {
                 goToStepActivity.putExtra("steps", steps);
                 goToStepActivity.putExtra("backgroundColor", R.color.colorPrimaryBlue);
                 goToStepActivity.putExtra("textColor", R.color.white);
-                goToStepActivity.putExtra("icon", R.drawable.pants);
+                goToStepActivity.putExtra("icon", R.drawable.pants_vector);
 
                 startActivity(goToStepActivity);
             }

@@ -52,21 +52,21 @@ public class ControlActivity extends AppCompatActivity {
                 "Sólidos: 12",
                 "Pastosos: 15",
                 "Líquidos: 9",
-                R.drawable.plate_fade
+                R.drawable.meal_fade_vector
         );
 
         Status status2 = new Status(
                 "Higiene",
                 "Corpo: 11",
                 "Dentes: 6",
-                R.drawable.hygine_fade
+                R.drawable.hygine_fade_vector
         );
 
         Status status3 = new Status(
                 "Roupas",
                 "Blusa: 11",
                 "Calça: 6",
-                R.drawable.hanger_fade
+                R.drawable.hanger_fade_vector
         );
 
         this.options.add(status1);

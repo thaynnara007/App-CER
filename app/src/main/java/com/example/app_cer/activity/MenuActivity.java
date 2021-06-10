@@ -90,19 +90,19 @@ public class MenuActivity extends AppCompatActivity {
         Option optActivity = new Option(
                 "Atividade",
                 "Aqui você pode escolher entre refeições, higiene e roupas.",
-                R.drawable.calendar,
+                R.drawable.calendar_vector,
                 onClickListenerActivity);
 
         Option optControl = new Option(
                 "Controle",
                 "Verifique quantas vezes você realizou as atividades!",
-                R.drawable.clipboard,
+                R.drawable.clipboard_vector,
                 onClickListenerControl);
 
         Option optProfile = new Option(
                 "Perfil",
                 "Verifique todas as informações pessoais de sua conta!",
-                R.drawable.blue_profile,
+                R.drawable.blue_profile_vector,
                 onClickListenerProfile);
 
         this.options.add(optActivity);
