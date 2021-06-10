@@ -66,7 +66,7 @@ public class ControlActivity extends AppCompatActivity {
                 "Roupas",
                 "Blusa: 11",
                 "Calça: 6",
-                R.drawable.hanger_fade
+                R.drawable.hanger_fade_vector
         );
 
         this.options.add(status1);

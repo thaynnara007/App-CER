@@ -92,7 +92,7 @@ public class DailyLifeActivity extends AppCompatActivity {
         Option optClothes = new Option(
                 "Roupas",
                 "Escolha qual das peças de roupa vamos praticar hoje!",
-                R.drawable.hanger,
+                R.drawable.hanger_vector,
                 onClickListenerClothes);
 
         this.options.add(optMeal);
