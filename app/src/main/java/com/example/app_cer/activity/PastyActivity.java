@@ -48,7 +48,7 @@ public class PastyActivity extends AppCompatActivity {
                 goToStepActivity.putExtra("steps", steps);
                 goToStepActivity.putExtra("backgroundColor", R.color.colorPrimaryYellow);
                 goToStepActivity.putExtra("textColor", R.color.colorAccent);
-                goToStepActivity.putExtra("icon", R.drawable.soup);
+                goToStepActivity.putExtra("icon", R.drawable.soup_vector);
 
                 startActivity(goToStepActivity);
             }

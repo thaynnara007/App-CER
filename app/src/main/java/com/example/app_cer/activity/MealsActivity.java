@@ -87,7 +87,7 @@ public class MealsActivity extends AppCompatActivity {
         Option optPasty = new Option(
                 "Pastosas",
                 "Atividade responsável por estímulos motores e sensoriais.",
-                R.drawable.soup,
+                R.drawable.soup_vector,
                 onClickListenerPasty);
 
         Option optLiquid= new Option(
