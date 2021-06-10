@@ -59,7 +59,7 @@ public class ControlActivity extends AppCompatActivity {
                 "Higiene",
                 "Corpo: 11",
                 "Dentes: 6",
-                R.drawable.hygine_fade
+                R.drawable.hygine_fade_vector
         );
 
         Status status3 = new Status(

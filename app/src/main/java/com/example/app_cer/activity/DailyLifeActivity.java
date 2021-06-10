@@ -86,7 +86,7 @@ public class DailyLifeActivity extends AppCompatActivity {
         Option optHygine = new Option(
                 "Higiene",
                 "Você pode escolher entre a higiene do corpo ou dos dentes.",
-                R.drawable.hygine,
+                R.drawable.hygine_vector,
                 onClickListenerHygine);
 
         Option optClothes = new Option(
