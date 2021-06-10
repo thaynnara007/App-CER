@@ -90,7 +90,7 @@ public class MenuActivity extends AppCompatActivity {
         Option optActivity = new Option(
                 "Atividade",
                 "Aqui você pode escolher entre refeições, higiene e roupas.",
-                R.drawable.calendar,
+                R.drawable.calendar_vector,
                 onClickListenerActivity);
 
         Option optControl = new Option(
