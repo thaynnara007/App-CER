@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activity.ControlActivity"></activity>
+        <activity android:name=".activity.BeginActivity"></activity>
+        <activity android:name=".activity.ControlActivity" />
         <activity android:name=".activity.PantsActivity" />
         <activity android:name=".activity.ShirtActivity" />
         <activity android:name=".activity.TeethActivity" />
