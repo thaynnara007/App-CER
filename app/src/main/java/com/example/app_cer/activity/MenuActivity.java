@@ -98,15 +98,15 @@ public class MenuActivity extends AppCompatActivity {
                 "Verifique quantas vezes você realizou as atividades!",
                 R.drawable.clipboard_vector,
                 onClickListenerControl);
-
+/*
         Option optProfile = new Option(
                 "Perfil",
                 "Verifique todas as informações pessoais de sua conta!",
                 R.drawable.blue_profile_vector,
-                onClickListenerProfile);
+                onClickListenerProfile); */
 
         this.options.add(optActivity);
         this.options.add(optControl);
-        this.options.add(optProfile);
+    //    this.options.add(optProfile);
     }
 }

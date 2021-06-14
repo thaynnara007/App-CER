@@ -29,12 +29,12 @@ public class BeginActivity extends AppCompatActivity {
         letsGo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent goToLoginActivity = new Intent(
+                Intent goToMenuActivity = new Intent(
                         getApplicationContext(),
-                        Login.class
+                        MenuActivity.class
                 );
 
-                startActivity(goToLoginActivity);
+                startActivity(goToMenuActivity);
             }
         });
     }
