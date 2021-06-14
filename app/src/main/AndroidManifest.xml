@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activity.BeginActivity"></activity>
+        <activity android:name=".activity.BeginActivity"
+            android:screenOrientation="portrait"/>
         <activity android:name=".activity.ControlActivity" />
         <activity android:name=".activity.PantsActivity" />
         <activity android:name=".activity.ShirtActivity" />
@@ -22,13 +23,18 @@
         <activity android:name=".activity.ClothesActivity" />
         <activity android:name=".activity.HygineActivity" />
         <activity android:name=".activity.MealsActivity" />
-        <activity android:name=".activity.DailyLifeActivity" />
-        <activity android:name=".activity.MenuActivity" />
-        <activity android:name=".activity.EditRegisterActivity" />
-        <activity android:name=".activity.RegisterActivity" />
-        <activity android:name=".activity.Login" />
+        <activity android:name=".activity.DailyLifeActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".activity.MenuActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".activity.EditRegisterActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".activity.RegisterActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".activity.Login"
+            android:screenOrientation="portrait"/>
         <activity android:name=".activity.MainActivity"
-            android:screenOrientation="sensor"
+            android:screenOrientation="portrait"
             >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
