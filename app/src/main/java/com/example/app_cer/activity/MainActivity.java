@@ -1,41 +1,32 @@
 package com.example.app_cer.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.content.res.ResourcesCompat;
 
 import android.content.Intent;
-import android.graphics.Typeface;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
+import android.os.Handler;
 
 import com.example.app_cer.R;
 
 public class MainActivity extends AppCompatActivity {
-
-    private Button letsGo;
-    private Typeface quicksand;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        letsGo = findViewById(R.id.letsGoButton);
+        Handler handler = new Handler();
 
-        quicksand = ResourcesCompat.getFont(getBaseContext(), R.font.quicksand_medium);
-        letsGo.setTypeface(quicksand, Typeface.BOLD);
-
-        letsGo.setOnClickListener(new View.OnClickListener() {
+        handler.postDelayed(new Runnable() {
             @Override
-            public void onClick(View view) {
-                Intent goToLoginActivity = new Intent(
+            public void run() {
+                Intent goToBeginActivity = new Intent(
                         getApplicationContext(),
-                        Login.class
-                );
+                        BeginActivity.class);
 
-                startActivity(goToLoginActivity);
+                startActivity(goToBeginActivity);
             }
-        });
+        }, 2000);
+
     }
 }
