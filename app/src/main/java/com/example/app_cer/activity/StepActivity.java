@@ -90,6 +90,9 @@ public class StepActivity extends AppCompatActivity {
                     }
                 }
                 else {
+
+
+
                     Intent backToDailyLifeActivity = new Intent(getApplicationContext(), DailyLifeActivity.class);
                     backToDailyLifeActivity.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
 

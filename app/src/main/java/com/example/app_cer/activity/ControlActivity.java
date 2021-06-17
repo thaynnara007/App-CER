@@ -9,9 +9,11 @@ import android.view.View;
 import android.widget.Button;
 
 import com.example.app_cer.R;
-import com.example.app_cer.adapter.OptionAdapter;
 import com.example.app_cer.adapter.StatusAdapter;
 import com.example.app_cer.model.Status;
+import com.example.app_cer.model.StatusCard;
+import com.example.app_cer.user_preferences.ActivityData;
+import com.example.app_cer.utils.Constants;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,7 +22,8 @@ public class ControlActivity extends AppCompatActivity {
 
     private Button backButton;
     private RecyclerView recyclerViewOptions;
-    private List<Status> options = new ArrayList<>();
+    private List<StatusCard> options = new ArrayList<>();
+    private ActivityData data;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +32,7 @@ public class ControlActivity extends AppCompatActivity {
 
         backButton = findViewById(R.id.controlBackButton);
         recyclerViewOptions = findViewById(R.id.recyclerViewControl);
+        data = new ActivityData(getApplicationContext());
 
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -47,30 +51,39 @@ public class ControlActivity extends AppCompatActivity {
     }
 
     private void generateOptions(){
-        Status status1 = new Status(
-                "Refeição",
-                "Sólidos: 12",
-                "Pastosos: 15",
-                "Líquidos: 9",
-                R.drawable.meal_fade_vector
+        ArrayList<Status> status1 = new ArrayList<>();
+        status1.add(new Status(Constants.SOLID_NAME, 0));
+        status1.add(new Status(Constants.LIQUID_NAME, 0));
+        status1.add(new Status(Constants.PASTY_NAME, 0));
+
+        ArrayList<Status> status2 = new ArrayList<>();
+        status2.add(new Status(Constants.BODY_NAME, 0));
+        status2.add(new Status(Constants.TEETH_NAME, 0));
+
+        ArrayList<Status> status3 = new ArrayList<>();
+        status3.add(new Status(Constants.SHIRT_NAME, 0));
+        status3.add(new Status(Constants.PANTS_NAME, 0));
+
+        StatusCard statusCard1 = new StatusCard(
+                Constants.MEAL_NAME,
+                R.drawable.meal_fade_vector,
+                status1
         );
 
-        Status status2 = new Status(
-                "Higiene",
-                "Corpo: 11",
-                "Dentes: 6",
-                R.drawable.hygine_fade_vector
+        StatusCard statusCard2 = new StatusCard(
+                Constants.HYGINE_NAME,
+                R.drawable.hygine_fade_vector,
+                status2
         );
 
-        Status status3 = new Status(
-                "Roupas",
-                "Blusa: 11",
-                "Calça: 6",
-                R.drawable.hanger_fade_vector
+        StatusCard statusCard3 = new StatusCard(
+                Constants.CLOTHES_NAME,
+                R.drawable.hanger_fade_vector,
+                status3
         );
 
-        this.options.add(status1);
-        this.options.add(status2);
-        this.options.add(status3);
+        this.options.add(statusCard1);
+        this.options.add(statusCard2);
+        this.options.add(statusCard3);
     }
 }
