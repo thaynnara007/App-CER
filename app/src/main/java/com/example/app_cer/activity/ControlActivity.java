@@ -52,17 +52,17 @@ public class ControlActivity extends AppCompatActivity {
 
     private void generateOptions(){
         ArrayList<Status> status1 = new ArrayList<>();
-        status1.add(new Status(Constants.SOLID_NAME, 0));
-        status1.add(new Status(Constants.LIQUID_NAME, 0));
-        status1.add(new Status(Constants.PASTY_NAME, 0));
+        status1.add(new Status(Constants.SOLID_NAME, data.getStatus(Constants.SOLID_NAME)));
+        status1.add(new Status(Constants.LIQUID_NAME, data.getStatus(Constants.LIQUID_NAME)));
+        status1.add(new Status(Constants.PASTY_NAME, data.getStatus(Constants.LIQUID_NAME)));
 
         ArrayList<Status> status2 = new ArrayList<>();
-        status2.add(new Status(Constants.BODY_NAME, 0));
-        status2.add(new Status(Constants.TEETH_NAME, 0));
+        status2.add(new Status(Constants.BODY_NAME, data.getStatus(Constants.BODY_NAME)));
+        status2.add(new Status(Constants.TEETH_NAME, data.getStatus(Constants.TEETH_NAME)));
 
         ArrayList<Status> status3 = new ArrayList<>();
-        status3.add(new Status(Constants.SHIRT_NAME, 0));
-        status3.add(new Status(Constants.PANTS_NAME, 0));
+        status3.add(new Status(Constants.SHIRT_NAME, data.getStatus(Constants.SHIRT_NAME)));
+        status3.add(new Status(Constants.PANTS_NAME, data.getStatus(Constants.PANTS_NAME)));
 
         StatusCard statusCard1 = new StatusCard(
                 Constants.MEAL_NAME,
