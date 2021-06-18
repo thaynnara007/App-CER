@@ -60,40 +60,46 @@ public class TeethActivity extends AppCompatActivity {
 
         Step step1 = new Step(
                 "Etapa 1",
-                "Mostre a escova para a criança!"
+                "Mostre a escova para a criança!",
+                R.drawable.teeth_step1
         );
 
         Step step2 = new Step(
                 "Etapa 2",
-                "Passe a escova na mão da criança!"
+                "Passe a escova na mão da criança!",
+                R.drawable.teeth_step2
         );
 
         Step step3 = new Step(
                 "Etapa 3",
-                "Deixa-a brincar, pegar, morder a escova!"
+                "Deixa-a brincar, pegar, morder a escova!",
+                R.drawable.teeth_step3
         );
 
         Step step4 = new Step(
                 "Etapa 4",
-                "Fale o nome do objeto para a criança!"
+                "Fale o nome do objeto para a criança!",
+                R.drawable.teeth_step4
         );
 
         Step step5 = new Step(
                 "Etapa 5",
-                "Estimule a criança a abrir a boca conversando com ela!"
+                "Converse com ela, enquanto pede para ir abrindo a boca!",
+                R.drawable.teeth_step5
         );
 
         Step step6 = new Step(
                 "Etapa 6",
-                "Realize a escovação e higienização!"
+                "Realize a escovação e higienização!",
+                R.drawable.teeth_step6
         );
 
 
         Step stepFinal = new Step(
                 "PARABÉNS",
-                "Você está indo muito bem!",
+                "Você foi muito bem!",
                 "Você concluiu essa atividade!",
-                R.drawable.body_end
+                R.drawable.hygine_end
         );
 
         this.steps.add(step1);
