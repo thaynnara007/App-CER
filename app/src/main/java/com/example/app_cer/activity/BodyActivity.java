@@ -65,29 +65,32 @@ public class BodyActivity extends AppCompatActivity {
 
         Step step2 = new Step(
                 "Etapa 2",
-                "Coloque a criança sentada no local do banho!"
+                "Coloque a criança sentada no local do banho!",
+                R.drawable.body_step2
         );
 
         Step step3 = new Step(
                 "Etapa 3",
-                "Estimule-a para que ela vá se ensaboando!"
+                "Estimule-a para que ela vá se ensaboando!",
+                R.drawable.body_step3
         );
 
         Step step4 = new Step(
                 "Etapa 4",
-                "Deixe ela ir retirando o shampp de seu cabelo!"
+                "Deixe ela ir retirando o shampoo de seu cabelo!"
         );
 
         Step step5 = new Step(
                 "Etapa 5",
-                "Deixe que ela possa brincar com o sabonete, o chuveirinho, etc."
+                "Deixe que ela possa brincar com o sabonete, o chuveirinho, etc.",
+                R.drawable.body_step5
         );
 
         Step stepFinal = new Step(
                 "PARABÉNS",
-                "Você está indo muito bem!",
+                "Você foi muito bem!",
                 "Você concluiu essa atividade!",
-                R.drawable.body_end
+                R.drawable.hygine_end
         );
 
         this.steps.add(step1);
