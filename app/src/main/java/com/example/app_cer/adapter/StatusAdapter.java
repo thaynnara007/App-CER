@@ -1,6 +1,5 @@
 package com.example.app_cer.adapter;
 
-import android.graphics.Typeface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,15 +11,17 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.app_cer.R;
 import com.example.app_cer.model.Status;
+import com.example.app_cer.model.StatusCard;
+import com.example.app_cer.utils.Constants;
 
 import java.util.List;
 
 public class StatusAdapter extends RecyclerView.Adapter<StatusAdapter.MyViewHolder> {
 
-    private List<Status> status;
+    private List<StatusCard> status;
 
 
-    public StatusAdapter(List<Status> status) {
+    public StatusAdapter(List<StatusCard> status) {
         this.status = status;
     }
 
@@ -53,14 +54,20 @@ public class StatusAdapter extends RecyclerView.Adapter<StatusAdapter.MyViewHold
 
     @Override
     public void onBindViewHolder(@NonNull StatusAdapter.MyViewHolder holder, int position) {
-        Status status = this.status.get(position);
+        StatusCard card = this.status.get(position);
+        holder.statusIcon.setImageResource(card.getImage());
+        holder.name.setText(card.getName());
 
-        holder.statusIcon.setImageResource(status.getImage());
-        holder.name.setText(status.getName());
-        holder.status1.setText(status.getStatus1());
-        if (status.getName().equals("Refeição"))
-            holder.status2.setText(status.getStatus2());
-        holder.status3.setText(status.getStatus3());
+        Status statusObj1 = card.getStatus().get(0);
+        holder.status1.setText(statusObj1.getName() + ": " + statusObj1.getAmount());
+
+        if (card.getName().equals(Constants.MEAL_NAME)) {
+            Status statusObj2 = card.getStatus().get(2);
+            holder.status2.setText(statusObj2.getName() + ": " + statusObj2.getAmount());
+        }
+
+        Status statusObj3 = card.getStatus().get(1);
+        holder.status3.setText(statusObj3.getName() + ": " + statusObj3.getAmount());
 
     }
 

@@ -11,6 +11,7 @@ import android.widget.Button;
 
 import com.example.app_cer.R;
 import com.example.app_cer.model.Step;
+import com.example.app_cer.utils.Constants;
 
 import java.util.ArrayList;
 
@@ -44,6 +45,7 @@ public class BodyActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent goToStepActivity = new Intent(getApplicationContext(), StepActivity.class);
 
+                goToStepActivity.putExtra("activityName", Constants.BODY_NAME);
                 goToStepActivity.putExtra("steps", steps);
                 goToStepActivity.putExtra("backgroundColor", R.color.colorPrimaryPink);
                 goToStepActivity.putExtra("textColor", R.color.white);
