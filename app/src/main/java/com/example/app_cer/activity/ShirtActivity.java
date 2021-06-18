@@ -93,7 +93,7 @@ public class ShirtActivity extends AppCompatActivity {
                 "PARABÉNS",
                 "O seu progresso está melhorando!",
                 "Você concluiu essa atividade!",
-                R.drawable.body_end
+                R.drawable.cloth_end
         );
 
         this.steps.add(step1);
