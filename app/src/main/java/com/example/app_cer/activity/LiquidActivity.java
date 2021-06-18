@@ -60,28 +60,33 @@ public class LiquidActivity extends AppCompatActivity {
     private void genereteSteps(){
         Step step1 = new Step(
                 "Etapa 1",
-                "Encha o copo de bico com o líquido, pode ser água ou suco!"
+                "Encha o copo de bico com o líquido, pode ser água ou suco!",
+                R.drawable.liquid_step1
         );
 
         Step step2 = new Step(
                 "Etapa 2",
-                "Coloque a criança para pegar no copo!"
+                "Coloque a criança para pegar no copo!",
+                R.drawable.liquid_step2
         );
 
         Step step3 = new Step(
                 "Etapa 3",
-                "Coloque-a para beber o líquido com calma!"
+                "Coloque-a para beber o líquido com calma!",
+                R.drawable.liquid_step3
         );
 
         Step step4 = new Step(
                 "Etapa 4",
-                "Agora pode deixar ela brincar com o copo vazio!"
+                "Agora pode deixar ela brincar com o copo vazio!",
+                R.drawable.liquid_step4
         );
 
         Step stepFinal = new Step(
                 "PARABÉNS",
                 "O desenvolvimento do seu filho agradece!",
-                "Você concluiu essa atividade!"
+                "Você concluiu essa atividade!",
+                R.drawable.meal_end
         );
 
         this.steps.add(step1);
