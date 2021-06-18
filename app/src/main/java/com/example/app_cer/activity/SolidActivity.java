@@ -14,7 +14,6 @@ import com.example.app_cer.model.Step;
 import com.example.app_cer.utils.Constants;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class SolidActivity extends AppCompatActivity {
 
@@ -87,7 +86,7 @@ public class SolidActivity extends AppCompatActivity {
                 "PARABÉNS",
                 "O desenvolvimento do seu filho agradece!",
                 "Você concluiu essa atividade!",
-                R.drawable.solid_end
+                R.drawable.meal_end
         );
 
         this.steps.add(step1);

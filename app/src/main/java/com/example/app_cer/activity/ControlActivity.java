@@ -54,7 +54,7 @@ public class ControlActivity extends AppCompatActivity {
         ArrayList<Status> status1 = new ArrayList<>();
         status1.add(new Status(Constants.SOLID_NAME, data.getStatus(Constants.SOLID_NAME)));
         status1.add(new Status(Constants.LIQUID_NAME, data.getStatus(Constants.LIQUID_NAME)));
-        status1.add(new Status(Constants.PASTY_NAME, data.getStatus(Constants.LIQUID_NAME)));
+        status1.add(new Status(Constants.PASTY_NAME, data.getStatus(Constants.PASTY_NAME)));
 
         ArrayList<Status> status2 = new ArrayList<>();
         status2.add(new Status(Constants.BODY_NAME, data.getStatus(Constants.BODY_NAME)));
