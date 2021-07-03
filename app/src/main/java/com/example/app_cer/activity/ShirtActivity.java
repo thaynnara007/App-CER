@@ -60,34 +60,33 @@ public class ShirtActivity extends AppCompatActivity {
 
         Step step1 = new Step(
                 "Etapa 1",
-                "Escolha a blusinha que será vestida!"
+                "Escolha a blusinha que será vestida!",
+                R.drawable.shirt_step1
         );
 
         Step step2 = new Step(
                 "Etapa 2",
-                "Encoste a criança em uma superfície."
+                "Encoste a criança em uma superfície.",
+                R.drawable.shirt_step2
         );
 
         Step step3 = new Step(
                 "Etapa 3",
-                "Levante o braço direito, coloque a manga enquanto conversa com ela."
+                "Coloque o braço direito, na manga enquanto conversa com ela!",
+                R.drawable.shirt_step3
         );
 
         Step step4 = new Step(
                 "Etapa 4",
-                "Agora o braço esquerdo, colocando a manga enquanto conversa com ela."
+                "Agora o braço esquerdo, colocando a manga enquanto conversa com ela.",
+                R.drawable.shirt_step4
         );
 
         Step step5 = new Step(
                 "Etapa 5",
-                "Mantendo a conversa, insira a cabecinha na gola da blusa."
+                "Mantendo a conversa, insira a cabecinha na gola da blusa.",
+                R.drawable.shirt_step5
         );
-
-        Step step6 = new Step(
-                "Etapa 6",
-                "Por fim, comemore e se divirta com o final do processo."
-        );
-
 
         Step stepFinal = new Step(
                 "PARABÉNS",
@@ -101,7 +100,6 @@ public class ShirtActivity extends AppCompatActivity {
         this.steps.add(step3);
         this.steps.add(step4);
         this.steps.add(step5);
-        this.steps.add(step6);
         this.steps.add(stepFinal);
     }
 }
