@@ -60,29 +60,27 @@ public class PantsActivity extends AppCompatActivity {
 
         Step step1 = new Step(
                 "Etapa 1",
-                "Escolha a calça ou o short que a criança irá vestir!"
+                "Escolha a calça ou o short que a criança irá vestir!",
+                R.drawable.pants_step1
         );
 
         Step step2 = new Step(
                 "Etapa 2",
-                "Encoste a criança em uma superfície!"
+                "Encoste a criança em uma superfície!",
+                R.drawable.shirt_step2
         );
 
         Step step3 = new Step(
                 "Etapa 3",
-                "Levante a perna direita dela, coloque-a na calça, enquanto conversa com ela!"
+                "Coloque a perna direita na calça enquanto conversa com ela!",
+                R.drawable.pants_step3
         );
 
         Step step4 = new Step(
                 "Etapa 4",
-                "Agora a perna esquerda, colocando-a na calça enquanto conversa com ela!"
+                "Coloque a perna esquerda, enquanto conversa com ela!",
+                R.drawable.pants_step4
         );
-
-        Step step5 = new Step(
-                "Etapa 5",
-                "Por fim, ajuste a calça na criança e comemore o final do processo!"
-        );
-
 
         Step stepFinal = new Step(
                 "PARABÉNS",
@@ -95,7 +93,6 @@ public class PantsActivity extends AppCompatActivity {
         this.steps.add(step2);
         this.steps.add(step3);
         this.steps.add(step4);
-        this.steps.add(step5);
         this.steps.add(stepFinal);
     }
 }
