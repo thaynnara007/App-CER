@@ -60,7 +60,8 @@ public class BodyActivity extends AppCompatActivity {
 
         Step step1 = new Step(
                 "Etapa 1",
-                "Tire a roupa movimentando os membros superiores e inferiores!"
+                "Tire a roupa movimentando os membros superiores e inferiores!",
+                R.drawable.body_step1
         );
 
         Step step2 = new Step(
@@ -77,7 +78,8 @@ public class BodyActivity extends AppCompatActivity {
 
         Step step4 = new Step(
                 "Etapa 4",
-                "Deixe ela ir retirando o shampoo de seu cabelo!"
+                "Deixe ela ir retirando o shampoo de seu cabelo!",
+                R.drawable.body_step4
         );
 
         Step step5 = new Step(
