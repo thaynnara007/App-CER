@@ -4,7 +4,7 @@ android {
     compileSdkVersion 30
     buildToolsVersion "29.0.2"
     defaultConfig {
-        applicationId "com.example.app_cer"
+        applicationId "com.cuidar.app_cer"
         minSdkVersion 15
         targetSdkVersion 30
         versionCode 1
