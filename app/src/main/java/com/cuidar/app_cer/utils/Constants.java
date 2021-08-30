@@ -2,6 +2,8 @@ package com.cuidar.app_cer.utils;
 
 public class Constants {
 
+    public static final String BASE_URL = "http://10.0.3.2:3030/";
+
     public static final String MEAL_NAME = "Refeição";
     public static final String HYGINE_NAME = "Higiene";
     public static final String CLOTHES_NAME = "Roupas";
