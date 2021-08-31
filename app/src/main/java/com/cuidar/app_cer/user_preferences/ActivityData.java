@@ -2,6 +2,7 @@ package com.cuidar.app_cer.user_preferences;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.util.Log;
 
 public class ActivityData {
 
@@ -28,18 +29,31 @@ public class ActivityData {
 
     public void postToken(String token){
         this.editor.putString("cuidarToken", token);
+        this.editor.commit();
     }
 
     public String getToken() {
         return this.preferences.getString("cuidarToken", "");
     }
 
+    public void deleteToken() {
+        this.editor.remove("cuidarToken");
+        Log.d("o", "deleteToken: ");
+        this.editor.commit();
+    }
+
     public void postUserName(String name){
         this.editor.putString("cuidarUserName", name);
+        this.editor.commit();
     }
 
     public String getUserName() {
         return this.preferences.getString("cuidarUserName", "");
+    }
+
+    public void deleteUserName() {
+        this.editor.remove("cuidarUserName");
+        this.editor.commit();
     }
 
     public boolean hasActivity(String actvityName) {

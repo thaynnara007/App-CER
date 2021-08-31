@@ -15,6 +15,7 @@ import android.widget.Button;
 import com.cuidar.app_cer.R;
 import com.cuidar.app_cer.adapter.OptionAdapter;
 import com.cuidar.app_cer.model.Option;
+import com.cuidar.app_cer.user_preferences.ActivityData;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,22 +27,34 @@ public class MenuActivity extends AppCompatActivity {
     private Typeface quicksand;
     private RecyclerView recyclerViewOptions;
     private List<Option> options = new ArrayList<>();
+    private ActivityData dataFile;
+    private Context context;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
 
+        context = getApplicationContext();
+
+        dataFile = new ActivityData(context);
+
         exitButton = findViewById(R.id.exitButton);
         recyclerViewOptions = findViewById(R.id.recyclerViewOptions);
 
-        quicksand = ResourcesCompat.getFont(getApplicationContext(), R.font.quicksand_medium);
+        quicksand = ResourcesCompat.getFont(context, R.font.quicksand_medium);
 
         exitButton.setTypeface(quicksand);
         exitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                finish();
+                dataFile.deleteToken();
+                dataFile.deleteUserName();
+
+                Intent backToBeginActivity = new Intent(context, BeginActivity.class);
+                backToBeginActivity.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+
+                startActivity(backToBeginActivity);
             }
         });
 
@@ -56,9 +69,6 @@ public class MenuActivity extends AppCompatActivity {
     }
 
     private void generateOptions(){
-
-        final Context context = getApplicationContext();
-
         View.OnClickListener onClickListenerActivity = new View.OnClickListener() {
             @Override
             public void onClick(View view) {

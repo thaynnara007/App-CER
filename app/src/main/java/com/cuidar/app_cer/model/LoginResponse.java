@@ -3,7 +3,7 @@ package com.cuidar.app_cer.model;
 public class LoginResponse {
 
     private String token;
-    private Patient ptient;
+    private Patient patient;
 
     public String getToken() {
         return token;
@@ -13,11 +13,11 @@ public class LoginResponse {
         this.token = token;
     }
 
-    public Patient getPtient() {
-        return ptient;
+    public Patient getPatient() {
+        return patient;
     }
 
-    public void setPtient(Patient ptient) {
-        this.ptient = ptient;
+    public void setPatient(Patient patient) {
+        this.patient = patient;
     }
 }
