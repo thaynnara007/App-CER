@@ -26,6 +26,22 @@ public class ActivityData {
         return this.preferences.getInt(activityName, 0);
     }
 
+    public void postToken(String token){
+        this.editor.putString("cuidarToken", token);
+    }
+
+    public String getToken() {
+        return this.preferences.getString("cuidarToken", "");
+    }
+
+    public void postUserName(String name){
+        this.editor.putString("cuidarUserName", name);
+    }
+
+    public String getUserName() {
+        return this.preferences.getString("cuidarUserName", "");
+    }
+
     public boolean hasActivity(String actvityName) {
         int status = this.getStatus(actvityName);
 
