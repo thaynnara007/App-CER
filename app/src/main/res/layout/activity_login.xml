@@ -92,32 +92,18 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/emailInput" />
 
-    <CheckBox
-        android:id="@+id/rememberMeCheckBox"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="60dp"
-        android:layout_marginLeft="60dp"
-        android:text="@string/rememberMeText"
-        android:textColor="@color/colorAccentYellow"
-        android:textSize="@dimen/smallTextSize"
-        android:textStyle="bold"
-        app:layout_constraintBaseline_toBaselineOf="@+id/forgetPasswordButton"
-        app:layout_constraintStart_toStartOf="parent" />
-
     <Button
         android:id="@+id/forgetPasswordButton"
         style="?android:attr/borderlessButtonStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="60dp"
-        android:layout_marginRight="60dp"
         android:background="@drawable/transparent_button"
         android:text="@string/forgetPasswordText"
         android:textAllCaps="false"
         android:textSize="@dimen/smallTextSize"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/passwordInput"
         tools:text="@string/forgetPasswordText" />
 
@@ -130,33 +116,17 @@
         android:layout_marginTop="60dp"
         android:layout_marginEnd="100dp"
         android:layout_marginRight="100dp"
-        android:background="@drawable/rounded_button_desabled"
+        android:background="@drawable/rounded_button"
         android:paddingTop="5dp"
         android:paddingBottom="5dp"
         android:text="@string/inButton"
         android:textAllCaps="false"
-        android:textColor="@color/colorPrimaryYellow"
+        android:textColor="@color/white"
         android:textSize="@dimen/defaultTextButtonSize"
         android:textStyle="bold"
         android:typeface="sans"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/passwordInput" />
-
-    <Button
-        android:id="@+id/registerButton"
-        style="?android:attr/borderlessButtonStyle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:background="@drawable/transparent_button"
-        android:text="@string/regiterButton"
-        android:textAllCaps="false"
-        android:textColor="@color/colorAccent"
-        android:textSize="@dimen/inputTextSize"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/getInButton" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
