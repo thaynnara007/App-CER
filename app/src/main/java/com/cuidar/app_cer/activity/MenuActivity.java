@@ -1,11 +1,13 @@
 package com.cuidar.app_cer.activity;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.res.ResourcesCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
@@ -65,6 +67,35 @@ public class MenuActivity extends AppCompatActivity {
 
         OptionAdapter adapter = new OptionAdapter(options);
         recyclerViewOptions.setAdapter(adapter);
+
+        Boolean firstLogin = getIntent().getBooleanExtra("firstLogin", false);
+        if (firstLogin)
+            openDialog();
+    }
+
+    private void openDialog() {
+        AlertDialog.Builder alert = new AlertDialog.Builder(this);
+
+        alert.setTitle("Atualizar senha");
+        alert.setMessage("Sua senha ainda é o seu CPF, mas agora que você tem nosso aplicativo você pode mudar sua senha para uma mais segura que só você saiba!");
+
+        alert.setPositiveButton("Mudar senha agora", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                Intent goToProfileActivity = new Intent(context, EditRegisterActivity.class);
+
+                startActivity(goToProfileActivity);
+            }
+        });
+        alert.setNegativeButton("Mudar depois", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+            }
+        });
+
+        alert.create();
+        alert.show();
 
     }
 

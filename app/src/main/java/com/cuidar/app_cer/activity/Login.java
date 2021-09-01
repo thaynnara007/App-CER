@@ -17,6 +17,7 @@ import com.cuidar.app_cer.api.AuthService;
 import com.cuidar.app_cer.helper.RetrofitConfig;
 import com.cuidar.app_cer.model.auth.LoginBody;
 import com.cuidar.app_cer.model.auth.LoginResponse;
+import com.cuidar.app_cer.model.patient.Patient;
 import com.cuidar.app_cer.user_preferences.ActivityData;
 import com.cuidar.app_cer.utils.Util;
 
@@ -92,6 +93,7 @@ public class Login extends AppCompatActivity {
             public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
                 if(response.isSuccessful()){
                     LoginResponse loginResponse = response.body();
+                    Patient patient = loginResponse.getPatient();
 
                     dataFile.postToken(loginResponse.getToken());
                     dataFile.postUserName(loginResponse.getPatient().getName());
@@ -100,6 +102,7 @@ public class Login extends AppCompatActivity {
                             context,
                             MenuActivity.class
                     );
+                    goToMenuActivity.putExtra("firstLogin", patient.getFirstLogin());
 
                     startActivity(goToMenuActivity);
                 }else
