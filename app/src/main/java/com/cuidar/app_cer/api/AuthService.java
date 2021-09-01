@@ -1,7 +1,7 @@
 package com.cuidar.app_cer.api;
 
-import com.cuidar.app_cer.model.LoginBody;
-import com.cuidar.app_cer.model.LoginResponse;
+import com.cuidar.app_cer.model.login.LoginBody;
+import com.cuidar.app_cer.model.login.LoginResponse;
 
 import retrofit2.Call;
 import retrofit2.http.Body;

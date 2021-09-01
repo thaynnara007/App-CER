@@ -11,14 +11,14 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
 
 import com.cuidar.app_cer.R;
 import com.cuidar.app_cer.api.AuthService;
 import com.cuidar.app_cer.helper.RetrofitConfig;
-import com.cuidar.app_cer.model.LoginBody;
-import com.cuidar.app_cer.model.LoginResponse;
+import com.cuidar.app_cer.model.login.LoginBody;
+import com.cuidar.app_cer.model.login.LoginResponse;
 import com.cuidar.app_cer.user_preferences.ActivityData;
+import com.cuidar.app_cer.utils.Util;
 
 import org.json.JSONObject;
 
@@ -68,10 +68,10 @@ public class Login extends AppCompatActivity {
                 String email = emailInput.getText().toString();
                 String password = passwordInput.getText().toString();
 
-                if ((email != null && email != "") && (password != null && password != ""))
+                if ((email != null && !email.equals("")) && (password != null && !password.equals("")))
                     login(email, password);
                 else
-                    showToast("O email e a senha precisam estar preenchidos.");
+                    Util.showToast(context, "O email e a senha precisam estar preenchidos.", null);
             }
         });
 
@@ -104,21 +104,8 @@ public class Login extends AppCompatActivity {
                     );
 
                     startActivity(goToMenuActivity);
-                }else {
-                    try {
-                        JSONObject error = new JSONObject(response.errorBody().string());
-                        String errorMsg = error.getString("error");
-
-                        Log.d("AUTH", "AUTH: " + errorMsg);
-                        Log.d("AUTH", "AUTH CODE: " + response.code());
-
-                        showToast(errorMsg);
-                    } catch (Exception e) {
-                        Log.d("ERROR", "ERROR: " + e.getMessage());
-                    }
-
-                }
-
+                }else
+                    Util.whenNotSuccessful(response, context, "LOGIN");
             }
 
             @Override
@@ -126,11 +113,5 @@ public class Login extends AppCompatActivity {
                 Log.d("ERROR", "ERROR-LOGIN: " + t.getMessage());
             }
         });
-    }
-
-    private void showToast(String text){
-        Toast.makeText(
-                context, text, Toast.LENGTH_LONG
-        ).show();
     }
 }
