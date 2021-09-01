@@ -64,4 +64,8 @@
     <string name="blue_triangle_description">A blue triangle</string>
     <string name="pink_triangle_description">A pink triangle</string>
     <string name="back_text">Voltar</string>
+    <string name="verify_code_title">Coloque o código</string>
+    <string name="verify_code_description">Informe o código que enviamos para seu email.</string>
+    <string name="verify_code_input_hint">Digite o código</string>
+    <string name="verify_code_button_text">Verificar</string>
 </resources>

@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.res.ResourcesCompat;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.util.Log;
@@ -65,8 +66,14 @@ public class SendEmailActivity extends AppCompatActivity {
 
                 if (email == null || email.equals(""))
                     Util.showToast(context, "O email deve ser preenchido.", null);
-                else
+                else {
                     sendEmail(email);
+
+                    Intent goToVerifyCodeActivity = new Intent(context, VerifyCodeActivity.class);
+                    goToVerifyCodeActivity.putExtra("email", email);
+
+                    startActivity(goToVerifyCodeActivity);
+                }
             }
         });
 
