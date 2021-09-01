@@ -1,4 +1,4 @@
-package com.cuidar.app_cer.model;
+package com.cuidar.app_cer.model.auth;
 
 public class LoginBody {
 

@@ -1,4 +1,4 @@
-package com.cuidar.app_cer.model;
+package com.cuidar.app_cer.model.patient;
 
 public class Patient {
 

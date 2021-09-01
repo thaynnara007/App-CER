@@ -52,7 +52,7 @@
         android:ems="10"
         android:gravity="center"
         android:hint="@string/emilInputHint"
-        android:inputType="textPersonName"
+        android:inputType="textEmailAddress"
         android:paddingTop="@dimen/inputTopPadding"
         android:paddingBottom="@dimen/inputBottomPadding"
         android:shadowDx="10"

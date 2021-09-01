@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.cuidar.app_cer">
-    
+
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
@@ -11,33 +11,48 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="com.cuidar.app_cer.activity.BeginActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name="com.cuidar.app_cer.activity.ControlActivity" />
-        <activity android:name="com.cuidar.app_cer.activity.PantsActivity" />
-        <activity android:name="com.cuidar.app_cer.activity.ShirtActivity" />
-        <activity android:name="com.cuidar.app_cer.activity.TeethActivity" />
-        <activity android:name="com.cuidar.app_cer.activity.LiquidActivity" />
-        <activity android:name="com.cuidar.app_cer.activity.PastyActivity" />
-        <activity android:name="com.cuidar.app_cer.activity.BodyActivity" />
-        <activity android:name="com.cuidar.app_cer.activity.StepActivity" />
-        <activity android:name="com.cuidar.app_cer.activity.SolidActivity" />
-        <activity android:name="com.cuidar.app_cer.activity.ClothesActivity" />
-        <activity android:name="com.cuidar.app_cer.activity.HygineActivity" />
-        <activity android:name="com.cuidar.app_cer.activity.MealsActivity" />
-        <activity android:name="com.cuidar.app_cer.activity.DailyLifeActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name="com.cuidar.app_cer.activity.MenuActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name="com.cuidar.app_cer.activity.EditRegisterActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name="com.cuidar.app_cer.activity.RegisterActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name="com.cuidar.app_cer.activity.Login"
-            android:screenOrientation="portrait"/>
-        <activity android:name="com.cuidar.app_cer.activity.MainActivity"
-            android:screenOrientation="portrait"
-            >
+        <activity
+            android:name=".activity.ChangePasswordActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.VerifyCodeActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.SendEmailActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.BeginActivity"
+            android:screenOrientation="portrait" />
+        <activity android:name=".activity.ControlActivity" />
+        <activity android:name=".activity.PantsActivity" />
+        <activity android:name=".activity.ShirtActivity" />
+        <activity android:name=".activity.TeethActivity" />
+        <activity android:name=".activity.LiquidActivity" />
+        <activity android:name=".activity.PastyActivity" />
+        <activity android:name=".activity.BodyActivity" />
+        <activity android:name=".activity.StepActivity" />
+        <activity android:name=".activity.SolidActivity" />
+        <activity android:name=".activity.ClothesActivity" />
+        <activity android:name=".activity.HygineActivity" />
+        <activity android:name=".activity.MealsActivity" />
+        <activity
+            android:name=".activity.DailyLifeActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.MenuActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.EditRegisterActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.RegisterActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.Login"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.MainActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

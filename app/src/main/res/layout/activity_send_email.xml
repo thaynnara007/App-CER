@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.SendEmailActivity"
+    >
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorPrimaryYellow">
+
+        <ImageView
+            android:id="@+id/send_email_blue_triangle"
+            android:layout_width="440dp"
+            android:layout_height="440dp"
+            android:layout_gravity="bottom"
+            android:contentDescription="@string/blue_triangle_description"
+            android:rotation="245"
+            android:scaleType="fitXY"
+            android:translationX="-40dp"
+            android:translationY="110dp"
+            app:srcCompat="@drawable/blue_triangle" />
+
+        <ImageView
+            android:id="@+id/send_email_yellow_triangle"
+            android:layout_width="440dp"
+            android:layout_height="440dp"
+            android:layout_gravity="top"
+            android:contentDescription="@string/pink_triangle_description"
+            android:rotation="65"
+            android:scaleType="fitXY"
+            android:translationX="40dp"
+            android:translationY="-100dp"
+            app:srcCompat="@drawable/pink_triangle" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/send_email_main_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="60dp"
+                android:text="@string/sendEmailMainText"
+                android:textColor="@color/colorAccent"
+                android:textSize="@dimen/titlePageSize"
+                android:textStyle="bold"
+                app:fontFamily="@font/quicksand_medium"
+                app:layout_constraintBottom_toTopOf="@+id/send_email_input"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.497"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+            <EditText
+                android:id="@+id/send_email_input"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="60dp"
+                android:layout_marginLeft="60dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginEnd="60dp"
+                android:layout_marginRight="60dp"
+                android:background="@drawable/rounded_input"
+                android:ems="10"
+                android:gravity="center"
+                android:hint="@string/emilInputHint"
+                android:inputType="textEmailAddress"
+                android:paddingTop="@dimen/inputTopPadding"
+                android:paddingBottom="@dimen/inputBottomPadding"
+                android:shadowDx="10"
+                android:shadowDy="10"
+                android:shadowRadius="20"
+                android:textColor="@color/colorAccent"
+                android:textColorHint="@color/colorAccent"
+                android:textSize="@dimen/inputTextSize"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/send_email_description"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginLeft="32dp"
+                android:layout_marginEnd="32dp"
+                android:layout_marginRight="32dp"
+                android:gravity="center"
+                android:text="@string/sendEmailDescription"
+                android:textColor="@color/colorAccent"
+                android:textSize="@dimen/defaultTextSize"
+                app:fontFamily="@font/quicksand_medium"
+                app:layout_constraintBottom_toTopOf="@+id/send_email_input"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/send_email_main_text" />
+
+            <Button
+                android:id="@+id/send_email_button"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="110dp"
+                android:layout_marginLeft="110dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginEnd="110dp"
+                android:layout_marginRight="110dp"
+                android:background="@drawable/rounded_button"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+                android:shadowDx="10"
+                android:shadowDy="10"
+                android:shadowRadius="20"
+                android:text="@string/send_email_button_text"
+                android:textAllCaps="false"
+                android:textColor="@android:color/background_light"
+                android:textSize="@dimen/defaultTextButtonSize"
+                android:textStyle="bold"
+                android:typeface="sans"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/send_email_input" />
+
+            <Button
+                android:id="@+id/send_email_back"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/transparent_button"
+                android:text="@string/back_text"
+                android:textAllCaps="false"
+                android:textSize="@dimen/smallTextSize"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/send_email_button"
+                tools:text="@string/back_text" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </FrameLayout>
+</androidx.cardview.widget.CardView>

@@ -11,16 +11,15 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
 
 import com.cuidar.app_cer.R;
 import com.cuidar.app_cer.api.AuthService;
 import com.cuidar.app_cer.helper.RetrofitConfig;
-import com.cuidar.app_cer.model.LoginBody;
-import com.cuidar.app_cer.model.LoginResponse;
+import com.cuidar.app_cer.model.auth.LoginBody;
+import com.cuidar.app_cer.model.auth.LoginResponse;
+import com.cuidar.app_cer.model.patient.Patient;
 import com.cuidar.app_cer.user_preferences.ActivityData;
-
-import org.json.JSONObject;
+import com.cuidar.app_cer.utils.Util;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -67,55 +66,53 @@ public class Login extends AppCompatActivity {
             public void onClick(View view) {
                 String email = emailInput.getText().toString();
                 String password = passwordInput.getText().toString();
-                LoginBody body = new LoginBody(email, password);
 
-                Call<LoginResponse> login = service.login(body);
+                if ((email != null && !email.equals("")) && (password != null && !password.equals("")))
+                    login(email, password);
+                else
+                    Util.showToast(context, "O email e a senha precisam estar preenchidos.", null);
+            }
+        });
 
-                login.enqueue(new Callback<LoginResponse>() {
-                    @Override
-                    public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
-                        if(response.isSuccessful()){
-                            LoginResponse loginResponse = response.body();
-
-                            dataFile.postToken(loginResponse.getToken());
-                            dataFile.postUserName(loginResponse.getPatient().getName());
-
-                            Intent goToMenuActivity = new Intent(
-                                    context,
-                                    MenuActivity.class
-                            );
-
-                            startActivity(goToMenuActivity);
-                        }else {
-                            try {
-                                JSONObject error = new JSONObject(response.errorBody().string());
-                                String errorMsg = error.getString("error");
-
-                                Log.d("AUTH", "AUTH: " + errorMsg);
-                                Log.d("AUTH", "AUTH CODE: " + response.code());
-
-                                showToast(errorMsg);
-                            } catch (Exception e) {
-                                Log.d("ERROR", "ERROR: " + e.getMessage());
-                            }
-
-                        }
-
-                    }
-
-                    @Override
-                    public void onFailure(Call<LoginResponse> call, Throwable t) {
-                        Log.d("ERROR", "ERROR-LOGIN: " + t.getMessage());
-                    }
-                });
+        forgetPasswordButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent goToSendEmailActivity = new Intent(context, SendEmailActivity.class);
+                startActivity(goToSendEmailActivity);
             }
         });
 
     }
+    private void login(String email, String password){
+        LoginBody body = new LoginBody(email, password);
 
-    private void showToast(String text){
-        Toast.makeText(
-                context, text, Toast.LENGTH_LONG
-        ).show();
+        Call<LoginResponse> loginCall = service.login(body);
+
+        loginCall.enqueue(new Callback<LoginResponse>() {
+            @Override
+            public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
+                if(response.isSuccessful()){
+                    LoginResponse loginResponse = response.body();
+                    Patient patient = loginResponse.getPatient();
+
+                    dataFile.postToken(loginResponse.getToken());
+                    dataFile.postUserName(loginResponse.getPatient().getName());
+
+                    Intent goToMenuActivity = new Intent(
+                            context,
+                            MenuActivity.class
+                    );
+                    goToMenuActivity.putExtra("firstLogin", patient.getFirstLogin());
+
+                    startActivity(goToMenuActivity);
+                }else
+                    Util.whenNotSuccessful(response, context, "LOGIN");
+            }
+
+            @Override
+            public void onFailure(Call<LoginResponse> call, Throwable t) {
+                Log.d("ERROR", "ERROR-LOGIN: " + t.getMessage());
+            }
+        });
     }
 }

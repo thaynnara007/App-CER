@@ -58,4 +58,19 @@
     <string name="pantsPageTitle">Calça</string>
     <string name="controlPageTitle">Controle</string>
     <string name="controlPageDescription">Aqui você pode ver quantas vezes você repetiu cada tarefa!</string>
+    <string name="sendEmailMainText">Coloque seu email</string>
+    <string name="sendEmailDescription">Informe o endereço de email cadastrado. você recebera por email  um código para recuperar sua senha.</string>
+    <string name="send_email_button_text">Enviar</string>
+    <string name="blue_triangle_description">A blue triangle</string>
+    <string name="pink_triangle_description">A pink triangle</string>
+    <string name="back_text">Voltar</string>
+    <string name="verify_code_title">Coloque o código</string>
+    <string name="verify_code_description">Informe o código que enviamos para seu email.</string>
+    <string name="verify_code_input_hint">Digite o código</string>
+    <string name="verify_code_button_text">Verificar</string>
+    <string name="change_password_title">Nova Senha</string>
+    <string name="change_password_description">Aqui você pode escolher qual vai ser sua nova senha de acesso.</string>
+    <string name="change_password_button_text">Pronto</string>
+    <string name="change_password_input1_hint">Digite sua nova senha</string>
+    <string name="changes_password_input2_hint">Digite-a novamente</string>
 </resources>

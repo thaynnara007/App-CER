@@ -1,4 +1,6 @@
-package com.cuidar.app_cer.model;
+package com.cuidar.app_cer.model.auth;
+
+import com.cuidar.app_cer.model.patient.Patient;
 
 public class LoginResponse {
 

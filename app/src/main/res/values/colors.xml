@@ -8,4 +8,5 @@
     <color name="colorAccent">#24267E</color>
     <color name="white">#FFFFFF</color>
     <color name="ColorFade">#dbdeea</color>
+    <color name="transparent">#00FFDF01</color>
 </resources>
