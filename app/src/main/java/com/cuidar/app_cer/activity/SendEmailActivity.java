@@ -15,10 +15,8 @@ import android.widget.EditText;
 import com.cuidar.app_cer.R;
 import com.cuidar.app_cer.api.PatientService;
 import com.cuidar.app_cer.helper.RetrofitConfig;
-import com.cuidar.app_cer.model.ForgetPasswordBody;
+import com.cuidar.app_cer.model.patient.ForgetPasswordBody;
 import com.cuidar.app_cer.utils.Util;
-
-import org.json.JSONObject;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -66,14 +64,8 @@ public class SendEmailActivity extends AppCompatActivity {
 
                 if (email == null || email.equals(""))
                     Util.showToast(context, "O email deve ser preenchido.", null);
-                else {
+                else
                     sendEmail(email);
-
-                    Intent goToVerifyCodeActivity = new Intent(context, VerifyCodeActivity.class);
-                    goToVerifyCodeActivity.putExtra("email", email);
-
-                    startActivity(goToVerifyCodeActivity);
-                }
             }
         });
 
@@ -81,15 +73,20 @@ public class SendEmailActivity extends AppCompatActivity {
     }
 
     private void sendEmail(String email){
-        ForgetPasswordBody body = new ForgetPasswordBody(email);
+        final ForgetPasswordBody body = new ForgetPasswordBody(email);
         Call<Void> sendEmailCall = service.sendForgetPasswordEmail(body);
 
         sendEmailCall.enqueue(new Callback<Void>() {
             @Override
             public void onResponse(Call<Void> call, Response<Void> response) {
-                if (response.isSuccessful())
+                if (response.isSuccessful()) {
                     Util.showToast(context, "Email enviado.", null);
-                else
+
+                    Intent goToVerifyCodeActivity = new Intent(context, VerifyCodeActivity.class);
+                    goToVerifyCodeActivity.putExtra("email", body.getEmail());
+
+                    startActivity(goToVerifyCodeActivity);
+                }else
                     Util.whenNotSuccessful(response, context, "SEND EMAIL");
             }
 

@@ -15,12 +15,10 @@ import android.widget.EditText;
 import com.cuidar.app_cer.R;
 import com.cuidar.app_cer.api.AuthService;
 import com.cuidar.app_cer.helper.RetrofitConfig;
-import com.cuidar.app_cer.model.login.LoginBody;
-import com.cuidar.app_cer.model.login.LoginResponse;
+import com.cuidar.app_cer.model.auth.LoginBody;
+import com.cuidar.app_cer.model.auth.LoginResponse;
 import com.cuidar.app_cer.user_preferences.ActivityData;
 import com.cuidar.app_cer.utils.Util;
-
-import org.json.JSONObject;
 
 import retrofit2.Call;
 import retrofit2.Callback;

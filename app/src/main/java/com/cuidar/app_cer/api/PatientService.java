@@ -1,6 +1,6 @@
 package com.cuidar.app_cer.api;
 
-import com.cuidar.app_cer.model.ForgetPasswordBody;
+import com.cuidar.app_cer.model.patient.ForgetPasswordBody;
 
 import retrofit2.Call;
 import retrofit2.http.Body;
