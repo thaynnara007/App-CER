@@ -9,7 +9,7 @@ public class VerifyCodeResponse {
     }
 
     public String getToken() {
-        return token;
+        return "Bearer " + token;
     }
 
     public void setToken(String token) {

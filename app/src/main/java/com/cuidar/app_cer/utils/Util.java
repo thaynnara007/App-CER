@@ -4,6 +4,8 @@ import android.content.Context;
 import android.util.Log;
 import android.widget.Toast;
 
+import com.cuidar.app_cer.user_preferences.ActivityData;
+
 import org.json.JSONObject;
 
 import retrofit2.Response;
@@ -29,5 +31,13 @@ public class Util {
         } catch (Exception e) {
             Log.d("ERROR", "ERROR: " + e.getMessage());
         }
+    }
+
+    public String getAccessToken(Context context){
+        ActivityData dataFile = new ActivityData(context);
+
+        String accessToken = "Bearer " +  dataFile.getToken();
+
+        return accessToken;
     }
 }

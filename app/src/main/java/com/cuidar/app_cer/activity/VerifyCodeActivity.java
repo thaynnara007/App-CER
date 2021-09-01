@@ -86,7 +86,10 @@ public class VerifyCodeActivity extends AppCompatActivity {
                 if (response.isSuccessful()){
                     VerifyCodeResponse responseBody = response.body();
 
-                    Log.d("s", "onResponse: " + responseBody.getToken());
+                    Intent goToChangePasswordActivity = new Intent(context, ChangePasswordActivity.class);
+                    goToChangePasswordActivity.putExtra("token", responseBody.getToken());
+
+                    startActivity(goToChangePasswordActivity);
                 }else
                     Util.whenNotSuccessful(response, context, "VERIFY CODE:" );
             }
