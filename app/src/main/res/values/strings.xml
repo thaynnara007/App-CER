@@ -58,4 +58,10 @@
     <string name="pantsPageTitle">Calça</string>
     <string name="controlPageTitle">Controle</string>
     <string name="controlPageDescription">Aqui você pode ver quantas vezes você repetiu cada tarefa!</string>
+    <string name="sendEmailMainText">Coloque seu email</string>
+    <string name="sendEmailDescription">Informe o endereço de email cadastrado. você recebera por email  um código para recuperar sua senha.</string>
+    <string name="send_email_button_text">Enviar</string>
+    <string name="blue_triangle_description">A blue triangle</string>
+    <string name="pink_triangle_description">A pink triangle</string>
+    <string name="back_text">Voltar</string>
 </resources>

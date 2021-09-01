@@ -75,6 +75,14 @@ public class Login extends AppCompatActivity {
             }
         });
 
+        forgetPasswordButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent goToSendEmailActivity = new Intent(context, SendEmailActivity.class);
+                startActivity(goToSendEmailActivity);
+            }
+        });
+
     }
     private void login(String email, String password){
         LoginBody body = new LoginBody(email, password);
