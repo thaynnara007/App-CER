@@ -67,50 +67,57 @@ public class Login extends AppCompatActivity {
             public void onClick(View view) {
                 String email = emailInput.getText().toString();
                 String password = passwordInput.getText().toString();
-                LoginBody body = new LoginBody(email, password);
 
-                Call<LoginResponse> login = service.login(body);
-
-                login.enqueue(new Callback<LoginResponse>() {
-                    @Override
-                    public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
-                        if(response.isSuccessful()){
-                            LoginResponse loginResponse = response.body();
-
-                            dataFile.postToken(loginResponse.getToken());
-                            dataFile.postUserName(loginResponse.getPatient().getName());
-
-                            Intent goToMenuActivity = new Intent(
-                                    context,
-                                    MenuActivity.class
-                            );
-
-                            startActivity(goToMenuActivity);
-                        }else {
-                            try {
-                                JSONObject error = new JSONObject(response.errorBody().string());
-                                String errorMsg = error.getString("error");
-
-                                Log.d("AUTH", "AUTH: " + errorMsg);
-                                Log.d("AUTH", "AUTH CODE: " + response.code());
-
-                                showToast(errorMsg);
-                            } catch (Exception e) {
-                                Log.d("ERROR", "ERROR: " + e.getMessage());
-                            }
-
-                        }
-
-                    }
-
-                    @Override
-                    public void onFailure(Call<LoginResponse> call, Throwable t) {
-                        Log.d("ERROR", "ERROR-LOGIN: " + t.getMessage());
-                    }
-                });
+                if ((email != null && email != "") && (password != null && password != ""))
+                    login(email, password);
+                else
+                    showToast("O email e a senha precisam estar preenchidos.");
             }
         });
 
+    }
+    private void login(String email, String password){
+        LoginBody body = new LoginBody(email, password);
+
+        Call<LoginResponse> loginCall = service.login(body);
+
+        loginCall.enqueue(new Callback<LoginResponse>() {
+            @Override
+            public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
+                if(response.isSuccessful()){
+                    LoginResponse loginResponse = response.body();
+
+                    dataFile.postToken(loginResponse.getToken());
+                    dataFile.postUserName(loginResponse.getPatient().getName());
+
+                    Intent goToMenuActivity = new Intent(
+                            context,
+                            MenuActivity.class
+                    );
+
+                    startActivity(goToMenuActivity);
+                }else {
+                    try {
+                        JSONObject error = new JSONObject(response.errorBody().string());
+                        String errorMsg = error.getString("error");
+
+                        Log.d("AUTH", "AUTH: " + errorMsg);
+                        Log.d("AUTH", "AUTH CODE: " + response.code());
+
+                        showToast(errorMsg);
+                    } catch (Exception e) {
+                        Log.d("ERROR", "ERROR: " + e.getMessage());
+                    }
+
+                }
+
+            }
+
+            @Override
+            public void onFailure(Call<LoginResponse> call, Throwable t) {
+                Log.d("ERROR", "ERROR-LOGIN: " + t.getMessage());
+            }
+        });
     }
 
     private void showToast(String text){
