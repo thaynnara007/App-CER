@@ -13,7 +13,7 @@ import com.cuidar.app_cer.R;
 
 public class EditRegisterActivity extends AppCompatActivity {
 
-    private EditText nameInput, genderInput, ageInput, phoneInput, emailInput, passwordInput;
+    private EditText nameInput, lastNameInput, ageInput, phoneInput, emailInput, passwordInput;
     private Button editButton, backButton;
     private Typeface quicksand;
 
@@ -23,7 +23,7 @@ public class EditRegisterActivity extends AppCompatActivity {
         setContentView(R.layout.activity_edit_register);
 
         nameInput = findViewById(R.id.nameInputEdit);
-        genderInput = findViewById(R.id.genderInputEdit);
+        lastNameInput = findViewById(R.id.lastNameInputEdit);
         ageInput = findViewById(R.id.ageInputEdit);
         phoneInput = findViewById(R.id.phoneInputEdit);
         emailInput = findViewById(R.id.emailRegisterInputEdit);
@@ -34,7 +34,7 @@ public class EditRegisterActivity extends AppCompatActivity {
         quicksand = ResourcesCompat.getFont(getApplicationContext(), R.font.quicksand_medium);
 
         nameInput.setTypeface(quicksand, Typeface.BOLD);
-        genderInput.setTypeface(quicksand, Typeface.BOLD);
+        lastNameInput.setTypeface(quicksand, Typeface.BOLD);
         ageInput.setTypeface(quicksand, Typeface.BOLD);
         phoneInput.setTypeface(quicksand, Typeface.BOLD);
         emailInput.setTypeface(quicksand, Typeface.BOLD);
