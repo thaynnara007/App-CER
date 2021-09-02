@@ -1,7 +1,10 @@
 package com.cuidar.app_cer.model.patient;
 
+import com.cuidar.app_cer.model.address.Address;
+
 public class Patient {
 
+    private int id;
     private String name;
     private String lastName;
     private String cpf;
@@ -10,6 +13,16 @@ public class Patient {
     private String phoneNumber;
     private String email;
     private Boolean firstLogin;
+    private Address address;
+
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public String getName() {
         return name;
@@ -73,5 +86,13 @@ public class Patient {
 
     public void setFirstLogin(Boolean firstLogin) {
         this.firstLogin = firstLogin;
+    }
+
+    public Address getAddress() {
+        return address;
+    }
+
+    public void setAddress(Address address) {
+        this.address = address;
     }
 }
