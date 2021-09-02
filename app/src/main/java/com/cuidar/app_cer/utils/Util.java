@@ -33,7 +33,7 @@ public class Util {
         }
     }
 
-    public String getAccessToken(Context context){
+    public static String getAccessToken(Context context){
         ActivityData dataFile = new ActivityData(context);
 
         String accessToken = "Bearer " +  dataFile.getToken();
