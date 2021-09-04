@@ -1,6 +1,7 @@
 package com.cuidar.app_cer.api;
 
 import com.cuidar.app_cer.model.patient.ChangePasswordBody;
+import com.cuidar.app_cer.model.patient.EditPatientBody;
 import com.cuidar.app_cer.model.patient.ForgetPasswordBody;
 import com.cuidar.app_cer.model.patient.Patient;
 
@@ -21,4 +22,7 @@ public interface PatientService {
 
     @GET("patient/me")
     Call<Patient> getPatient (@Header("Authorization") String token);
+
+    @PUT("patient/me")
+    Call<Patient> updatePatient(@Body EditPatientBody body, @Header("Authorization") String token);
 }

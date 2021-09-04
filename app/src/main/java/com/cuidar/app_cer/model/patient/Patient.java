@@ -7,6 +7,7 @@ public class Patient {
     private int id;
     private String name;
     private String lastName;
+    private String password;
     private String cpf;
     private String cpfFormatted;
     private String birthday;
@@ -15,6 +16,22 @@ public class Patient {
     private Boolean firstLogin;
     private Address address;
 
+    public Patient(String name, String lastName, String birthday, String phoneNumber, String email, String password) {
+        this.name = name;
+        this.lastName = lastName;
+        this.birthday = birthday;
+        this.phoneNumber = phoneNumber;
+        this.email = email;
+        this.password = password;
+    }
+
+    public Patient(String name, String lastName, String birthday, String phoneNumber, String email) {
+        this.name = name;
+        this.lastName = lastName;
+        this.birthday = birthday;
+        this.phoneNumber = phoneNumber;
+        this.email = email;
+    }
 
     public int getId() {
         return id;

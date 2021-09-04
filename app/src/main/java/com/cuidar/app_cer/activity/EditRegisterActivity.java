@@ -15,6 +15,7 @@ import com.cuidar.app_cer.R;
 import com.cuidar.app_cer.api.PatientService;
 import com.cuidar.app_cer.helper.RetrofitConfig;
 import com.cuidar.app_cer.model.address.Address;
+import com.cuidar.app_cer.model.patient.EditPatientBody;
 import com.cuidar.app_cer.model.patient.Patient;
 import com.cuidar.app_cer.utils.Util;
 
@@ -33,7 +34,6 @@ public class EditRegisterActivity extends AppCompatActivity {
     private Retrofit retrofit;
     private PatientService service;
     private Context context;
-    private String token;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,7 +43,7 @@ public class EditRegisterActivity extends AppCompatActivity {
         context = getApplicationContext();
         retrofit = RetrofitConfig.getRetrofit();
         service = retrofit.create(PatientService.class);
-        token = Util.getAccessToken(context);
+
 
         nameInput = findViewById(R.id.nameInputEdit);
         lastNameInput = findViewById(R.id.lastNameInputEdit);
@@ -85,10 +85,70 @@ public class EditRegisterActivity extends AppCompatActivity {
             }
         });
 
+        editButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Patient patient = getPatientInfo();
+                Address address = getAddressInfo();
+
+                if (patient != null && address != null){
+                    updatePatient(patient, address);
+                }
+            }
+        });
+
         getPatient();
     }
 
+    private Patient getPatientInfo(){
+        String name = nameInput.getText().toString();
+        String lastName = lastNameInput.getText().toString();
+        String birthday = ageInput.getText().toString();
+        String phoneNumber = phoneInput.getText().toString();
+        String email = emailInput.getText().toString();
+        String password = passwordInput.getText().toString();
+        String password2 = confirmPasswordInput.getText().toString();
+
+        Boolean valid = Util.isValid(birthday, "dd/MM/yyyy");
+
+        if (!valid){
+            Util.showToast(context, "Formato de data incorreto.", null);
+            return null;
+        }
+        if (!password.equals(password2)) {
+            Util.showToast(context, "As senhas precisam estar iguais", null);
+            return  null;
+        }
+
+        int day = 0;
+        int month = 1;
+        int year = 2;
+
+        String[] birthdayArray = birthday.split("/");
+        String birthdayFormatted = String.format(
+                "%s/%s/%s", birthdayArray[month], birthdayArray[day], birthdayArray[year]
+        );
+
+        Patient patient = new Patient(name, lastName, birthdayFormatted, phoneNumber, email, password);
+        return patient;
+
+    }
+
+    private Address getAddressInfo(){
+        String state = stateInput.getText().toString();
+        String city = cityInput.getText().toString();
+        String zipCode = zipCodeInput.getText().toString();
+        String district = districtInput.getText().toString();
+        String street = streetInput.getText().toString();
+        String number = numberInput.getText().toString();
+
+        Address address = new Address(state, city, zipCode, district, street, number);
+
+        return  address;
+    }
+
     private void getPatient(){
+        String token = Util.getAccessToken(context);
         Call<Patient> getPatientCall = service.getPatient(token);
 
         getPatientCall.enqueue(new Callback<Patient>() {
@@ -98,9 +158,9 @@ public class EditRegisterActivity extends AppCompatActivity {
                     Patient patient = response.body();
                     Address address = patient.getAddress();
 
-                    int day = 1;
+                    int day = 2;
                     int year = 0;
-                    int month = 2;
+                    int month = 1;
                     String[] birthdayNums = patient.getBirthday().split("T")[0].split("-");
                     String birthday = String.format(
                             "%s/%s/%s", birthdayNums[day], birthdayNums[month], birthdayNums[year]
@@ -132,7 +192,24 @@ public class EditRegisterActivity extends AppCompatActivity {
         });
     }
 
-    private void updatePatient() {
+    private void updatePatient(Patient patient, Address address) {
+        String token = Util.getAccessToken(context);
+        EditPatientBody body = new EditPatientBody(patient, address);
+        Call<Patient> updatePatientCall = service.updatePatient(body, token);
 
+        updatePatientCall.enqueue(new Callback<Patient>() {
+            @Override
+            public void onResponse(Call<Patient> call, Response<Patient> response) {
+                if(response.isSuccessful()){
+                    Util.showToast(context, "Dados atualizados", null);
+                }else
+                    Util.whenNotSuccessful(response, context, "UPDATE PATIENT:");
+            }
+
+            @Override
+            public void onFailure(Call<Patient> call, Throwable t) {
+                Log.d("ERROR", "ERROR-UPDATE-PATIENT: " + t.getMessage());
+            }
+        });
     }
 }

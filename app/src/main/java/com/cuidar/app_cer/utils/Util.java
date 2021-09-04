@@ -8,6 +8,10 @@ import com.cuidar.app_cer.user_preferences.ActivityData;
 
 import org.json.JSONObject;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+
 import retrofit2.Response;
 
 public class Util {
@@ -39,5 +43,17 @@ public class Util {
         String accessToken = "Bearer " +  dataFile.getToken();
 
         return accessToken;
+    }
+
+    public static Boolean isValid (String date, String format) {
+        DateFormat sdf = new SimpleDateFormat(format);
+        sdf.setLenient(false);
+
+        try {
+            sdf.parse(date);
+            return true;
+        }catch (ParseException e){
+            return false;
+        }
     }
 }

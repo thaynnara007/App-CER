@@ -9,7 +9,15 @@ public class Address {
     private String district;
     private String street;
     private String number;
-    private String complement;
+
+    public Address(String state, String city, String zipCode, String district, String street, String number) {
+        this.state = state;
+        this.city = city;
+        this.zipCode = zipCode;
+        this.district = district;
+        this.street = street;
+        this.number = number;
+    }
 
     public int getId() {
         return id;
@@ -65,13 +73,5 @@ public class Address {
 
     public void setNumber(String number) {
         this.number = number;
-    }
-
-    public String getComplement() {
-        return complement;
-    }
-
-    public void setComplement(String complement) {
-        this.complement = complement;
     }
 }
