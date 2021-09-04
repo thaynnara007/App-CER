@@ -4,7 +4,6 @@ import com.cuidar.app_cer.model.address.Address;
 
 public class Patient {
 
-    private int id;
     private String name;
     private String lastName;
     private String password;
@@ -23,22 +22,6 @@ public class Patient {
         this.phoneNumber = phoneNumber;
         this.email = email;
         this.password = password;
-    }
-
-    public Patient(String name, String lastName, String birthday, String phoneNumber, String email) {
-        this.name = name;
-        this.lastName = lastName;
-        this.birthday = birthday;
-        this.phoneNumber = phoneNumber;
-        this.email = email;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public String getName() {

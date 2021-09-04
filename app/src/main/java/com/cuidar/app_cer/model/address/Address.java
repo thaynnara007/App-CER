@@ -2,7 +2,6 @@ package com.cuidar.app_cer.model.address;
 
 public class Address {
 
-    private int id;
     private String state;
     private String city;
     private String zipCode;
@@ -17,14 +16,6 @@ public class Address {
         this.district = district;
         this.street = street;
         this.number = number;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public String getState() {

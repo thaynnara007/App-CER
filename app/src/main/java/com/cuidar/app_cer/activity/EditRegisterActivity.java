@@ -158,9 +158,9 @@ public class EditRegisterActivity extends AppCompatActivity {
                     Patient patient = response.body();
                     Address address = patient.getAddress();
 
-                    int day = 2;
+                    int day = 1;
                     int year = 0;
-                    int month = 1;
+                    int month = 2;
                     String[] birthdayNums = patient.getBirthday().split("T")[0].split("-");
                     String birthday = String.format(
                             "%s/%s/%s", birthdayNums[day], birthdayNums[month], birthdayNums[year]
