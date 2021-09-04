@@ -167,7 +167,7 @@
                     android:background="@drawable/rounded_input"
                     android:ems="10"
                     android:gravity="center"
-                    android:hint="@string/genderInputHint"
+                    android:hint="@string/lastNameInputHint"
                     android:inputType="textPersonName"
                     android:paddingTop="8dp"
                     android:paddingBottom="8dp"

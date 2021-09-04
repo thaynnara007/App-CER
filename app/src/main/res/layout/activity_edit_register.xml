@@ -1,266 +1,441 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activity.EditRegisterActivity" >
-
-    <FrameLayout
+    android:orientation="vertical">
+    <ScrollView
+        android:id="@+id/scroll_profile"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/colorPrimaryPink">
-
-        <ImageView
-            android:id="@+id/register_yellow_triangle"
-            android:layout_width="340dp"
-            android:layout_height="340dp"
-            android:layout_gravity="bottom|end"
-            android:rotation="200"
-            android:translationX="10dp"
-            android:translationY="110dp"
-            app:srcCompat="@drawable/blue_triangle" />
-
-        <ImageView
-            android:id="@+id/register_blue_triangle"
-            android:layout_width="440dp"
-            android:layout_height="440dp"
-            android:layout_gravity="bottom|start"
-            android:rotation="250"
-            android:scaleType="fitXY"
-            android:translationX="-10dp"
-            android:translationY="160dp"
-            app:srcCompat="@drawable/yellow_triangle" />
-
-
-        <androidx.constraintlayout.widget.ConstraintLayout
+        android:isScrollContainer="true"
+        android:fillViewport="true"
+        tools:context=".activity.EditRegisterActivity">
+        <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent" >
 
-            <Button
-                android:id="@+id/editBackButton"
-                style="?attr/buttonBarButtonStyle"
-                android:layout_width="@dimen/arrowButtonWidth"
-                android:layout_height="@dimen/arrowButtonHigth"
-                android:layout_marginStart="32dp"
-                android:layout_marginLeft="32dp"
-                android:layout_marginTop="32dp"
-                android:background="@drawable/white_arrow_vector"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/colorPrimaryPink">
 
-            <androidx.cardview.widget.CardView
-                android:id="@+id/cardView3"
-                android:layout_width="110dp"
-                android:layout_height="110dp"
-                android:layout_marginBottom="8dp"
-                app:cardBackgroundColor="@color/colorAccent"
-                app:cardCornerRadius="55dp"
-                app:layout_constraintBottom_toTopOf="@+id/linearLayout"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent">
+                <ImageView
+                    android:id="@+id/register_yellow_triangle"
+                    android:layout_width="340dp"
+                    android:layout_height="340dp"
+                    android:layout_gravity="bottom|end"
+                    android:rotation="200"
+                    android:translationX="10dp"
+                    android:translationY="110dp"
+                    app:srcCompat="@drawable/blue_triangle" />
 
-                <androidx.cardview.widget.CardView
-                    android:layout_width="94dp"
-                    android:layout_height="94dp"
-                    android:layout_gravity="center"
-                    app:cardCornerRadius="47dp">
+                <ImageView
+                    android:id="@+id/register_blue_triangle"
+                    android:layout_width="440dp"
+                    android:layout_height="440dp"
+                    android:layout_gravity="bottom|start"
+                    android:rotation="250"
+                    android:scaleType="fitXY"
+                    android:translationX="-10dp"
+                    android:translationY="160dp"
+                    app:srcCompat="@drawable/yellow_triangle" />
 
-                    <FrameLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:background="@drawable/card_edge">
 
-                        <ImageView
-                            android:id="@+id/imageView5"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <Button
+                        android:id="@+id/editBackButton"
+                        style="?attr/buttonBarButtonStyle"
+                        android:layout_width="@dimen/arrowButtonWidth"
+                        android:layout_height="@dimen/arrowButtonHigth"
+                        android:layout_marginStart="32dp"
+                        android:layout_marginLeft="32dp"
+                        android:layout_marginTop="32dp"
+                        android:background="@drawable/white_arrow_vector"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/cardView3"
+                        android:layout_width="110dp"
+                        android:layout_height="110dp"
+                        app:cardBackgroundColor="@color/colorAccent"
+                        app:cardCornerRadius="55dp"
+                        app:layout_constraintBottom_toTopOf="@+id/guideline"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="94dp"
+                            android:layout_height="94dp"
                             android:layout_gravity="center"
-                            android:contentDescription="@string/profileLogoDescription"
-                            app:srcCompat="@drawable/vetor_perfil" />
-                    </FrameLayout>
-                </androidx.cardview.widget.CardView>
-            </androidx.cardview.widget.CardView>
+                            app:cardCornerRadius="47dp">
 
-            <androidx.constraintlayout.widget.Guideline
-                android:id="@+id/guideline"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                app:layout_constraintGuide_begin="200dp" />
+                            <FrameLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="@drawable/card_edge">
 
-            <LinearLayout
-                android:id="@+id/linearLayout"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:orientation="vertical"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/guideline">
+                                <ImageView
+                                    android:id="@+id/imageView5"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_gravity="center"
+                                    android:contentDescription="@string/profileLogoDescription"
+                                    app:srcCompat="@drawable/vetor_perfil" />
+                            </FrameLayout>
+                        </androidx.cardview.widget.CardView>
+                    </androidx.cardview.widget.CardView>
+                    <androidx.constraintlayout.widget.Guideline
+                        android:id="@+id/guideline"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        app:layout_constraintGuide_begin="200dp" />
 
-                <EditText
-                    android:id="@+id/nameInputEdit"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginStart="60dp"
-                    android:layout_marginTop="@dimen/registerInputdMarginTop"
-                    android:layout_marginEnd="60dp"
-                    android:background="@drawable/rounded_input"
-                    android:ems="10"
-                    android:gravity="center"
-                    android:hint="@string/nameInputHint"
-                    android:inputType="textPersonName"
-                    android:paddingTop="8dp"
-                    android:paddingBottom="8dp"
-                    android:shadowDx="10"
-                    android:shadowDy="10"
-                    android:shadowRadius="20"
-                    android:textColor="@color/colorAccent"
-                    android:textColorHint="@color/colorAccent"
-                    android:textSize="@dimen/inputTextSize"
-                    android:textStyle="bold" />
+                    <LinearLayout
+                        android:id="@+id/linearLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/guideline">
 
-                <EditText
-                    android:id="@+id/genderInputEdit"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginStart="60dp"
-                    android:layout_marginTop="@dimen/registerInputdMarginTop"
-                    android:layout_marginEnd="60dp"
-                    android:background="@drawable/rounded_input"
-                    android:ems="10"
-                    android:gravity="center"
-                    android:hint="@string/genderInputHint"
-                    android:inputType="textPersonName"
-                    android:paddingTop="8dp"
-                    android:paddingBottom="8dp"
-                    android:shadowDx="10"
-                    android:shadowDy="10"
-                    android:shadowRadius="20"
-                    android:textColor="@color/colorAccent"
-                    android:textColorHint="@color/colorAccent"
-                    android:textSize="@dimen/inputTextSize"
-                    android:textStyle="bold" />
+                        <EditText
+                            android:id="@+id/nameInputEdit"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginStart="60dp"
+                            android:layout_marginTop="@dimen/registerInputdMarginTop"
+                            android:layout_marginEnd="60dp"
+                            android:background="@drawable/rounded_input"
+                            android:ems="10"
+                            android:gravity="center"
+                            android:hint="@string/nameInputHint"
+                            android:inputType="textPersonName"
+                            android:paddingTop="8dp"
+                            android:paddingBottom="8dp"
+                            android:shadowDx="10"
+                            android:shadowDy="10"
+                            android:shadowRadius="20"
+                            android:textColor="@color/colorAccent"
+                            android:textColorHint="@color/colorAccent"
+                            android:textSize="@dimen/inputTextSize"
+                            android:textStyle="bold" />
 
-                <EditText
-                    android:id="@+id/ageInputEdit"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginStart="60dp"
-                    android:layout_marginTop="@dimen/registerInputdMarginTop"
-                    android:layout_marginEnd="60dp"
-                    android:background="@drawable/rounded_input"
-                    android:ems="10"
-                    android:gravity="center"
-                    android:hint="@string/ageInputHint"
-                    android:inputType="textShortMessage|number|textPersonName"
-                    android:paddingTop="8dp"
-                    android:paddingBottom="8dp"
-                    android:shadowDx="10"
-                    android:shadowDy="10"
-                    android:shadowRadius="20"
-                    android:textColor="@color/colorAccent"
-                    android:textColorHint="@color/colorAccent"
-                    android:textSize="@dimen/inputTextSize"
-                    android:textStyle="bold" />
+                        <EditText
+                            android:id="@+id/lastNameInputEdit"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginStart="60dp"
+                            android:layout_marginTop="@dimen/registerInputdMarginTop"
+                            android:layout_marginEnd="60dp"
+                            android:background="@drawable/rounded_input"
+                            android:ems="10"
+                            android:gravity="center"
+                            android:hint="@string/lastNameInputHint"
+                            android:inputType="textPersonName"
+                            android:paddingTop="8dp"
+                            android:paddingBottom="8dp"
+                            android:shadowDx="10"
+                            android:shadowDy="10"
+                            android:shadowRadius="20"
+                            android:textColor="@color/colorAccent"
+                            android:textColorHint="@color/colorAccent"
+                            android:textSize="@dimen/inputTextSize"
+                            android:textStyle="bold" />
 
-                <EditText
-                    android:id="@+id/phoneInputEdit"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginStart="60dp"
-                    android:layout_marginTop="@dimen/registerInputdMarginTop"
-                    android:layout_marginEnd="60dp"
-                    android:background="@drawable/rounded_input"
-                    android:ems="10"
-                    android:gravity="center"
-                    android:hint="@string/phoneInputHint"
-                    android:inputType="number|textPersonName"
-                    android:paddingTop="8dp"
-                    android:paddingBottom="8dp"
-                    android:shadowDx="10"
-                    android:shadowDy="10"
-                    android:shadowRadius="20"
-                    android:textColor="@color/colorAccent"
-                    android:textColorHint="@color/colorAccent"
-                    android:textSize="@dimen/inputTextSize"
-                    android:textStyle="bold" />
+                        <EditText
+                            android:id="@+id/ageInputEdit"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginStart="60dp"
+                            android:layout_marginTop="@dimen/registerInputdMarginTop"
+                            android:layout_marginEnd="60dp"
+                            android:background="@drawable/rounded_input"
+                            android:ems="10"
+                            android:gravity="center"
+                            android:hint="@string/ageInputHint"
+                            android:inputType="date"
+                            android:paddingTop="8dp"
+                            android:paddingBottom="8dp"
+                            android:shadowDx="10"
+                            android:shadowDy="10"
+                            android:shadowRadius="20"
+                            android:textColor="@color/colorAccent"
+                            android:textColorHint="@color/colorAccent"
+                            android:textSize="@dimen/inputTextSize"
+                            android:textStyle="bold" />
 
-                <EditText
-                    android:id="@+id/emailRegisterInputEdit"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginStart="60dp"
-                    android:layout_marginTop="@dimen/registerInputdMarginTop"
-                    android:layout_marginEnd="60dp"
-                    android:background="@drawable/rounded_input"
-                    android:ems="10"
-                    android:gravity="center"
-                    android:hint="@string/emailRegisterInputHint"
-                    android:inputType="textPersonName"
-                    android:paddingTop="8dp"
-                    android:paddingBottom="8dp"
-                    android:shadowDx="10"
-                    android:shadowDy="10"
-                    android:shadowRadius="20"
-                    android:textColor="@color/colorAccent"
-                    android:textColorHint="@color/colorAccent"
-                    android:textSize="@dimen/inputTextSize"
-                    android:textStyle="bold" />
+                        <EditText
+                            android:id="@+id/phoneInputEdit"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginStart="60dp"
+                            android:layout_marginTop="@dimen/registerInputdMarginTop"
+                            android:layout_marginEnd="60dp"
+                            android:background="@drawable/rounded_input"
+                            android:ems="10"
+                            android:gravity="center"
+                            android:hint="@string/phoneInputHint"
+                            android:inputType="number|textPersonName"
+                            android:paddingTop="8dp"
+                            android:paddingBottom="8dp"
+                            android:shadowDx="10"
+                            android:shadowDy="10"
+                            android:shadowRadius="20"
+                            android:textColor="@color/colorAccent"
+                            android:textColorHint="@color/colorAccent"
+                            android:textSize="@dimen/inputTextSize"
+                            android:textStyle="bold" />
 
-                <EditText
-                    android:id="@+id/passwordRegisterInputEdit"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginStart="60dp"
-                    android:layout_marginTop="@dimen/registerInputdMarginTop"
-                    android:layout_marginEnd="60dp"
-                    android:background="@drawable/rounded_input"
-                    android:ems="10"
-                    android:gravity="center"
-                    android:hint="@string/passwordRegisterInputHint"
-                    android:inputType="textPersonName|textPassword"
-                    android:paddingTop="8dp"
-                    android:paddingBottom="8dp"
-                    android:shadowDx="10"
-                    android:shadowDy="10"
-                    android:shadowRadius="20"
-                    android:textColor="@color/colorAccent"
-                    android:textColorHint="@color/colorAccent"
-                    android:textSize="@dimen/inputTextSize"
-                    android:textStyle="bold" />
+                        <EditText
+                            android:id="@+id/emailRegisterInputEdit"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginStart="60dp"
+                            android:layout_marginTop="@dimen/registerInputdMarginTop"
+                            android:layout_marginEnd="60dp"
+                            android:background="@drawable/rounded_input"
+                            android:ems="10"
+                            android:gravity="center"
+                            android:hint="@string/emailRegisterInputHint"
+                            android:inputType="textPersonName"
+                            android:paddingTop="8dp"
+                            android:paddingBottom="8dp"
+                            android:shadowDx="10"
+                            android:shadowDy="10"
+                            android:shadowRadius="20"
+                            android:textColor="@color/colorAccent"
+                            android:textColorHint="@color/colorAccent"
+                            android:textSize="@dimen/inputTextSize"
+                            android:textStyle="bold" />
 
-                <Button
-                    android:id="@+id/registerEditButton"
-                    android:layout_width="260dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginStart="60dp"
-                    android:layout_marginLeft="60dp"
-                    android:layout_marginTop="30dp"
-                    android:layout_marginEnd="60dp"
-                    android:layout_marginRight="60dp"
-                    android:background="@drawable/rounded_button"
-                    android:paddingTop="5dp"
-                    android:paddingBottom="5dp"
-                    android:shadowDx="10"
-                    android:shadowDy="10"
-                    android:shadowRadius="20"
-                    android:text="@string/editRegisterButton"
-                    android:textAllCaps="false"
-                    android:textColor="@android:color/background_light"
-                    android:textSize="@dimen/defaultTextButtonSize"
-                    android:textStyle="bold"
-                    android:typeface="sans" />
+                        <EditText
+                            android:id="@+id/passwordRegisterInputEdit"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginStart="60dp"
+                            android:layout_marginTop="@dimen/registerInputdMarginTop"
+                            android:layout_marginEnd="60dp"
+                            android:background="@drawable/rounded_input"
+                            android:ems="10"
+                            android:gravity="center"
+                            android:hint="@string/passwordRegisterInputHint"
+                            android:inputType="textPassword"
+                            android:paddingTop="8dp"
+                            android:paddingBottom="8dp"
+                            android:shadowDx="10"
+                            android:shadowDy="10"
+                            android:shadowRadius="20"
+                            android:textColor="@color/colorAccent"
+                            android:textColorHint="@color/colorAccent"
+                            android:textSize="@dimen/inputTextSize"
+                            android:textStyle="bold" />
 
-            </LinearLayout>
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </FrameLayout>
-</androidx.cardview.widget.CardView>
+                        <EditText
+                            android:id="@+id/passwordRegisterInputEdit2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginStart="60dp"
+                            android:layout_marginTop="@dimen/registerInputdMarginTop"
+                            android:layout_marginEnd="60dp"
+                            android:background="@drawable/rounded_input"
+                            android:ems="10"
+                            android:gravity="center"
+                            android:hint="@string/confirmPasswordEditInput"
+                            android:inputType="textPassword"
+                            android:paddingTop="8dp"
+                            android:paddingBottom="8dp"
+                            android:shadowDx="10"
+                            android:shadowDy="10"
+                            android:shadowRadius="20"
+                            android:textColor="@color/colorAccent"
+                            android:textColorHint="@color/colorAccent"
+                            android:textSize="@dimen/inputTextSize"
+                            android:textStyle="bold" />
+
+                        <EditText
+                            android:id="@+id/stateInputEdit"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginStart="60dp"
+                            android:layout_marginTop="@dimen/registerInputdMarginTop"
+                            android:layout_marginEnd="60dp"
+                            android:background="@drawable/rounded_input"
+                            android:ems="10"
+                            android:gravity="center"
+                            android:hint="@string/stateHintEdit"
+                            android:inputType="textPersonName"
+                            android:paddingTop="8dp"
+                            android:paddingBottom="8dp"
+                            android:shadowDx="10"
+                            android:shadowDy="10"
+                            android:shadowRadius="20"
+                            android:textColor="@color/colorAccent"
+                            android:textColorHint="@color/colorAccent"
+                            android:textSize="@dimen/inputTextSize"
+                            android:textStyle="bold" />
+
+                        <EditText
+                            android:id="@+id/cityInputEdit"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginStart="60dp"
+                            android:layout_marginTop="@dimen/registerInputdMarginTop"
+                            android:layout_marginEnd="60dp"
+                            android:background="@drawable/rounded_input"
+                            android:ems="10"
+                            android:gravity="center"
+                            android:hint="@string/cityHintEdit"
+                            android:inputType="textPersonName"
+                            android:paddingTop="8dp"
+                            android:paddingBottom="8dp"
+                            android:shadowDx="10"
+                            android:shadowDy="10"
+                            android:shadowRadius="20"
+                            android:textColor="@color/colorAccent"
+                            android:textColorHint="@color/colorAccent"
+                            android:textSize="@dimen/inputTextSize"
+                            android:textStyle="bold" />
+
+                        <EditText
+                            android:id="@+id/zipCodeInputEdit"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginStart="60dp"
+                            android:layout_marginTop="@dimen/registerInputdMarginTop"
+                            android:layout_marginEnd="60dp"
+                            android:background="@drawable/rounded_input"
+                            android:ems="10"
+                            android:gravity="center"
+                            android:hint="@string/zipCodeHintEdit"
+                            android:inputType="textPostalAddress"
+                            android:paddingTop="8dp"
+                            android:paddingBottom="8dp"
+                            android:shadowDx="10"
+                            android:shadowDy="10"
+                            android:shadowRadius="20"
+                            android:textColor="@color/colorAccent"
+                            android:textColorHint="@color/colorAccent"
+                            android:textSize="@dimen/inputTextSize"
+                            android:textStyle="bold" />
+
+                        <EditText
+                            android:id="@+id/districtInputEdit"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginStart="60dp"
+                            android:layout_marginTop="@dimen/registerInputdMarginTop"
+                            android:layout_marginEnd="60dp"
+                            android:background="@drawable/rounded_input"
+                            android:ems="10"
+                            android:gravity="center"
+                            android:hint="@string/districtHintEdit"
+                            android:inputType="text"
+                            android:paddingTop="8dp"
+                            android:paddingBottom="8dp"
+                            android:shadowDx="10"
+                            android:shadowDy="10"
+                            android:shadowRadius="20"
+                            android:textColor="@color/colorAccent"
+                            android:textColorHint="@color/colorAccent"
+                            android:textSize="@dimen/inputTextSize"
+                            android:textStyle="bold" />
+
+                        <EditText
+                            android:id="@+id/streetInputEdit"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginStart="60dp"
+                            android:layout_marginTop="@dimen/registerInputdMarginTop"
+                            android:layout_marginEnd="60dp"
+                            android:background="@drawable/rounded_input"
+                            android:ems="10"
+                            android:gravity="center"
+                            android:hint="@string/streetHintEdit"
+                            android:inputType="text"
+                            android:paddingTop="8dp"
+                            android:paddingBottom="8dp"
+                            android:shadowDx="10"
+                            android:shadowDy="10"
+                            android:shadowRadius="20"
+                            android:textColor="@color/colorAccent"
+                            android:textColorHint="@color/colorAccent"
+                            android:textSize="@dimen/inputTextSize"
+                            android:textStyle="bold" />
+
+                        <EditText
+                            android:id="@+id/numberInputEdit"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginStart="60dp"
+                            android:layout_marginTop="@dimen/registerInputdMarginTop"
+                            android:layout_marginEnd="60dp"
+                            android:background="@drawable/rounded_input"
+                            android:ems="10"
+                            android:gravity="center"
+                            android:hint="@string/numberHintEdit"
+                            android:inputType="text"
+                            android:paddingTop="8dp"
+                            android:paddingBottom="8dp"
+                            android:shadowDx="10"
+                            android:shadowDy="10"
+                            android:shadowRadius="20"
+                            android:textColor="@color/colorAccent"
+                            android:textColorHint="@color/colorAccent"
+                            android:textSize="@dimen/inputTextSize"
+                            android:textStyle="bold" />
+
+                        <Button
+                            android:id="@+id/registerEditButton"
+                            android:layout_width="260dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginStart="60dp"
+                            android:layout_marginLeft="60dp"
+                            android:layout_marginTop="30dp"
+                            android:layout_marginEnd="60dp"
+                            android:layout_marginRight="60dp"
+                            android:layout_marginBottom="30dp"
+                            android:background="@drawable/rounded_button"
+                            android:paddingTop="5dp"
+                            android:paddingBottom="5dp"
+                            android:shadowDx="10"
+                            android:shadowDy="10"
+                            android:shadowRadius="20"
+                            android:text="@string/editRegisterButton"
+                            android:textAllCaps="false"
+                            android:textColor="@android:color/background_light"
+                            android:textSize="@dimen/defaultTextButtonSize"
+                            android:textStyle="bold"
+                            android:typeface="sans" />
+
+                    </LinearLayout>
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </FrameLayout>
+        </androidx.cardview.widget.CardView>
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

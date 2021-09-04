@@ -13,8 +13,8 @@
     <string name="registerText">Cadastro</string>
     <string name="registerPageDescription">Aqui basta você colocar seus dados pessoais!</string>
     <string name="nameInputHint">NOME</string>
-    <string name="genderInputHint">SEXO</string>
-    <string name="ageInputHint">IDADE</string>
+    <string name="lastNameInputHint">SOBRENOME</string>
+    <string name="ageInputHint">DATA DE NASCIMENTO</string>
     <string name="phoneInputHint">TELEFONE</string>
     <string name="emailRegisterInputHint">E-MAIL</string>
     <string name="passwordRegisterInputHint">SENHA</string>
@@ -73,4 +73,11 @@
     <string name="change_password_button_text">Pronto</string>
     <string name="change_password_input1_hint">Digite sua nova senha</string>
     <string name="changes_password_input2_hint">Digite-a novamente</string>
+    <string name="confirmPasswordEditInput">CONFIRMAR SENHA</string>
+    <string name="cityHintEdit">CIDADE</string>
+    <string name="stateHintEdit">ESTADO</string>
+    <string name="zipCodeHintEdit">CEP</string>
+    <string name="districtHintEdit">BAIRRO</string>
+    <string name="streetHintEdit">RUA</string>
+    <string name="numberHintEdit">NÚMERO</string>
 </resources>
