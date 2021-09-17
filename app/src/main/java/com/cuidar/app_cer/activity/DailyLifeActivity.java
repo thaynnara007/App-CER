@@ -109,10 +109,11 @@ public class DailyLifeActivity extends AppCompatActivity {
                 }
             };
 
+            int icon = Util.getIcon(category.getIcon());
             Option opt = new Option(
                     category.getName(),
                     category.getDescription(),
-                    R.drawable.meal_vector,
+                    icon,
                     onClickListener);
 
             options.add(opt);

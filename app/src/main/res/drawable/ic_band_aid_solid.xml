@@ -1,0 +1,6 @@
+<vector android:height="32dp" android:viewportHeight="512"
+    android:viewportWidth="640" android:width="40dp" xmlns:android="http://schemas.android.com/apk/res/android">
+    <path android:fillColor="@color/colorAccent" android:pathData="M0,160v192c0,35.3 28.7,64 64,64h96L160,96L64,96c-35.3,0 -64,28.7 -64,64zM576,96h-96v320h96c35.3,0 64,-28.7 64,-64L640,160c0,-35.3 -28.7,-64 -64,-64zM192,416h256L448,96L192,96v320zM368,184c13.3,0 24,10.7 24,24s-10.7,24 -24,24 -24,-10.7 -24,-24 10.7,-24 24,-24zM368,280c13.3,0 24,10.7 24,24s-10.7,24 -24,24 -24,-10.7 -24,-24 10.7,-24 24,-24zM272,184c13.3,0 24,10.7 24,24s-10.7,24 -24,24 -24,-10.7 -24,-24 10.7,-24 24,-24zM272,280c13.3,0 24,10.7 24,24s-10.7,24 -24,24 -24,-10.7 -24,-24 10.7,-24 24,-24z"/>
+</vector>
+
+    <!-- Icon getted from fontawesome (https://fontawesome.com/) with the license https://fontawesome.com/license -->
