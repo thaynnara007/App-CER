@@ -3,12 +3,8 @@ package com.cuidar.app_cer.model.category;
 public class Category {
 
     private int id;
-    private String name;
-    private String description;
-    private String pageDescription;
-    private String icon;
-    private String color;
-    private String textColor;
+    private String name, icon, description, pageDescription;
+    private String color, textColor;
 
     public Category(int id, String name, String description, String pageDescription, String icon, String color, String textColor) {
         this.id = id;

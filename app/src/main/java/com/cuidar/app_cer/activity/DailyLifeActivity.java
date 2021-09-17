@@ -7,26 +7,48 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
 import com.cuidar.app_cer.R;
 import com.cuidar.app_cer.adapter.OptionAdapter;
+import com.cuidar.app_cer.api.CategoryService;
+import com.cuidar.app_cer.helper.RetrofitConfig;
 import com.cuidar.app_cer.model.Option;
+import com.cuidar.app_cer.model.category.CategoriesPaginated;
+import com.cuidar.app_cer.model.category.Category;
+import com.cuidar.app_cer.utils.Util;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
 
 public class DailyLifeActivity extends AppCompatActivity {
 
     private Button backButton;
     private RecyclerView recyclerViewOptions;
     private List<Option> options = new ArrayList<>();
+    private List<Category> categories = new ArrayList<>();
+
+    private Retrofit retrofit;
+    private CategoryService service;
+    private Context context;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_daily_life);
+
+        context = getApplicationContext();
+        retrofit = RetrofitConfig.getRetrofit();
+        service = retrofit.create(CategoryService.class);
 
         backButton = findViewById(R.id.dailyLifeBackButton);
         recyclerViewOptions = findViewById(R.id.recyclerViewDailyOptions);
@@ -41,62 +63,62 @@ public class DailyLifeActivity extends AppCompatActivity {
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
         recyclerViewOptions.setLayoutManager(layoutManager);
 
-        this.generateOptions();
+        this.getCategories();
 
         OptionAdapter adapter = new OptionAdapter(options);
         recyclerViewOptions.setAdapter(adapter);
     }
 
+    private void getCategories() {
+        String token = Util.getAccessToken(context);
+        Call<CategoriesPaginated> getCategoriesCall = service.getCategories("1", "3", token);
+
+        getCategoriesCall.enqueue(new Callback<CategoriesPaginated>() {
+            @Override
+            public void onResponse(Call<CategoriesPaginated> call, Response<CategoriesPaginated> response) {
+                if(response.isSuccessful()){
+                    CategoriesPaginated categoriesPaginated = response.body();
+
+                    // categories = new ArrayList<Category>();
+                    Collections.addAll(categories, categoriesPaginated.getRows());
+
+                    generateOptions();
+                }else
+                    Util.whenNotSuccessful(response, context, "GET CATEGORIES:");
+
+            }
+
+            @Override
+            public void onFailure(Call<CategoriesPaginated> call, Throwable t) {
+                Log.d("ERROR", "ERROR-GET-CATEGORIES: " + t.getMessage());
+            }
+        });
+
+    }
+
     private void generateOptions() {
-        final Context context = getApplicationContext();
+        for ( final Category category: categories) {
+            View.OnClickListener onClickListener = new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent goToActivities = new Intent(context, MealsActivity.class);
 
-        View.OnClickListener onClickListenerMeal = new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent goToMealsActivity = new Intent(context, MealsActivity.class);
+                    goToActivities.putExtra("categoryId", category.getId());
 
-                startActivity(goToMealsActivity);
-            }
-        };
+                    startActivity(goToActivities);
+                }
+            };
 
-        View.OnClickListener onClickListenerHygine = new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent goToHygineActivity = new Intent(context, HygineActivity.class);
+            Option opt = new Option(
+                    category.getName(),
+                    category.getDescription(),
+                    R.drawable.meal_vector,
+                    onClickListener);
 
-                startActivity(goToHygineActivity);
-            }
-        };
+            options.add(opt);
+        }
 
-        View.OnClickListener onClickListenerClothes = new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent goToClothesActivity = new Intent(context, ClothesActivity.class);
-
-                startActivity(goToClothesActivity);
-            }
-        };
-
-        Option optMeal = new Option(
-                "Refeição",
-                "Aqui você encontra alimentos sólidos, líquidos e pastosos.",
-                R.drawable.meal_vector,
-                onClickListenerMeal);
-
-        Option optHygine = new Option(
-                "Higiene",
-                "Você pode escolher entre a higiene do corpo ou dos dentes.",
-                R.drawable.hygine_vector,
-                onClickListenerHygine);
-
-        Option optClothes = new Option(
-                "Roupas",
-                "Escolha qual das peças de roupa vamos praticar hoje!",
-                R.drawable.hanger_vector,
-                onClickListenerClothes);
-
-        this.options.add(optMeal);
-        this.options.add(optHygine);
-        this.options.add(optClothes);
+        OptionAdapter adapter = new OptionAdapter(options);
+        recyclerViewOptions.setAdapter(adapter);
     }
 }
