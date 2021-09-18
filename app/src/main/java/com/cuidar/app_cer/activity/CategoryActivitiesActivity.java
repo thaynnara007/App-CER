@@ -163,6 +163,7 @@ public class CategoryActivitiesActivity extends AppCompatActivity {
 
                     goToActivities.putExtra("backgroundColor", backgroundColor);
                     goToActivities.putExtra("textColor", textColor);
+                    goToActivities.putExtra("categoryName", category.getName());
                     goToActivities.putExtra("activity", activity);
 
                     startActivity(goToActivities);
