@@ -133,7 +133,7 @@ public class DailyLifeActivity extends AppCompatActivity {
             View.OnClickListener onClickListener = new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Intent goToActivities = new Intent(context, MealsActivity.class);
+                    Intent goToActivities = new Intent(context, CategoryActivitiesActivity.class);
 
                     goToActivities.putExtra("category", category);
 

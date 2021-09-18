@@ -36,7 +36,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
 
-public class MealsActivity extends AppCompatActivity {
+public class CategoryActivitiesActivity extends AppCompatActivity {
 
     private ConstraintLayout layout;
     private TextView title;
