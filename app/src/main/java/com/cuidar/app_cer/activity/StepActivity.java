@@ -15,7 +15,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.cuidar.app_cer.R;
-import com.cuidar.app_cer.model.Step;
+import com.cuidar.app_cer.model.Step.Step;
 import com.cuidar.app_cer.user_preferences.ActivityData;
 
 import java.util.ArrayList;
@@ -76,7 +76,7 @@ public class StepActivity extends AppCompatActivity {
 
             stepName.setText(step.getName());
             stepDescription.setText(step.getDescription());
-            stepImage.setImageResource(step.getImage());
+            stepImage.setImageResource(step.getImage().getId());
         }
 
         nextStepButton.setOnClickListener(new View.OnClickListener() {
@@ -89,7 +89,7 @@ public class StepActivity extends AppCompatActivity {
 
                     stepName.setText(step.getName());
                     stepDescription.setText(step.getDescription());
-                    stepImage.setImageResource(step.getImage());
+                    stepImage.setImageResource(step.getImage().getId());
                     congrats.setText(step.getCongrats());
 
                     if (lastStep == currentStep) {
@@ -124,7 +124,7 @@ public class StepActivity extends AppCompatActivity {
 
                     stepName.setText(step.getName());
                     stepDescription.setText(step.getDescription());
-                    stepImage.setImageResource(step.getImage());
+                    stepImage.setImageResource(step.getImage().getId());
                     stepName.setTypeface(quicksand, Typeface.NORMAL);
                     stepName.setTextSize(30);
                     nextStepButton.setText("Próximo passo");
