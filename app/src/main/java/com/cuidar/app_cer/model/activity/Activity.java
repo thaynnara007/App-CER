@@ -1,6 +1,8 @@
 package com.cuidar.app_cer.model.activity;
 
-public class Activity {
+import java.io.Serializable;
+
+public class Activity implements Serializable {
 
     private int id;
     private int categoryId;

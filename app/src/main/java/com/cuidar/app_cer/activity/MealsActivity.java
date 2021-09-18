@@ -2,6 +2,7 @@ package com.cuidar.app_cer.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.core.graphics.drawable.DrawableCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -49,6 +50,8 @@ public class MealsActivity extends AppCompatActivity {
     private Context context;
 
     private Category category;
+    private int backgroundColor;
+    private int textColor;
 
     private boolean isLoading = false;
     private boolean isLastPage = false;
@@ -71,8 +74,8 @@ public class MealsActivity extends AppCompatActivity {
         loading = findViewById(R.id.loadingActivities);
 
         category = (Category) getIntent().getExtras().getSerializable("category");
-        int backgroundColor = Color.parseColor(category.getColor());
-        int textColor = Color.parseColor(category.getTextColor());
+        backgroundColor = Color.parseColor(category.getColor());
+        textColor = Color.parseColor(category.getTextColor());
 
         layout.setBackgroundColor(backgroundColor);
         title.setText(category.getName());
@@ -80,6 +83,7 @@ public class MealsActivity extends AppCompatActivity {
         description.setText(category.getPageDescription());
         description.setTextColor(textColor);
 
+        DrawableCompat.setTint(backButton.getBackground(), textColor);
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -157,7 +161,9 @@ public class MealsActivity extends AppCompatActivity {
                 public void onClick(View view) {
                     Intent goToActivities = new Intent(context, SolidActivity.class);
 
-                    goToActivities.putExtra("activityId", activity.getId());
+                    goToActivities.putExtra("backgroundColor", backgroundColor);
+                    goToActivities.putExtra("textColor", textColor);
+                    goToActivities.putExtra("activity", activity);
 
                     startActivity(goToActivities);
                 }
