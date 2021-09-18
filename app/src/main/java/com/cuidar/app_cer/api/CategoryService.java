@@ -11,8 +11,8 @@ public interface CategoryService {
 
     @GET("/category")
     Call<CategoriesPaginated> getCategories (
-            @Query("page") String page,
-            @Query("pageSize") String pageSize,
+            @Query("page") int page,
+            @Query("pageSize") int pageSize,
             @Header("Authorization") String token
     );
 }

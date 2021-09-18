@@ -15,15 +15,15 @@ import android.widget.ProgressBar;
 import com.cuidar.app_cer.R;
 import com.cuidar.app_cer.adapter.OptionAdapter;
 import com.cuidar.app_cer.api.CategoryService;
+import com.cuidar.app_cer.helper.PaginationScrollListener;
 import com.cuidar.app_cer.helper.RetrofitConfig;
 import com.cuidar.app_cer.model.Option;
 import com.cuidar.app_cer.model.category.CategoriesPaginated;
 import com.cuidar.app_cer.model.category.Category;
+import com.cuidar.app_cer.utils.Constants;
 import com.cuidar.app_cer.utils.Util;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 
 import retrofit2.Call;
@@ -36,12 +36,14 @@ public class DailyLifeActivity extends AppCompatActivity {
     private Button backButton;
     private ProgressBar loading;
     private RecyclerView recyclerViewOptions;
-    private List<Option> options = new ArrayList<>();
-    private List<Category> categories = new ArrayList<>();
 
     private Retrofit retrofit;
     private CategoryService service;
     private Context context;
+
+    private boolean isLoading = false;
+    private boolean isLastPage = false;
+    private int currentPage = Constants.DEFAULT_CURRENT_PAGE;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,19 +65,40 @@ public class DailyLifeActivity extends AppCompatActivity {
             }
         });
 
-        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
+        LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         recyclerViewOptions.setLayoutManager(layoutManager);
 
-        this.getCategories();
-
-        OptionAdapter adapter = new OptionAdapter(options);
+        final OptionAdapter adapter = new OptionAdapter(new ArrayList<Option>());
         recyclerViewOptions.setAdapter(adapter);
+
+        recyclerViewOptions.addOnScrollListener(new PaginationScrollListener(layoutManager) {
+            @Override
+            protected void loadMoreItems() {
+                currentPage += 1;
+                getCategories(adapter);
+            }
+
+            @Override
+            public boolean isLastPage() {
+                return isLastPage;
+            }
+
+            @Override
+            public boolean isLoading() {
+                return isLoading;
+            }
+        });
+
+        getCategories(adapter);
     }
 
-    private void getCategories() {
+    private void getCategories(final OptionAdapter adapter) {
+        isLoading = true;
         loading.setVisibility(View.VISIBLE);
+
         String token = Util.getAccessToken(context);
-        Call<CategoriesPaginated> getCategoriesCall = service.getCategories("1", "3", token);
+        Call<CategoriesPaginated> getCategoriesCall = service.getCategories(
+                currentPage, Constants.DEFAULT_PAGE_SIZE, token);
 
         getCategoriesCall.enqueue(new Callback<CategoriesPaginated>() {
             @Override
@@ -83,10 +106,13 @@ public class DailyLifeActivity extends AppCompatActivity {
                 if(response.isSuccessful()){
                     CategoriesPaginated categoriesPaginated = response.body();
 
-                    // categories = new ArrayList<Category>();
-                    Collections.addAll(categories, categoriesPaginated.getRows());
+                    List<Option> newOptions = generateOptions(categoriesPaginated.getRows());
+                    adapter.addAll(newOptions);
 
-                    generateOptions();
+                    if (currentPage >= categoriesPaginated.getPages())
+                        isLastPage = true;
+
+                    isLoading = false;
                     loading.setVisibility(View.GONE);
                 }else
                     Util.whenNotSuccessful(response, context, "GET CATEGORIES:");
@@ -101,7 +127,9 @@ public class DailyLifeActivity extends AppCompatActivity {
 
     }
 
-    private void generateOptions() {
+    private List<Option> generateOptions(Category[] categories) {
+        List<Option> options = new ArrayList<>();
+
         for ( final Category category: categories) {
             View.OnClickListener onClickListener = new View.OnClickListener() {
                 @Override
@@ -124,7 +152,6 @@ public class DailyLifeActivity extends AppCompatActivity {
             options.add(opt);
         }
 
-        OptionAdapter adapter = new OptionAdapter(options);
-        recyclerViewOptions.setAdapter(adapter);
+        return options;
     }
 }

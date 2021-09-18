@@ -35,4 +35,7 @@ public class Constants {
     public static final String BANDAID_ICON = "BANDAID";
     public static final String BED_ICON = "BED";
     public static final String BOOK_ICON = "BOOK";
+
+    public static final int DEFAULT_PAGE_SIZE = 3;
+    public static final int DEFAULT_CURRENT_PAGE = 1;
 }
