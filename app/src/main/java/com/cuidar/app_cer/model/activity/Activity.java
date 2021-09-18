@@ -1,25 +1,31 @@
-package com.cuidar.app_cer.model.category;
+package com.cuidar.app_cer.model.activity;
 
 import java.io.Serializable;
 
-public class Category implements Serializable {
+public class Activity implements Serializable {
 
     private int id;
-    private String name, icon, description, pageDescription;
-    private String color, textColor;
+    private int categoryId;
+    private String name;
+    private String description;
+    private String pageDescription;
+    private String icon;
 
-    public Category(int id, String name, String description, String pageDescription, String icon, String color, String textColor) {
+    public Activity(int id, int categoryId, String name, String description, String pageDescription, String icon) {
         this.id = id;
+        this.categoryId = categoryId;
         this.name = name;
         this.description = description;
         this.pageDescription = pageDescription;
         this.icon = icon;
-        this.color = color;
-        this.textColor = textColor;
     }
 
     public int getId() {
         return id;
+    }
+
+    public int getCategoryId() {
+        return categoryId;
     }
 
     public String getName() {
@@ -36,13 +42,5 @@ public class Category implements Serializable {
 
     public String getIcon() {
         return icon;
-    }
-
-    public String getColor() {
-        return color;
-    }
-
-    public String getTextColor() {
-        return textColor;
     }
 }

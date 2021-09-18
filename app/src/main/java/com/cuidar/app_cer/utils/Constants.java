@@ -36,6 +36,6 @@ public class Constants {
     public static final String BED_ICON = "BED";
     public static final String BOOK_ICON = "BOOK";
 
-    public static final int DEFAULT_PAGE_SIZE = 3;
+    public static final int DEFAULT_PAGE_SIZE = 10;
     public static final int DEFAULT_CURRENT_PAGE = 1;
 }

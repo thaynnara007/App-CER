@@ -32,9 +32,7 @@
         <activity android:name=".activity.BodyActivity" />
         <activity android:name=".activity.StepActivity" />
         <activity android:name=".activity.SolidActivity" />
-        <activity android:name=".activity.ClothesActivity" />
-        <activity android:name=".activity.HygineActivity" />
-        <activity android:name=".activity.MealsActivity" />
+        <activity android:name=".activity.CategoryActivitiesActivity" />
         <activity
             android:name=".activity.DailyLifeActivity"
             android:screenOrientation="portrait" />
