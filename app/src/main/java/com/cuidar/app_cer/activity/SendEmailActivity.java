@@ -11,6 +11,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 
 import com.cuidar.app_cer.R;
 import com.cuidar.app_cer.api.PatientService;
@@ -28,6 +29,8 @@ public class SendEmailActivity extends AppCompatActivity {
     private EditText emailInput;
     private Button sendButton, backButton;
     private Typeface quicksand;
+    private ProgressBar loading;
+
     private Retrofit retrofit;
     private PatientService service;
     private Context context;
@@ -44,6 +47,7 @@ public class SendEmailActivity extends AppCompatActivity {
         emailInput = findViewById(R.id.send_email_input);
         sendButton = findViewById(R.id.send_email_button);
         backButton = findViewById(R.id.send_email_back);
+        loading = findViewById(R.id.loadingSendEmail);
 
         quicksand = ResourcesCompat.getFont(getBaseContext(), R.font.quicksand_medium);
         emailInput.setTypeface(quicksand, Typeface.BOLD);
@@ -73,6 +77,8 @@ public class SendEmailActivity extends AppCompatActivity {
     }
 
     private void sendEmail(String email){
+        loading.setVisibility(View.VISIBLE);
+
         final ForgetPasswordBody body = new ForgetPasswordBody(email);
         Call<Void> sendEmailCall = service.sendForgetPasswordEmail(body);
 
@@ -85,6 +91,7 @@ public class SendEmailActivity extends AppCompatActivity {
                     Intent goToVerifyCodeActivity = new Intent(context, VerifyCodeActivity.class);
                     goToVerifyCodeActivity.putExtra("email", body.getEmail());
 
+                    loading.setVisibility(View.GONE);
                     startActivity(goToVerifyCodeActivity);
                 }else
                     Util.whenNotSuccessful(response, context, "SEND EMAIL");

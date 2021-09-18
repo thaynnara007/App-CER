@@ -10,6 +10,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 
 import com.cuidar.app_cer.R;
 import com.cuidar.app_cer.api.PatientService;
@@ -30,6 +31,7 @@ public class EditRegisterActivity extends AppCompatActivity {
     private EditText stateInput, cityInput, zipCodeInput, districtInput, streetInput, numberInput;
     private Button editButton, backButton;
     private Typeface quicksand;
+    private ProgressBar loading;
 
     private Retrofit retrofit;
     private PatientService service;
@@ -60,6 +62,7 @@ public class EditRegisterActivity extends AppCompatActivity {
         numberInput = findViewById(R.id.numberInputEdit);
         backButton = findViewById(R.id.editBackButton);
         editButton = findViewById(R.id.registerEditButton);
+        loading = findViewById(R.id.loadingEditProfile);
 
         quicksand = ResourcesCompat.getFont(getApplicationContext(), R.font.quicksand_medium);
 
@@ -148,6 +151,7 @@ public class EditRegisterActivity extends AppCompatActivity {
     }
 
     private void getPatient(){
+        loading.setVisibility(View.VISIBLE);
         String token = Util.getAccessToken(context);
         Call<Patient> getPatientCall = service.getPatient(token);
 
@@ -181,6 +185,8 @@ public class EditRegisterActivity extends AppCompatActivity {
                         numberInput.setText(address.getNumber());
                     }
 
+                    loading.setVisibility(View.GONE);
+
                 }else
                     Util.whenNotSuccessful(response, context, "GET PATIENT:");
             }
@@ -193,6 +199,8 @@ public class EditRegisterActivity extends AppCompatActivity {
     }
 
     private void updatePatient(Patient patient, Address address) {
+        loading.setVisibility(View.VISIBLE);
+
         String token = Util.getAccessToken(context);
         EditPatientBody body = new EditPatientBody(patient, address);
         Call<Patient> updatePatientCall = service.updatePatient(body, token);
@@ -202,6 +210,7 @@ public class EditRegisterActivity extends AppCompatActivity {
             public void onResponse(Call<Patient> call, Response<Patient> response) {
                 if(response.isSuccessful()){
                     Util.showToast(context, "Dados atualizados", null);
+                    loading.setVisibility(View.GONE);
                 }else
                     Util.whenNotSuccessful(response, context, "UPDATE PATIENT:");
             }

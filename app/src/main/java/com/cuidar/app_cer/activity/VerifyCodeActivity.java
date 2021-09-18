@@ -11,6 +11,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 
 import com.cuidar.app_cer.R;
 import com.cuidar.app_cer.api.AuthService;
@@ -29,6 +30,7 @@ public class VerifyCodeActivity extends AppCompatActivity {
     private EditText codeInput;
     private Button verifyButton, backButton;
     private Typeface quicksand;
+    private ProgressBar loading;
     private String email;
 
     private Retrofit retrofit;
@@ -47,6 +49,7 @@ public class VerifyCodeActivity extends AppCompatActivity {
         codeInput = findViewById(R.id.verify_code_input);
         verifyButton = findViewById(R.id.verify_code_button);
         backButton = findViewById(R.id.verify_code_back);
+        loading = findViewById(R.id.loadingVerifyCode);
 
         quicksand = ResourcesCompat.getFont(getBaseContext(), R.font.quicksand_medium);
         codeInput.setTypeface(quicksand, Typeface.BOLD);
@@ -76,6 +79,7 @@ public class VerifyCodeActivity extends AppCompatActivity {
     }
 
     private void verifyCode (String code){
+        loading.setVisibility(View.VISIBLE);
         VerifyCodeBody body = new VerifyCodeBody(email, code);
 
         Call<VerifyCodeResponse> verifyCodeCall = service.verifyCode(body);
@@ -89,6 +93,7 @@ public class VerifyCodeActivity extends AppCompatActivity {
                     Intent goToChangePasswordActivity = new Intent(context, ChangePasswordActivity.class);
                     goToChangePasswordActivity.putExtra("token", responseBody.getToken());
 
+                    loading.setVisibility(View.GONE);
                     startActivity(goToChangePasswordActivity);
                 }else
                     Util.whenNotSuccessful(response, context, "VERIFY CODE:" );

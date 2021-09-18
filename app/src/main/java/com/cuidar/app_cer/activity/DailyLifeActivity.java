@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ProgressBar;
 
 import com.cuidar.app_cer.R;
 import com.cuidar.app_cer.adapter.OptionAdapter;
@@ -33,6 +34,7 @@ import retrofit2.Retrofit;
 public class DailyLifeActivity extends AppCompatActivity {
 
     private Button backButton;
+    private ProgressBar loading;
     private RecyclerView recyclerViewOptions;
     private List<Option> options = new ArrayList<>();
     private List<Category> categories = new ArrayList<>();
@@ -51,6 +53,7 @@ public class DailyLifeActivity extends AppCompatActivity {
         service = retrofit.create(CategoryService.class);
 
         backButton = findViewById(R.id.dailyLifeBackButton);
+        loading = findViewById(R.id.loadingDailyLife);
         recyclerViewOptions = findViewById(R.id.recyclerViewDailyOptions);
 
         backButton.setOnClickListener(new View.OnClickListener() {
@@ -70,6 +73,7 @@ public class DailyLifeActivity extends AppCompatActivity {
     }
 
     private void getCategories() {
+        loading.setVisibility(View.VISIBLE);
         String token = Util.getAccessToken(context);
         Call<CategoriesPaginated> getCategoriesCall = service.getCategories("1", "3", token);
 
@@ -83,6 +87,7 @@ public class DailyLifeActivity extends AppCompatActivity {
                     Collections.addAll(categories, categoriesPaginated.getRows());
 
                     generateOptions();
+                    loading.setVisibility(View.GONE);
                 }else
                     Util.whenNotSuccessful(response, context, "GET CATEGORIES:");
 

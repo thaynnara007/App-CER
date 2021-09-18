@@ -11,6 +11,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 
 import com.cuidar.app_cer.R;
 import com.cuidar.app_cer.api.AuthService;
@@ -31,10 +32,11 @@ public class Login extends AppCompatActivity {
     private EditText emailInput, passwordInput;
     private Button forgetPasswordButton, getInButton;
     private Typeface quicksand;
+    private ProgressBar loading;
+
     private Retrofit retrofit;
     private AuthService service;
     private ActivityData dataFile;
-
     private Context context;
 
     @Override
@@ -48,11 +50,11 @@ public class Login extends AppCompatActivity {
         service = retrofit.create(AuthService.class);
         dataFile = new ActivityData(context);
 
-
         emailInput = findViewById(R.id.emailInput);
         passwordInput = findViewById(R.id.passwordInput);
         forgetPasswordButton = findViewById(R.id.forgetPasswordButton);
         getInButton = findViewById(R.id.getInButton);
+        loading = findViewById(R.id.loadingLogin);
 
         quicksand = ResourcesCompat.getFont(getBaseContext(), R.font.quicksand_medium);
         emailInput.setTypeface(quicksand, Typeface.BOLD);
@@ -84,6 +86,7 @@ public class Login extends AppCompatActivity {
 
     }
     private void login(String email, String password){
+        loading.setVisibility(View.VISIBLE);
         LoginBody body = new LoginBody(email, password);
 
         Call<LoginResponse> loginCall = service.login(body);
@@ -104,6 +107,7 @@ public class Login extends AppCompatActivity {
                     );
                     goToMenuActivity.putExtra("firstLogin", patient.getFirstLogin());
 
+                    loading.setVisibility(View.GONE);
                     startActivity(goToMenuActivity);
                 }else
                     Util.whenNotSuccessful(response, context, "LOGIN");
