@@ -124,7 +124,6 @@ public class DailyLifeActivity extends AppCompatActivity {
                 Log.d("ERROR", "ERROR-GET-CATEGORIES: " + t.getMessage());
             }
         });
-
     }
 
     private List<Option> generateOptions(Category[] categories) {
@@ -136,7 +135,7 @@ public class DailyLifeActivity extends AppCompatActivity {
                 public void onClick(View view) {
                     Intent goToActivities = new Intent(context, MealsActivity.class);
 
-                    goToActivities.putExtra("categoryId", category.getId());
+                    goToActivities.putExtra("category", category);
 
                     startActivity(goToActivities);
                 }
