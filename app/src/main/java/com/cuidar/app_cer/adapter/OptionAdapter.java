@@ -71,4 +71,15 @@ public class OptionAdapter extends RecyclerView.Adapter<OptionAdapter.MyViewHold
     public int getItemCount() {
         return this.options.size();
     }
+
+    public void add (Option newOption) {
+        this.options.add(newOption);
+        notifyItemInserted(this.options.size() - 1);
+   }
+
+    public void addAll(List<Option> newOptions) {
+        for ( Option option: newOptions) {
+            this.add(option);
+        }
+    }
 }

@@ -11,6 +11,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 
 import com.cuidar.app_cer.R;
 import com.cuidar.app_cer.api.PatientService;
@@ -28,6 +29,7 @@ public class ChangePasswordActivity extends AppCompatActivity {
     private EditText passwordInput, passwordInput2;
     private Button readyButton, backButton;
     private Typeface quicksand;
+    private ProgressBar loading;
 
     private Retrofit retrofit;
     private PatientService service;
@@ -48,6 +50,7 @@ public class ChangePasswordActivity extends AppCompatActivity {
         passwordInput2 = findViewById(R.id.change_password_input2);
         readyButton = findViewById(R.id.change_password_button);
         backButton = findViewById(R.id.change_password_back);
+        loading = findViewById(R.id.loadingChangePassword);
 
         quicksand = ResourcesCompat.getFont(getBaseContext(), R.font.quicksand_medium);
         passwordInput.setTypeface(quicksand, Typeface.BOLD);
@@ -86,6 +89,7 @@ public class ChangePasswordActivity extends AppCompatActivity {
     }
 
     private void changePassword (String newPassword, String token) {
+        loading.setVisibility(View.VISIBLE);
         ChangePasswordBody body = new ChangePasswordBody(newPassword);
 
         Call<Void> changePasswordCall = service.changePassword(body, token);
@@ -95,6 +99,7 @@ public class ChangePasswordActivity extends AppCompatActivity {
             public void onResponse(Call<Void> call, Response<Void> response) {
                 if (response.isSuccessful()){
                     Util.showToast(context, "Senha alterada", null);
+                    loading.setVisibility(View.GONE);
 
                     Intent goToLoginActivity = new Intent(context, Login.class);
                     goToLoginActivity.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
