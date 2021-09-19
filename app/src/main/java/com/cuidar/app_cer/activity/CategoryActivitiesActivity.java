@@ -142,12 +142,12 @@ public class CategoryActivitiesActivity extends AppCompatActivity {
                     isLoading = false;
                     loading.setVisibility(View.GONE);
                 }else
-                    Util.whenNotSuccessful(response, context, "GET CATEGORIES:");
+                    Util.whenNotSuccessful(response, context, "GET ACTIVITIES:");
             }
 
             @Override
             public void onFailure(Call<ActivitiesPaginated> call, Throwable t) {
-                Log.d("ERROR", "ERROR-GET-CATEGORIES: " + t.getMessage());
+                Log.d("ERROR", "ERROR-GET-ACTIVITIES: " + t.getMessage());
             }
         });
     }

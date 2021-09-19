@@ -2,7 +2,7 @@ package com.cuidar.app_cer.model.Step;
 
 import java.io.Serializable;
 
-public class Step implements Serializable {
+public class Step implements Serializable, Comparable {
 
     private int id;
     private int activityId;
@@ -52,5 +52,16 @@ public class Step implements Serializable {
 
     public Image getImage() {
         return image;
+    }
+
+    @Override
+    public int compareTo(Object o) {
+        if (o instanceof Step){
+            Step otherStep = (Step) o;
+
+            return this.getNumber() - otherStep.getNumber();
+        }
+        else
+            throw new Error("Object is not a Step");
     }
 }
