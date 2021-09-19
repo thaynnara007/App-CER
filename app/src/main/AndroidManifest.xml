@@ -24,14 +24,8 @@
             android:name=".activity.BeginActivity"
             android:screenOrientation="portrait" />
         <activity android:name=".activity.ControlActivity" />
-        <activity android:name=".activity.PantsActivity" />
-        <activity android:name=".activity.ShirtActivity" />
-        <activity android:name=".activity.TeethActivity" />
-        <activity android:name=".activity.LiquidActivity" />
-        <activity android:name=".activity.PastyActivity" />
-        <activity android:name=".activity.BodyActivity" />
         <activity android:name=".activity.StepActivity" />
-        <activity android:name=".activity.SolidActivity" />
+        <activity android:name=".activity.ActivityDetailsActivity" />
         <activity android:name=".activity.CategoryActivitiesActivity" />
         <activity
             android:name=".activity.DailyLifeActivity"

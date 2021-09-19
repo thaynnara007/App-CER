@@ -2,7 +2,6 @@ package com.cuidar.app_cer.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
-import androidx.core.content.ContextCompat;
 import androidx.core.content.res.ResourcesCompat;
 
 import android.content.Context;
@@ -15,8 +14,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.cuidar.app_cer.R;
-import com.cuidar.app_cer.model.Step;
+import com.cuidar.app_cer.model.Step.Step;
 import com.cuidar.app_cer.user_preferences.ActivityData;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
@@ -59,11 +59,10 @@ public class StepActivity extends AppCompatActivity {
         currentStep = 0;
 
         final Bundle data = getIntent().getExtras();
-        final int color = ContextCompat.getColor(context, data.getInt("backgroundColor"));
-        int textColor = ContextCompat.getColor(context, data.getInt("textColor"));
+        final int color = data.getInt("backgroundColor");
+        int textColor = data.getInt("textColor");
         int icon = data.getInt("icon");
         activityName = data.getString("activityName");
-
 
         currentLayout.setBackgroundColor(color);
         stepIcon.setImageResource(icon);
@@ -76,7 +75,7 @@ public class StepActivity extends AppCompatActivity {
 
             stepName.setText(step.getName());
             stepDescription.setText(step.getDescription());
-            stepImage.setImageResource(step.getImage());
+            getImageFromUrl(stepImage, step.getImage().getPictureUrl());
         }
 
         nextStepButton.setOnClickListener(new View.OnClickListener() {
@@ -89,13 +88,13 @@ public class StepActivity extends AppCompatActivity {
 
                     stepName.setText(step.getName());
                     stepDescription.setText(step.getDescription());
-                    stepImage.setImageResource(step.getImage());
-                    congrats.setText(step.getCongrats());
+                    getImageFromUrl(stepImage, step.getImage().getPictureUrl());
 
                     if (lastStep == currentStep) {
                         stepName.setTypeface(quicksand, Typeface.BOLD);
                         stepName.setTextSize(35);
                         nextStepButton.setText("Concluir!");
+                        congrats.setText("Você concluiu essa atividade!");
                     }
                 }
                 else {
@@ -124,7 +123,7 @@ public class StepActivity extends AppCompatActivity {
 
                     stepName.setText(step.getName());
                     stepDescription.setText(step.getDescription());
-                    stepImage.setImageResource(step.getImage());
+                    getImageFromUrl(stepImage, step.getImage().getPictureUrl());
                     stepName.setTypeface(quicksand, Typeface.NORMAL);
                     stepName.setTextSize(30);
                     nextStepButton.setText("Próximo passo");
@@ -135,4 +134,16 @@ public class StepActivity extends AppCompatActivity {
             }
         });
     }
+
+    private void getImageFromUrl(ImageView view, String url){
+        if (view != null && url != null && !url.isEmpty()){
+            Picasso.get().load(url).into(view);
+        }
+    }
 }
+
+
+
+
+
+
