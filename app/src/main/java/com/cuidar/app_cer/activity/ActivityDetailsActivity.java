@@ -100,7 +100,7 @@ public class ActivityDetailsActivity extends AppCompatActivity {
     private void getSteps() {
         String token = Util.getAccessToken(context);
         Call<ArrayList<Step>> getCategoriesCall = service.getSteps(
-                activity.getId(), token);
+                activity.getId(), true, token);
 
         getCategoriesCall.enqueue(new Callback<ArrayList<Step>>() {
             @Override

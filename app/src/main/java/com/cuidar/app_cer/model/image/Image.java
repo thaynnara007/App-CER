@@ -1,6 +1,10 @@
-package com.cuidar.app_cer.model.Step;
+package com.cuidar.app_cer.model.image;
 
-public class Image {
+import androidx.annotation.NonNull;
+
+import java.io.Serializable;
+
+public class Image implements Serializable {
     private int id;
     private int stepId;
     private String pictureUrl;
@@ -33,5 +37,11 @@ public class Image {
 
     public String getToken() {
         return token;
+    }
+
+    @NonNull
+    @Override
+    public String toString() {
+        return "url: " + this.pictureUrl;
     }
 }

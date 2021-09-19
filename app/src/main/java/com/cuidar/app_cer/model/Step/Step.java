@@ -1,5 +1,9 @@
 package com.cuidar.app_cer.model.Step;
 
+import androidx.annotation.NonNull;
+
+import com.cuidar.app_cer.model.image.Image;
+
 import java.io.Serializable;
 
 public class Step implements Serializable, Comparable {
@@ -52,6 +56,13 @@ public class Step implements Serializable, Comparable {
 
     public Image getImage() {
         return image;
+    }
+
+    @NonNull
+    @Override
+    public String toString(){
+        return "name: " + this.name + " image: " + this.image;
+
     }
 
     @Override
