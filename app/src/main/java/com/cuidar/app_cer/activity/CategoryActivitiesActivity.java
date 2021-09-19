@@ -159,7 +159,7 @@ public class CategoryActivitiesActivity extends AppCompatActivity {
             View.OnClickListener onClickListener = new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Intent goToActivities = new Intent(context, SolidActivity.class);
+                    Intent goToActivities = new Intent(context, ActivityDetailsActivity.class);
 
                     goToActivities.putExtra("backgroundColor", backgroundColor);
                     goToActivities.putExtra("textColor", textColor);

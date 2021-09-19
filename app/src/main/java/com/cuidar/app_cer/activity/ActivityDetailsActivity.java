@@ -30,7 +30,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
 
-public class SolidActivity extends AppCompatActivity {
+public class ActivityDetailsActivity extends AppCompatActivity {
 
     private Button backButton, letsGoButton;
     private Typeface quicksand;
