@@ -8,17 +8,27 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.cuidar.app_cer.R;
+import com.cuidar.app_cer.api.HistoryService;
+import com.cuidar.app_cer.helper.RetrofitConfig;
 import com.cuidar.app_cer.model.Step.Step;
-import com.cuidar.app_cer.user_preferences.ActivityData;
+import com.cuidar.app_cer.model.history.Entry;
+import com.cuidar.app_cer.model.history.EntryBody;
+import com.cuidar.app_cer.utils.Util;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
 
 public class StepActivity extends AppCompatActivity {
 
@@ -31,13 +41,19 @@ public class StepActivity extends AppCompatActivity {
     private TextView stepName, stepDescription, congrats;
     private ArrayList<Step> steps = new ArrayList<>();
     private Typeface quicksand;
-    private ActivityData dataFile;
+
+    private Retrofit retrofit;
+    private HistoryService service;
     private Context context;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_step);
+
+        context = getApplicationContext();
+        retrofit = RetrofitConfig.getRetrofit();
+        service = retrofit.create(HistoryService.class);
 
         currentLayout = findViewById(R.id.step_layout);
         nextStepButton = findViewById(R.id.nextStepButton);
@@ -47,8 +63,6 @@ public class StepActivity extends AppCompatActivity {
         stepName = findViewById(R.id.stepName);
         stepDescription = findViewById(R.id.stepDescription);
         congrats = findViewById(R.id.textCongrats);
-        context = getApplicationContext();
-        dataFile = new ActivityData(context);
 
         quicksand = ResourcesCompat.getFont(getBaseContext(), R.font.quicksand_medium);
         nextStepButton.setTypeface(quicksand, Typeface.BOLD);
@@ -99,7 +113,22 @@ public class StepActivity extends AppCompatActivity {
                 }
                 else {
                     if (activityId > 0) {
+                        String token = Util.getAccessToken(context);
+                        EntryBody body = new EntryBody(activityId);
 
+                        Call<Entry> createEntryCall = service.createEntry(body, token);
+                        createEntryCall.enqueue(new Callback<Entry>() {
+                            @Override
+                            public void onResponse(Call<Entry> call, Response<Entry> response) {
+                                if(!response.isSuccessful())
+                                    Util.whenNotSuccessful(response, context, "CREATE ENTRY:");
+                            }
+
+                            @Override
+                            public void onFailure(Call<Entry> call, Throwable t) {
+                                Log.d("ERROR", "ERROR-CREATE-ENTRY: " + t.getMessage());
+                            }
+                        });
                     }
 
                     Intent backToDailyLifeActivity = new Intent(context, DailyLifeActivity.class);
