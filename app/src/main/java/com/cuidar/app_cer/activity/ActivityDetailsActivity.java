@@ -115,7 +115,7 @@ public class ActivityDetailsActivity extends AppCompatActivity {
                         public void onClick(View view) {
                             Intent goToStepActivity = new Intent(getApplicationContext(), StepActivity.class);
 
-                            goToStepActivity.putExtra("activityName", activity.getName());
+                            goToStepActivity.putExtra("activityId", activity.getId());
                             goToStepActivity.putExtra("steps", steps);
                             goToStepActivity.putExtra("backgroundColor", backgroundColor);
                             goToStepActivity.putExtra("textColor", textColor);

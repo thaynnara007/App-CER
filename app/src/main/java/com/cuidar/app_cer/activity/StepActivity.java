@@ -23,7 +23,7 @@ import java.util.ArrayList;
 public class StepActivity extends AppCompatActivity {
 
     private int currentStep, lastStep;
-    private String activityName;
+    private int activityId;
 
     private ConstraintLayout currentLayout;
     private Button nextStepButton, beforeButton;
@@ -62,7 +62,7 @@ public class StepActivity extends AppCompatActivity {
         final int color = data.getInt("backgroundColor");
         int textColor = data.getInt("textColor");
         int icon = data.getInt("icon");
-        activityName = data.getString("activityName");
+        activityId = data.getInt("activityId");
 
         currentLayout.setBackgroundColor(color);
         stepIcon.setImageResource(icon);
@@ -98,8 +98,8 @@ public class StepActivity extends AppCompatActivity {
                     }
                 }
                 else {
-                    if (activityName != null) {
-                        dataFile.postStatus(activityName, dataFile.getStatus(activityName) + 1);
+                    if (activityId > 0) {
+
                     }
 
                     Intent backToDailyLifeActivity = new Intent(context, DailyLifeActivity.class);
