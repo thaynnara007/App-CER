@@ -58,16 +58,16 @@ public class StatusAdapter extends RecyclerView.Adapter<StatusAdapter.MyViewHold
         holder.statusIcon.setImageResource(card.getImage());
         holder.name.setText(card.getName());
 
-        Status statusObj1 = card.getStatus().get(0);
-        holder.status1.setText(statusObj1.getName() + ": " + statusObj1.getAmount());
+        //Status statusObj1 = card.getStatus().get(0);
+        holder.status1.setText("aaa");
 
         if (card.getName().equals(Constants.MEAL_NAME)) {
-            Status statusObj2 = card.getStatus().get(2);
-            holder.status2.setText(statusObj2.getName() + ": " + statusObj2.getAmount());
+            //Status statusObj2 = card.getStatus().get(2);
+            holder.status2.setText("bbbb");
         }
 
-        Status statusObj3 = card.getStatus().get(1);
-        holder.status3.setText(statusObj3.getName() + ": " + statusObj3.getAmount());
+        //Status statusObj3 = card.getStatus().get(1);
+        holder.status3.setText("ccc");
 
     }
 

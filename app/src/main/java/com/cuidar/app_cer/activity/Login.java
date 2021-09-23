@@ -100,6 +100,7 @@ public class Login extends AppCompatActivity {
 
                     dataFile.postToken(loginResponse.getToken());
                     dataFile.postUserName(loginResponse.getPatient().getName());
+                    dataFile.postUserId(loginResponse.getPatient().getId());
 
                     Intent goToMenuActivity = new Intent(
                             context,

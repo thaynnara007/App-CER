@@ -56,11 +56,12 @@ public class ActivityData {
         this.editor.commit();
     }
 
-    public boolean hasActivity(String actvityName) {
-        int status = this.getStatus(actvityName);
+    public void postUserId(int id){
+        this.editor.putInt("cuidarUserId", id);
+        this.editor.commit();
+    }
 
-        if (status == 0) return false;
-
-        return true;
+    public int getUserId() {
+        return this.preferences.getInt("cuidarUserId", 0);
     }
 }

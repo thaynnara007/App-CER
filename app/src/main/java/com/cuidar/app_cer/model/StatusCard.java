@@ -1,18 +1,18 @@
 package com.cuidar.app_cer.model;
 
-import java.util.ArrayList;
+import java.util.HashMap;
 
 public class StatusCard {
 
     private String name;
     private int image;
-    private ArrayList<Status> status;
+    private HashMap<String, Integer> status;
 
     public StatusCard() {
 
     }
 
-    public StatusCard(String name, int image, ArrayList<Status> status) {
+    public StatusCard(String name, int image, HashMap<String, Integer> status) {
         this.name = name;
         this.image = image;
         this.status = status;
@@ -34,11 +34,11 @@ public class StatusCard {
         this.image = image;
     }
 
-    public ArrayList<Status> getStatus() {
+    public HashMap<String, Integer> getStatus() {
         return status;
     }
 
-    public void setStatus(ArrayList<Status> status) {
+    public void setStatus(HashMap<String, Integer> status) {
         this.status = status;
     }
 }
