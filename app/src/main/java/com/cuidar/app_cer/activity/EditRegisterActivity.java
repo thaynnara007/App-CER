@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.res.ResourcesCompat;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.util.Log;
@@ -187,13 +188,19 @@ public class EditRegisterActivity extends AppCompatActivity {
 
                     loading.setVisibility(View.GONE);
 
-                }else
-                    Util.whenNotSuccessful(response, context, "GET PATIENT:");
+                }else {
+                    loading.setVisibility(View.GONE);
+                    Intent intent = Util.whenNotSuccessful(response, context, "GET PATIENT:");
+
+                    if(intent != null)
+                        startActivity(intent);
+                }
             }
 
             @Override
             public void onFailure(Call<Patient> call, Throwable t) {
                 Log.d("ERROR", "ERROR-GET-PATIENT: " + t.getMessage());
+                loading.setVisibility(View.GONE);
             }
         });
     }
@@ -211,13 +218,19 @@ public class EditRegisterActivity extends AppCompatActivity {
                 if(response.isSuccessful()){
                     Util.showToast(context, "Dados atualizados", null);
                     loading.setVisibility(View.GONE);
-                }else
-                    Util.whenNotSuccessful(response, context, "UPDATE PATIENT:");
+                }else {
+                    loading.setVisibility(View.GONE);
+                    Intent intent = Util.whenNotSuccessful(response, context, "UPDATE PATIENT:");
+
+                    if(intent != null)
+                        startActivity(intent);
+                }
             }
 
             @Override
             public void onFailure(Call<Patient> call, Throwable t) {
                 Log.d("ERROR", "ERROR-UPDATE-PATIENT: " + t.getMessage());
+                loading.setVisibility(View.GONE);
             }
         });
     }

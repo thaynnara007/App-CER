@@ -105,13 +105,16 @@ public class ChangePasswordActivity extends AppCompatActivity {
                     goToLoginActivity.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
 
                     startActivity(goToLoginActivity);
-                }else
+                }else {
                     Util.whenNotSuccessful(response, context, "CHANGE PASSWORD:");
+                    loading.setVisibility(View.GONE);
+                }
             }
 
             @Override
             public void onFailure(Call<Void> call, Throwable t) {
                 Log.d("ERROR", "ERROR-CHANGE-PASSWORD: " + t.getMessage());
+                loading.setVisibility(View.GONE);
             }
         });
     }

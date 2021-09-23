@@ -1,10 +1,12 @@
 package com.cuidar.app_cer.utils;
 
 import android.content.Context;
+import android.content.Intent;
 import android.util.Log;
 import android.widget.Toast;
 
 import com.cuidar.app_cer.R;
+import com.cuidar.app_cer.activity.BeginActivity;
 import com.cuidar.app_cer.user_preferences.ActivityData;
 
 import org.json.JSONObject;
@@ -24,17 +26,28 @@ public class Util {
         ).show();
     }
 
-    public static void whenNotSuccessful(Response response, Context context, String tagMsg){
+    public static Intent whenNotSuccessful(Response response, Context context, String tagMsg){
         try {
             JSONObject error = new JSONObject(response.errorBody().string());
             String errorMsg = error.getString("error");
+            int statusCode = response.code();
 
             Log.d("ERROR", tagMsg + " " + errorMsg);
-            Log.d("ERROR", tagMsg + " CODE: " + response.code());
+            Log.d("ERROR", tagMsg + " CODE: " + statusCode);
 
             Util.showToast(context, errorMsg, null);
+
+            if (errorMsg.equals("Conta não encontrada") || statusCode == 401 || statusCode == 403 ) {
+
+                Intent backToLogin = new Intent(context, BeginActivity.class);
+                backToLogin.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+
+                return backToLogin;
+            }
+            return  null;
         } catch (Exception e) {
             Log.d("ERROR", "ERROR: " + e.getMessage());
+            return null;
         }
     }
 

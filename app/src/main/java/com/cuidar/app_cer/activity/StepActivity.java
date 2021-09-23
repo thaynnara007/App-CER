@@ -120,8 +120,12 @@ public class StepActivity extends AppCompatActivity {
                         createEntryCall.enqueue(new Callback<Entry>() {
                             @Override
                             public void onResponse(Call<Entry> call, Response<Entry> response) {
-                                if(!response.isSuccessful())
-                                    Util.whenNotSuccessful(response, context, "CREATE ENTRY:");
+                                if(!response.isSuccessful()) {
+                                    Intent intent = Util.whenNotSuccessful(response, context, "CREATE ENTRY:");
+
+                                    if(intent != null)
+                                        startActivity(intent);
+                                }
                             }
 
                             @Override

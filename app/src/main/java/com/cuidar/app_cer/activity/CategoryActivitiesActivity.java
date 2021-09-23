@@ -141,12 +141,22 @@ public class CategoryActivitiesActivity extends AppCompatActivity {
 
                     isLoading = false;
                     loading.setVisibility(View.GONE);
-                }else
-                    Util.whenNotSuccessful(response, context, "GET ACTIVITIES:");
+                }else {
+                    loading.setVisibility(View.GONE);
+                    isLoading = false;
+
+                    Intent intent = Util.whenNotSuccessful(response, context, "GET ACTIVITIES:");
+
+                    if(intent != null)
+                        startActivity(intent);
+                }
             }
 
             @Override
             public void onFailure(Call<ActivitiesPaginated> call, Throwable t) {
+                loading.setVisibility(View.GONE);
+                isLoading = false;
+
                 Log.d("ERROR", "ERROR-GET-ACTIVITIES: " + t.getMessage());
             }
         });

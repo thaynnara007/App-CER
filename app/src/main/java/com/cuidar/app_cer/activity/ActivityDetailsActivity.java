@@ -125,12 +125,18 @@ public class ActivityDetailsActivity extends AppCompatActivity {
                         }
                     }));
 
-                }else
-                    Util.whenNotSuccessful(response, context, "GET STEPS:");
+                }else {
+                    loading.setVisibility(View.GONE);
+                    Intent intent = Util.whenNotSuccessful(response, context, "GET STEPS:");
+
+                    if(intent != null)
+                        startActivity(intent);
+                }
             }
 
             @Override
             public void onFailure(Call<ArrayList<Step>> call, Throwable t) {
+                loading.setVisibility(View.GONE);
                 Log.d("ERROR", "ERROR-GET-STEPS: " + t.getMessage());
             }
         });

@@ -95,13 +95,16 @@ public class VerifyCodeActivity extends AppCompatActivity {
 
                     loading.setVisibility(View.GONE);
                     startActivity(goToChangePasswordActivity);
-                }else
-                    Util.whenNotSuccessful(response, context, "VERIFY CODE:" );
+                }else {
+                    Util.whenNotSuccessful(response, context, "VERIFY CODE:");
+                    loading.setVisibility(View.GONE);
+                }
             }
 
             @Override
             public void onFailure(Call<VerifyCodeResponse> call, Throwable t) {
                 Log.d("ERROR", "ERROR-VERIFY-CODE: " + t.getMessage());
+                loading.setVisibility(View.GONE);
             }
         });
 
