@@ -1,5 +1,7 @@
 package com.cuidar.app_cer.adapter;
 
+import android.content.Context;
+import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -7,10 +9,12 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.content.res.AppCompatResources;
+import androidx.core.content.ContextCompat;
+import androidx.core.graphics.drawable.DrawableCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.cuidar.app_cer.R;
-import com.cuidar.app_cer.model.Status;
 import com.cuidar.app_cer.model.StatusCard;
 import com.cuidar.app_cer.utils.Constants;
 
@@ -55,9 +59,15 @@ public class StatusAdapter extends RecyclerView.Adapter<StatusAdapter.MyViewHold
     @Override
     public void onBindViewHolder(@NonNull StatusAdapter.MyViewHolder holder, int position) {
         StatusCard card = this.status.get(position);
-        holder.statusIcon.setImageResource(card.getImage());
-        holder.name.setText(card.getName());
+        Context imageContext = holder.statusIcon.getContext();
 
+        int fadeColor = ContextCompat.getColor(imageContext, R.color.ColorFade);
+        Drawable icon = AppCompatResources.getDrawable(imageContext, card.getImage());
+        DrawableCompat.setTint(icon, fadeColor);
+
+        holder.statusIcon.setBackground(icon);
+        holder.name.setText(card.getName());
+        
         //Status statusObj1 = card.getStatus().get(0);
         holder.status1.setText("aaa");
 

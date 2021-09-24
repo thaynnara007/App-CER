@@ -119,7 +119,7 @@ public class ControlActivity extends AppCompatActivity {
         HashMap<String, HashMap<String, Integer>> history = response.getResult();
 
         for (String category : history.keySet()){
-            StatusCard card = new StatusCard(category, R.drawable.hanger_fade_vector, history.get(category));
+            StatusCard card = new StatusCard(category, R.drawable.ic_cat_solid, history.get(category));
             this.options.add(card);
         }
 
