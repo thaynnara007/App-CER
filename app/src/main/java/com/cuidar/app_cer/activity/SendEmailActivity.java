@@ -93,13 +93,16 @@ public class SendEmailActivity extends AppCompatActivity {
 
                     loading.setVisibility(View.GONE);
                     startActivity(goToVerifyCodeActivity);
-                }else
+                }else {
+                    loading.setVisibility(View.GONE);
                     Util.whenNotSuccessful(response, context, "SEND EMAIL");
+                }
             }
 
             @Override
             public void onFailure(Call<Void> call, Throwable t) {
                 Log.d("ERROR", "ERROR-SEND-EMAIL: " + t.getMessage());
+                loading.setVisibility(View.GONE);
             }
         });
     }

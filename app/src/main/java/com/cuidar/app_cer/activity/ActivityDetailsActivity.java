@@ -81,7 +81,7 @@ public class ActivityDetailsActivity extends AppCompatActivity {
         title.setTextColor(textColor);
         subtitle.setText(categoryName);
         subtitle.setTextColor(textColor);
-        description.setText(activity.getDescription());
+        description.setText(activity.getPageDescription());
         description.setTextColor(textColor);
         iconImage.setImageResource(icon);
 
@@ -115,7 +115,7 @@ public class ActivityDetailsActivity extends AppCompatActivity {
                         public void onClick(View view) {
                             Intent goToStepActivity = new Intent(getApplicationContext(), StepActivity.class);
 
-                            goToStepActivity.putExtra("activityName", activity.getName());
+                            goToStepActivity.putExtra("activityId", activity.getId());
                             goToStepActivity.putExtra("steps", steps);
                             goToStepActivity.putExtra("backgroundColor", backgroundColor);
                             goToStepActivity.putExtra("textColor", textColor);
@@ -125,12 +125,18 @@ public class ActivityDetailsActivity extends AppCompatActivity {
                         }
                     }));
 
-                }else
-                    Util.whenNotSuccessful(response, context, "GET STEPS:");
+                }else {
+                    loading.setVisibility(View.GONE);
+                    Intent intent = Util.whenNotSuccessful(response, context, "GET STEPS:");
+
+                    if(intent != null)
+                        startActivity(intent);
+                }
             }
 
             @Override
             public void onFailure(Call<ArrayList<Step>> call, Throwable t) {
+                loading.setVisibility(View.GONE);
                 Log.d("ERROR", "ERROR-GET-STEPS: " + t.getMessage());
             }
         });

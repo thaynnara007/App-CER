@@ -114,14 +114,23 @@ public class DailyLifeActivity extends AppCompatActivity {
 
                     isLoading = false;
                     loading.setVisibility(View.GONE);
-                }else
-                    Util.whenNotSuccessful(response, context, "GET CATEGORIES:");
+                }else {
+                    loading.setVisibility(View.GONE);
+                    isLoading = false;
 
+                    Intent intent = Util.whenNotSuccessful(response, context, "GET CATEGORIES:");
+
+                    if(intent != null)
+                        startActivity(intent);
+                }
             }
 
             @Override
             public void onFailure(Call<CategoriesPaginated> call, Throwable t) {
                 Log.d("ERROR", "ERROR-GET-CATEGORIES: " + t.getMessage());
+
+                loading.setVisibility(View.GONE);
+                isLoading = false;
             }
         });
     }

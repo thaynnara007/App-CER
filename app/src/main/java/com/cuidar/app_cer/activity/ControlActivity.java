@@ -4,35 +4,63 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ProgressBar;
 
 import com.cuidar.app_cer.R;
 import com.cuidar.app_cer.adapter.StatusAdapter;
-import com.cuidar.app_cer.model.Status;
+import com.cuidar.app_cer.api.HistoryService;
+import com.cuidar.app_cer.helper.RetrofitConfig;
 import com.cuidar.app_cer.model.StatusCard;
+import com.cuidar.app_cer.model.history.Entry;
+import com.cuidar.app_cer.model.history.EntryResponse;
+import com.cuidar.app_cer.model.history.HistoryResponse;
 import com.cuidar.app_cer.user_preferences.ActivityData;
-import com.cuidar.app_cer.utils.Constants;
+import com.cuidar.app_cer.utils.MyCalendar;
+import com.cuidar.app_cer.utils.Util;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
 
 public class ControlActivity extends AppCompatActivity {
 
     private Button backButton;
     private RecyclerView recyclerViewOptions;
+    private ProgressBar loading;
     private List<StatusCard> options = new ArrayList<>();
+
     private ActivityData data;
+    private MyCalendar calendar;
+
+    private Context context;
+    private Retrofit retrofit;
+    private HistoryService service;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_control);
 
+        context = getApplicationContext();
+        retrofit = RetrofitConfig.getRetrofit();
+        service = retrofit.create(HistoryService.class);
+        data = new ActivityData(context);
+        calendar = new MyCalendar();
+
         backButton = findViewById(R.id.controlBackButton);
         recyclerViewOptions = findViewById(R.id.recyclerViewControl);
-        data = new ActivityData(getApplicationContext());
+        loading = findViewById(R.id.controlLoading);
 
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -44,46 +72,63 @@ public class ControlActivity extends AppCompatActivity {
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
         recyclerViewOptions.setLayoutManager(layoutManager);
 
-        this.generateOptions();
-
         StatusAdapter adapter = new StatusAdapter(options);
         recyclerViewOptions.setAdapter(adapter);
+
+        this.getHistoryEntries();
     }
 
-    private void generateOptions(){
-        ArrayList<Status> status1 = new ArrayList<>();
-        status1.add(new Status(Constants.SOLID_NAME, data.getStatus(Constants.SOLID_NAME)));
-        status1.add(new Status(Constants.LIQUID_NAME, data.getStatus(Constants.LIQUID_NAME)));
-        status1.add(new Status(Constants.PASTY_NAME, data.getStatus(Constants.PASTY_NAME)));
+    private void getHistoryEntries(){
+        int patientId = data.getUserId();
+        String start = calendar.getFirstDayOfMonth();
+        String end = calendar.getLastDayOfMonth();
+        String token = Util.getAccessToken(context);
 
-        ArrayList<Status> status2 = new ArrayList<>();
-        status2.add(new Status(Constants.BODY_NAME, data.getStatus(Constants.BODY_NAME)));
-        status2.add(new Status(Constants.TEETH_NAME, data.getStatus(Constants.TEETH_NAME)));
-
-        ArrayList<Status> status3 = new ArrayList<>();
-        status3.add(new Status(Constants.SHIRT_NAME, data.getStatus(Constants.SHIRT_NAME)));
-        status3.add(new Status(Constants.PANTS_NAME, data.getStatus(Constants.PANTS_NAME)));
-
-        StatusCard statusCard1 = new StatusCard(
-                Constants.MEAL_NAME,
-                R.drawable.meal_fade_vector,
-                status1
+        Call<HistoryResponse> getHistory = service.getHistory(
+                patientId, start, end, token
         );
 
-        StatusCard statusCard2 = new StatusCard(
-                Constants.HYGINE_NAME,
-                R.drawable.hygine_fade_vector,
-                status2
-        );
+        getHistory.enqueue(new Callback<HistoryResponse>() {
+            @Override
+            public void onResponse(Call<HistoryResponse> call, Response<HistoryResponse> response) {
+                if(response.isSuccessful()){
+                    HistoryResponse history = response.body();
+                    Log.d("TAG", "onResponse: " + history.getResult());
 
-        StatusCard statusCard3 = new StatusCard(
-                Constants.CLOTHES_NAME,
-                R.drawable.hanger_fade_vector,
-                status3
-        );
+                    generateStatusCard(history);
 
-        this.options.add(statusCard1);
-        this.options.add(statusCard2);
-        this.options.add(statusCard3);
+                    StatusAdapter adapter = new StatusAdapter(options);
+                    recyclerViewOptions.setAdapter(adapter);
+                    loading.setVisibility(View.GONE);
+
+                } else {
+                    loading.setVisibility(View.GONE);
+                    Intent intent = Util.whenNotSuccessful(response, context, "GET HISTORY:");
+
+                    if(intent != null)
+                        startActivity(intent);
+                }
+
+            }
+
+            @Override
+            public void onFailure(Call<HistoryResponse> call, Throwable t) {
+                loading.setVisibility(View.GONE);
+                Log.d("ERROR", "ERROR-GET-HISTORY: " + t.getMessage());
+            }
+        });
+    }
+
+    private void generateStatusCard(HistoryResponse response) {
+        HashMap<String, EntryResponse> history = response.getResult();
+
+        for (String category : history.keySet()){
+            EntryResponse entry = history.get(category);
+            int icon = Util.getIcon(entry.getIcon());
+
+            StatusCard card = new StatusCard(category, icon, entry.getActivities());
+            this.options.add(card);
+        }
+
     }
 }

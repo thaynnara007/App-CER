@@ -100,6 +100,7 @@ public class Login extends AppCompatActivity {
 
                     dataFile.postToken(loginResponse.getToken());
                     dataFile.postUserName(loginResponse.getPatient().getName());
+                    dataFile.postUserId(loginResponse.getPatient().getId());
 
                     Intent goToMenuActivity = new Intent(
                             context,
@@ -109,13 +110,16 @@ public class Login extends AppCompatActivity {
 
                     loading.setVisibility(View.GONE);
                     startActivity(goToMenuActivity);
-                }else
+                }else {
                     Util.whenNotSuccessful(response, context, "LOGIN");
+                    loading.setVisibility(View.GONE);
+                }
             }
 
             @Override
             public void onFailure(Call<LoginResponse> call, Throwable t) {
                 Log.d("ERROR", "ERROR-LOGIN: " + t.getMessage());
+                loading.setVisibility(View.GONE);
             }
         });
     }
