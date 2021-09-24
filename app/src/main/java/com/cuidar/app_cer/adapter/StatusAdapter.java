@@ -12,15 +12,13 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.content.res.AppCompatResources;
 import androidx.core.content.ContextCompat;
 import androidx.core.graphics.drawable.DrawableCompat;
-import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.cuidar.app_cer.R;
 import com.cuidar.app_cer.model.Entry;
 import com.cuidar.app_cer.model.StatusCard;
-import com.cuidar.app_cer.utils.Constants;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class StatusAdapter extends RecyclerView.Adapter<StatusAdapter.MyViewHolder> {
@@ -45,10 +43,6 @@ public class StatusAdapter extends RecyclerView.Adapter<StatusAdapter.MyViewHold
             this.statusIcon = itemView.findViewById(R.id.statusImage);
             this.name = itemView.findViewById(R.id.statusTitle);
             this.entriesRecyclerView = itemView.findViewById(R.id.activitiesControlRecyclerView);
-            /*
-            this.status1= itemView.findViewById(R.id.status1);
-            this.status2 = itemView.findViewById(R.id.status2);
-            this.status3 = itemView.findViewById(R.id.status3); */
         }
     }
 
@@ -70,14 +64,14 @@ public class StatusAdapter extends RecyclerView.Adapter<StatusAdapter.MyViewHold
 
         int fadeColor = ContextCompat.getColor(imageContext, R.color.ColorFade);
         Drawable icon = AppCompatResources.getDrawable(imageContext, card.getImage());
-        DrawableCompat.setTint(icon, fadeColor);
-
         holder.statusIcon.setBackground(icon);
+        DrawableCompat.setTint(holder.statusIcon.getBackground(), fadeColor);
+
         holder.name.setText(card.getName());
 
-        LinearLayoutManager layoutManager = new LinearLayoutManager(
+        GridLayoutManager layoutManager = new GridLayoutManager(
                 holder.entriesRecyclerView.getContext(),
-                LinearLayoutManager.VERTICAL, false
+                2
         );
 
         List<Entry> entries = card.getEntries();
@@ -88,17 +82,6 @@ public class StatusAdapter extends RecyclerView.Adapter<StatusAdapter.MyViewHold
         holder.entriesRecyclerView.setLayoutManager(layoutManager);
         holder.entriesRecyclerView.setAdapter(adapter);
         holder.entriesRecyclerView.setRecycledViewPool(viewPool);
-
-
-        //holder.status1.setText("aaa");
-
-        if (card.getName().equals(Constants.MEAL_NAME)) {
-
-            //holder.status2.setText("bbbb");
-        }
-
-
-        //holder.status3.setText("ccc");
 
     }
 

@@ -1,6 +1,8 @@
 package com.cuidar.app_cer.adapter;
 
+import android.content.Context;
 import android.graphics.Typeface;
+import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,7 +11,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.content.res.AppCompatResources;
+import androidx.core.content.ContextCompat;
 import androidx.core.content.res.ResourcesCompat;
+import androidx.core.graphics.drawable.DrawableCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.cuidar.app_cer.R;
@@ -59,8 +64,13 @@ public class OptionAdapter extends RecyclerView.Adapter<OptionAdapter.MyViewHold
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         Option option = this.options.get(position);
+        Context imageContext = holder.optionIcon.getContext();
 
-        holder.optionIcon.setImageResource(option.getIcon());
+        int color = ContextCompat.getColor(imageContext, R.color.colorAccent);
+        Drawable icon = AppCompatResources.getDrawable(imageContext, option.getIcon());
+        holder.optionIcon.setBackground(icon);
+        DrawableCompat.setTint(holder.optionIcon.getBackground(), color);
+
         holder.optionName.setText(option.getName());
         holder.optionDescription.setText(option.getDescription());
         holder.startButton.setOnClickListener(option.getOnClick());

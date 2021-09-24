@@ -57,7 +57,7 @@
     <string name="shirtPageDescription">Esta atividade fica responsável por estímulos motores, sensoriais e também tatéis!</string>
     <string name="pantsPageTitle">Calça</string>
     <string name="controlPageTitle">Controle</string>
-    <string name="controlPageDescription">Aqui você pode ver quantas vezes você repetiu cada tarefa!</string>
+    <string name="controlPageDescription">Aqui você pode ver quantas vezes você repetiu cada tarefa nesse mês!</string>
     <string name="sendEmailMainText">Coloque seu email</string>
     <string name="sendEmailDescription">Informe o endereço de email cadastrado. você recebera por email  um código para recuperar sua senha.</string>
     <string name="send_email_button_text">Enviar</string>

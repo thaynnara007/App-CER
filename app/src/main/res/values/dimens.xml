@@ -26,8 +26,8 @@
     <dimen name="optionCardMarginRight">40dp</dimen>
     <dimen name="optionTextSize">20sp</dimen>
     <dimen name="optionCardHeight">140dp</dimen>
-    <dimen name="optionIconWidth">60dp</dimen>
-    <dimen name="optionIconHeight">60dp</dimen>
+    <dimen name="optionIconWidth">53dp</dimen>
+    <dimen name="optionIconHeight">54dp</dimen>
     <dimen name="optionButtonWidth">40dp</dimen>
     <dimen name="stepTopCardViewWidth">135dp</dimen>
     <dimen name="stepInsideCardViewWidth">90dp</dimen>
