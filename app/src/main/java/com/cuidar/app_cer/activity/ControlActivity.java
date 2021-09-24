@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ProgressBar;
 
 import com.cuidar.app_cer.R;
 import com.cuidar.app_cer.adapter.StatusAdapter;
@@ -34,6 +35,7 @@ public class ControlActivity extends AppCompatActivity {
 
     private Button backButton;
     private RecyclerView recyclerViewOptions;
+    private ProgressBar loading;
     private List<StatusCard> options = new ArrayList<>();
 
     private ActivityData data;
@@ -56,6 +58,7 @@ public class ControlActivity extends AppCompatActivity {
 
         backButton = findViewById(R.id.controlBackButton);
         recyclerViewOptions = findViewById(R.id.recyclerViewControl);
+        loading = findViewById(R.id.controlLoading);
 
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -94,6 +97,7 @@ public class ControlActivity extends AppCompatActivity {
 
                     StatusAdapter adapter = new StatusAdapter(options);
                     recyclerViewOptions.setAdapter(adapter);
+                    loading.setVisibility(View.GONE);
 
                 } else {
                     Intent intent = Util.whenNotSuccessful(response, context, "GET HISTORY:");
