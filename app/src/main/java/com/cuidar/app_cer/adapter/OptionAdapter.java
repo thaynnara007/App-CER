@@ -68,8 +68,8 @@ public class OptionAdapter extends RecyclerView.Adapter<OptionAdapter.MyViewHold
 
         int color = ContextCompat.getColor(imageContext, R.color.colorAccent);
         Drawable icon = AppCompatResources.getDrawable(imageContext, option.getIcon());
-        holder.optionIcon.setBackground(icon);
-        DrawableCompat.setTint(holder.optionIcon.getBackground(), color);
+        DrawableCompat.setTint(icon, color);
+        holder.optionIcon.setImageResource(option.getIcon());
 
         holder.optionName.setText(option.getName());
         holder.optionDescription.setText(option.getDescription());

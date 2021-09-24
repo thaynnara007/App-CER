@@ -64,8 +64,8 @@ public class StatusAdapter extends RecyclerView.Adapter<StatusAdapter.MyViewHold
 
         int fadeColor = ContextCompat.getColor(imageContext, R.color.ColorFade);
         Drawable icon = AppCompatResources.getDrawable(imageContext, card.getImage());
-        holder.statusIcon.setBackground(icon);
-        DrawableCompat.setTint(holder.statusIcon.getBackground(), fadeColor);
+        DrawableCompat.setTint(icon, fadeColor);
+        holder.statusIcon.setImageResource(card.getImage());
 
         holder.name.setText(card.getName());
 

@@ -102,6 +102,7 @@ public class ControlActivity extends AppCompatActivity {
                     loading.setVisibility(View.GONE);
 
                 } else {
+                    loading.setVisibility(View.GONE);
                     Intent intent = Util.whenNotSuccessful(response, context, "GET HISTORY:");
 
                     if(intent != null)
@@ -112,6 +113,7 @@ public class ControlActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<HistoryResponse> call, Throwable t) {
+                loading.setVisibility(View.GONE);
                 Log.d("ERROR", "ERROR-GET-HISTORY: " + t.getMessage());
             }
         });

@@ -81,7 +81,7 @@ public class ActivityDetailsActivity extends AppCompatActivity {
         title.setTextColor(textColor);
         subtitle.setText(categoryName);
         subtitle.setTextColor(textColor);
-        description.setText(activity.getDescription());
+        description.setText(activity.getPageDescription());
         description.setTextColor(textColor);
         iconImage.setImageResource(icon);
 

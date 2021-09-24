@@ -34,11 +34,11 @@
             android:layout_height="@dimen/optionIconHeight"
             android:layout_marginStart="8dp"
             android:layout_marginLeft="8dp"
-            android:background="@drawable/calendar_vector"
             android:contentDescription="@string/optionIconDescription"
             app:layout_constraintBottom_toTopOf="@+id/guideline4"
             app:layout_constraintEnd_toStartOf="@+id/guideline3"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            tools:srcCompat="@drawable/calendar_vector" />
 
         <TextView
             android:id="@+id/optionName"
@@ -78,14 +78,14 @@
         <Button
             android:id="@+id/optionStartButton"
             android:layout_width="0dp"
-            android:layout_height="@dimen/optionButtonWidth"
+            android:layout_height="36dp"
             android:layout_marginStart="8dp"
             android:layout_marginLeft="8dp"
-            android:layout_marginTop="2dp"
+            android:layout_marginTop="8dp"
             android:layout_marginEnd="26dp"
             android:layout_marginRight="26dp"
             android:background="@drawable/rounded_button"
-            android:paddingBottom="6dp"
+            android:paddingBottom="3dp"
             android:text="@string/optionButtonText"
             android:textAllCaps="false"
             android:textColor="@android:color/background_light"
