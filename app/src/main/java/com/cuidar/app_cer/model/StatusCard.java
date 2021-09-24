@@ -1,6 +1,8 @@
 package com.cuidar.app_cer.model;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 public class StatusCard {
 
@@ -40,5 +42,15 @@ public class StatusCard {
 
     public void setStatus(HashMap<String, Integer> status) {
         this.status = status;
+    }
+
+    public List<Entry> getEntries () {
+        List<Entry> entries = new ArrayList<>();
+
+        for (String activity: this.status.keySet()){
+            entries.add(new Entry(activity + ": " + this.status.get(activity)));
+        }
+
+        return entries;
     }
 }

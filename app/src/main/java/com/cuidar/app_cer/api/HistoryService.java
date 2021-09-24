@@ -1,7 +1,7 @@
 package com.cuidar.app_cer.api;
 
 import com.cuidar.app_cer.model.history.Entry;
-import com.cuidar.app_cer.model.history.EntryResponse;
+import com.cuidar.app_cer.model.history.HistoryResponse;
 import com.cuidar.app_cer.model.history.EntryBody;
 
 import retrofit2.Call;
@@ -18,7 +18,7 @@ public interface HistoryService {
     Call<Entry> createEntry(@Body EntryBody body, @Header("Authorization") String token);
 
     @GET("/history/patient/{patientId}")
-    Call<EntryResponse> getHistory(
+    Call<HistoryResponse> getHistory(
             @Path("patientId") int patientId,
             @Query("start") String start,
             @Query("end") String end,

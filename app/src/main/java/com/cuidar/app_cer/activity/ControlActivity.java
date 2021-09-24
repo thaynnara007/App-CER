@@ -17,7 +17,9 @@ import com.cuidar.app_cer.adapter.StatusAdapter;
 import com.cuidar.app_cer.api.HistoryService;
 import com.cuidar.app_cer.helper.RetrofitConfig;
 import com.cuidar.app_cer.model.StatusCard;
+import com.cuidar.app_cer.model.history.Entry;
 import com.cuidar.app_cer.model.history.EntryResponse;
+import com.cuidar.app_cer.model.history.HistoryResponse;
 import com.cuidar.app_cer.user_preferences.ActivityData;
 import com.cuidar.app_cer.utils.MyCalendar;
 import com.cuidar.app_cer.utils.Util;
@@ -82,15 +84,15 @@ public class ControlActivity extends AppCompatActivity {
         String end = calendar.getLastDayOfMonth();
         String token = Util.getAccessToken(context);
 
-        Call<EntryResponse> getHistory = service.getHistory(
+        Call<HistoryResponse> getHistory = service.getHistory(
                 patientId, start, end, token
         );
 
-        getHistory.enqueue(new Callback<EntryResponse>() {
+        getHistory.enqueue(new Callback<HistoryResponse>() {
             @Override
-            public void onResponse(Call<EntryResponse> call, Response<EntryResponse> response) {
+            public void onResponse(Call<HistoryResponse> call, Response<HistoryResponse> response) {
                 if(response.isSuccessful()){
-                    EntryResponse history = response.body();
+                    HistoryResponse history = response.body();
                     Log.d("TAG", "onResponse: " + history.getResult());
 
                     generateStatusCard(history);
@@ -109,17 +111,20 @@ public class ControlActivity extends AppCompatActivity {
             }
 
             @Override
-            public void onFailure(Call<EntryResponse> call, Throwable t) {
+            public void onFailure(Call<HistoryResponse> call, Throwable t) {
                 Log.d("ERROR", "ERROR-GET-HISTORY: " + t.getMessage());
             }
         });
     }
 
-    private void generateStatusCard(EntryResponse response) {
-        HashMap<String, HashMap<String, Integer>> history = response.getResult();
+    private void generateStatusCard(HistoryResponse response) {
+        HashMap<String, EntryResponse> history = response.getResult();
 
         for (String category : history.keySet()){
-            StatusCard card = new StatusCard(category, R.drawable.ic_cat_solid, history.get(category));
+            EntryResponse entry = history.get(category);
+            int icon = Util.getIcon(entry.getIcon());
+
+            StatusCard card = new StatusCard(category, icon, entry.getActivities());
             this.options.add(card);
         }
 

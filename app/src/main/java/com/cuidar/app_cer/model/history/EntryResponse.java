@@ -1,18 +1,22 @@
 package com.cuidar.app_cer.model.history;
 
-import com.cuidar.app_cer.model.activity.Activity;
-
 import java.util.HashMap;
 
 public class EntryResponse {
 
-    private HashMap<String, HashMap<String, Integer>> result;
+    private String icon;
+    private HashMap<String, Integer> activities;
 
-    public EntryResponse(HashMap<String, HashMap<String, Integer>> result) {
-        this.result = result;
+    public EntryResponse(String icon, HashMap<String, Integer> activities) {
+        this.icon = icon;
+        this.activities = activities;
     }
 
-    public HashMap<String, HashMap<String, Integer>> getResult() {
-        return result;
+    public String getIcon() {
+        return icon;
+    }
+
+    public HashMap<String, Integer> getActivities() {
+        return activities;
     }
 }
